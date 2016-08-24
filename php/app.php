@@ -22,10 +22,18 @@
                   }
 
                   $Hresultado = $hombres * 100;
-                  $hombresPor = $Hresultado / $listado;
 
+                  $hombresPor = 0; 
+
+                  if($listado != 0)
+                    $hombresPor = $Hresultado / $listado;
+
+                  
+                  $Mresultado = 0;
                   $Mresultado = $mujeres * 100;
-                  $mujeresPor = $Mresultado / $listado;
+                  
+                  if($listado != 0)
+                    $mujeresPor = $Mresultado / $listado;
                  
 
                   // QUERY PARA CALCULAR EDAD
