@@ -1,0 +1,12 @@
+[
+	{
+		 "Total"	:	200
+		,"Adultos"	:	125
+		,"Ninos"	:	75
+		,"Hombres"	:	80
+		,"Mujeres"	:	120
+		,"PorHombres":	40
+		,"PorMujeres":	60
+		,"EnProceso": 20
+	}
+]
