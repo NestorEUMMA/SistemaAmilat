@@ -57,10 +57,7 @@ DashboardAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
-<script type="text/javascript">
-$('.main-sidebar').hide();
-$('.content-wrapper').css('margin','0');
-</script>
+
 <?php
 }
   

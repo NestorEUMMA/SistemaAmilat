@@ -18,6 +18,8 @@ use app\models\Unidadmedida;
 
     <?= $form->field($model, 'NombreMedicamento')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'NombreComercial')->textInput(['maxlength' => true]) ?>
+
     <?= $form->field($model, 'Existencia')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'IdLaboratorio')->dropDownList(
@@ -36,7 +38,6 @@ use app\models\Unidadmedida;
         ['prompt'=>'Seleccione una Unidad de Medida']
     )?>
 
-
     <?= $form->field($model, 'PrecioLab')->textInput() ?>
 
     <?= $form->field($model, 'PrecioVentaA')->textInput() ?>
@@ -47,10 +48,9 @@ use app\models\Unidadmedida;
 
     <?= $form->field($model, 'PrecioVentaD')->textInput() ?>
 
-   
-    <?= $form->field($model, 'Activo')->checkbox()?>
+   <?= $form->field($model, 'Activo')->checkbox()?>
 
-    <!-- <?= $form->field($model, 'Activo')->textInput() ?> -->
+    
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Ingresar' : 'Actualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-warning']) ?>

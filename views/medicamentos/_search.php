@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
 /* @var $this yii\web\View */
-/* @var $model app\models\MedicamentosSearch */
+/* @var $model app\models\MedicamentosSerch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
@@ -38,6 +38,8 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'PrecioVentaD') ?>
 
     <?php // echo $form->field($model, 'Activo') ?>
+
+    <?php // echo $form->field($model, 'NombreComercial') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

@@ -6,7 +6,7 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\MedicamentosSearch */
+/* @var $searchModel app\models\MedicamentosSerch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = 'Medicamentos';
@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             //'IdMedicamento',
             'NombreMedicamento',
             'Existencia',
+            'NombreComercial',
             [
                 'attribute'=> 'IdLaboratorio',
                 'value'=> 'idLaboratorio.NombreLaboratorio',
@@ -59,8 +60,9 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'PrecioVentaC',
             // 'PrecioVentaD',
             // 'Activo',
+            // 
 
-            ['class' => 'yii\grid\ActionColumn','template' => '{view}{update}'],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
                 </table>

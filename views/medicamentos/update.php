@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Medicamentos */
 
-$this->title = 'Actualizar Medicamentos: ' . ' ' . $model->NombreMedicamento;
+$this->title = 'Actualizar Medicamentos: ' . ' ' . $model->IdMedicamento;
 $this->params['breadcrumbs'][] = ['label' => 'Medicamentos', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->NombreMedicamento, 'url' => ['view', 'IdMedicamento' => $model->IdMedicamento, 'IdLaboratorio' => $model->IdLaboratorio, 'IdCategoria' => $model->IdCategoria, 'IdUnidadMedida' => $model->IdUnidadMedida]];
+$this->params['breadcrumbs'][] = ['label' => $model->IdMedicamento, 'url' => ['view', 'IdMedicamento' => $model->IdMedicamento, 'IdLaboratorio' => $model->IdLaboratorio, 'IdCategoria' => $model->IdCategoria, 'IdUnidadMedida' => $model->IdUnidadMedida]];
 $this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="medicamentos-update box  box-solidd">

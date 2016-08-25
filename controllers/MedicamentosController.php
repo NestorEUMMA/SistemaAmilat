@@ -4,7 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Medicamentos;
-use app\models\MedicamentosSearch;
+use app\models\MedicamentosSerch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -32,7 +32,7 @@ class MedicamentosController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new MedicamentosSearch();
+        $searchModel = new MedicamentosSerch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
