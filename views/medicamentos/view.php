@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Medicamentos */
 
-$this->title = $model->NombreMedicamento;
+$this->title = $model->IdMedicamento;
 $this->params['breadcrumbs'][] = ['label' => 'Medicamentos', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1 class="box-title"><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Actualizar', ['update', 'IdMedicamento' => $model->NombreMedicamento, 'IdLaboratorio' => $model->IdLaboratorio, 'IdCategoria' => $model->IdCategoria, 'IdUnidadMedida' => $model->IdUnidadMedida], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Actualizar', ['update', 'IdMedicamento' => $model->IdMedicamento, 'IdLaboratorio' => $model->IdLaboratorio, 'IdCategoria' => $model->IdCategoria, 'IdUnidadMedida' => $model->IdUnidadMedida], ['class' => 'btn btn-warning']) ?>
         <?= Html::a('Eliminar', ['delete', 'IdMedicamento' => $model->IdMedicamento, 'IdLaboratorio' => $model->IdLaboratorio, 'IdCategoria' => $model->IdCategoria, 'IdUnidadMedida' => $model->IdUnidadMedida], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -47,6 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'PrecioVentaC',
             'PrecioVentaD',
             'Activo',
+            'NombreComercial',
                     ],
                 ]) ?>
 

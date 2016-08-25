@@ -19,13 +19,16 @@ use Yii;
  * @property double $PrecioVentaC
  * @property double $PrecioVentaD
  * @property integer $Activo
+ * @property string $NombreComercial
  *
+ * @property Entradas[] $entradas
  * @property Lotes[] $lotes
  * @property Medicamentolote[] $medicamentolotes
  * @property Categoria $idCategoria
  * @property Laboratorio $idLaboratorio
  * @property Unidadmedida $idUnidadMedida
  * @property RecetaMedicamentos[] $recetaMedicamentos
+ * @property Salidas[] $salidas
  * @property Transaccion[] $transaccions
  */
 class Medicamentos extends \yii\db\ActiveRecord
@@ -47,7 +50,7 @@ class Medicamentos extends \yii\db\ActiveRecord
             [['NombreMedicamento', 'IdLaboratorio', 'IdCategoria', 'IdUnidadMedida', 'Activo'], 'required'],
             [['IdLaboratorio', 'IdCategoria', 'IdUnidadMedida', 'Activo'], 'integer'],
             [['PrecioLab', 'PrecioVentaA', 'PrecioVentaB', 'PrecioVentaC', 'PrecioVentaD'], 'number'],
-            [['NombreMedicamento'], 'string', 'max' => 100],
+            [['NombreMedicamento', 'NombreComercial'], 'string', 'max' => 100],
             [['Existencia'], 'string', 'max' => 45]
         ];
     }
@@ -70,7 +73,16 @@ class Medicamentos extends \yii\db\ActiveRecord
             'PrecioVentaC' => 'Precio Venta C',
             'PrecioVentaD' => 'Precio Venta D',
             'Activo' => 'Activo',
+            'NombreComercial' => 'Nombre Comercial',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEntradas()
+    {
+        return $this->hasMany(Entradas::className(), ['IdMedicamento' => 'IdMedicamento']);
     }
 
     /**
@@ -119,6 +131,14 @@ class Medicamentos extends \yii\db\ActiveRecord
     public function getRecetaMedicamentos()
     {
         return $this->hasMany(RecetaMedicamentos::className(), ['IdMedicamento' => 'IdMedicamento']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getSalidas()
+    {
+        return $this->hasMany(Salidas::className(), ['IdMedicamento' => 'IdMedicamento']);
     }
 
     /**
