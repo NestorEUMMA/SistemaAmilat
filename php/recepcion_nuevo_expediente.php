@@ -58,10 +58,10 @@ if (!empty($_SESSION['user']))
 
                           <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                              <li class="active"><a href="#tab_1" data-toggle="tab"><i class="fa fa-user"></i> Datos generales</a></li>
+                              <li><a href="#tab_1" data-toggle="tab"><i class="fa fa-user"></i> Datos generales</a></li>
                               <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-users"></i> Responsable</a></li>
                               <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-heartbeat"></i> Datos médicos</a></li>
-                              <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-money"></i> Socioeconómico</a></li>
+                              <li class="active"><a href="#tab_4" data-toggle="tab"><i class="fa fa-money"></i> Socioeconómico</a></li>
 
                               <li class="pull-right">
                                 <button type="submit" class="btn btn-success" name="guardarPaciente">Guardar</button>
@@ -69,7 +69,7 @@ if (!empty($_SESSION['user']))
                               </li>
                             </ul>
                             <div class="tab-content">
-                              <div class="tab-pane active" id="tab_1">
+                              <div class="tab-pane" id="tab_1">
                                 
                                 <div class="box box-success box-solid">                              
                                     <div class="box-header">
@@ -321,7 +321,7 @@ if (!empty($_SESSION['user']))
                                 </div>
                               </div>
 
-                              <div class="tab-pane" id="tab_4">
+                              <div class="tab-pane active" id="tab_4">
 
 
                                 <div class="box box-warning box-solid">                              
@@ -344,8 +344,9 @@ if (!empty($_SESSION['user']))
 
                                     </div>
                                     <div class="box-body">
-
-                                      
+                                        <div class="col-sm-10 col-sm-offset-1">
+                                        <?php include 'test.php' ?>
+                                        </div>
                                     </div>
                                   </div>
                               </div>              
