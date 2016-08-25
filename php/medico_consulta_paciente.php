@@ -156,7 +156,7 @@ if (!empty($_SESSION['user']))
 
 
                   // CONSULTA PARA CARGAR LA TABLA DE LOS MEDICAMENTOS ACTIVOS EN MODAL
-                  $querytablamedicamentos = "SELECT IdMedicamento ,m.NombreMedicamento As 'Medicamento', u.Nombre As 'Presentacion', c.NombreCategoria As 'Categoria',
+                  $querytablamedicamentos = "SELECT IdMedicamento , CONCAT(m.NombreComercial,' ',m.NombreMedicamento) As 'Medicamento', u.Nombre As 'Presentacion', c.NombreCategoria As 'Categoria',
                                                 l.NombreLaboratorio As 'Laboratorio', m.Existencia As 'Existencia'
                                           FROM medicamentos m
                                           INNER JOIN laboratorio l on m.IdLaboratorio = l.IdLaboratorio
@@ -1712,7 +1712,7 @@ if (!empty($_SESSION['user']))
                                       <div class="input-group-addon">
                                       <i class="fa fa-user"></i>
                                       </div>
-                                      <input type="text" class="form-control" id="medico"  disabled="disabled">
+                                      <input type="text" class="form-control" id="medicos"  disabled="disabled">
                                       </div>
                                     </div>
                                   </div>
@@ -1723,7 +1723,7 @@ if (!empty($_SESSION['user']))
                                       <div class="input-group-addon">
                                       <i class="fa fa-user"></i>
                                       </div>
-                                      <input type="text" class="form-control" id="especialidad" name="especialidad"  disabled="disabled">
+                                      <input type="text" class="form-control" id="modulos" name="especialidad"  disabled="disabled">
                                       </div>
                                     </div>
                                   </div>
@@ -1734,7 +1734,7 @@ if (!empty($_SESSION['user']))
                                       <div class="input-group-addon">
                                       <i class="fa fa-user"></i>
                                       </div>
-                                      <input type="text" class="form-control" id="paciente" name="paciente"  disabled="disabled">
+                                      <input type="text" class="form-control" id="pacientes" name="paciente"  disabled="disabled">
                                       </div>
                                     </div>
                                   </div>
@@ -1746,7 +1746,7 @@ if (!empty($_SESSION['user']))
                                       <div class="input-group-addon">
                                       <i class="fa fa-user"></i>
                                       </div>
-                                      <input type="text" class="form-control" id="fecha" name="fecha" disabled="disabled">
+                                      <input type="text" class="form-control" id="fechas" name="fecha" disabled="disabled">
                                       </div>
                                     </div>
                                   </div>
@@ -1780,7 +1780,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                        <input type="text" class="form-control" id="pulso" name="pulso" disabled="disabled" >
+                                        <input type="text" class="form-control" id="pulsos" name="pulso" disabled="disabled" >
                                         </div>
                                       </div>
                                       <label for="inputEmail3" class="col-sm-1 control-label">Altura</label>
@@ -1789,7 +1789,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                        <input type="text" class="form-control" id="altura" name="altura" disabled="disabled" >
+                                        <input type="text" class="form-control" id="alturas" name="altura" disabled="disabled" >
                                         </div>
                                       </div>
                                       <div class="col-sm-2">
@@ -1797,7 +1797,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                        <select class="form-control" name="cboUnidadAltura" id="unidadpeso"  disabled="disabled">
+                                        <select class="form-control" name="cboUnidadAltura" id="unidadalturas"  disabled="disabled">
                                           <?php
                                               if($unidadpeso == 1)
                                               {
@@ -1819,7 +1819,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                        <input type="text" class="form-control" id="temperatura" name="temperatura"  disabled="disabled" >
+                                        <input type="text" class="form-control" id="temperaturas" name="temperatura"  disabled="disabled" >
                                       </div>
                                       </div>
                                       <div class="col-sm-2">
@@ -1827,7 +1827,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                        <select class="form-control" name="cboUnidadTemperatura" id="unidadtemperatura"  disabled="disabled">
+                                        <select class="form-control" name="cboUnidadTemperatura" id="unidadtemperaturas"  disabled="disabled">
                                           <?php
                                               if($unidadpeso == 1)
                                               {
@@ -1846,7 +1846,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                        <input type="text" class="form-control" id="peso" name="peso" disabled="disabled" >
+                                        <input type="text" class="form-control" id="pesos" name="pesos" disabled="disabled" >
                                         </div>
                                       </div>
                                       <div class="col-sm-2">
@@ -1854,7 +1854,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                        <select class="form-control" name="cboUnidadPeso" id="unidadpeso"  disabled="disabled">
+                                        <select class="form-control" name="cboUnidadPeso" id="unidadpesos"  disabled="disabled">
                                           <?php
                                               if($unidadpeso == 1)
                                               {
@@ -1876,7 +1876,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                          <input type="text" class="form-control"  name="max"  disabled="disabled" >
+                                          <input type="text" class="form-control"  name="max"  disabled="disabled" id="maxs" >
                                           </div>
                                         </div>
                                         <div class="col-sm-2">
@@ -1884,7 +1884,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                          <input type="text" class="form-control"  name="min"  disabled="disabled" >
+                                          <input type="text" class="form-control"  name="min"  disabled="disabled" id="mins" >
                                           </div>
                                         </div>
 
@@ -1894,7 +1894,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                          <input type="text" class="form-control"  name="min"  disabled="disabled" >
+                                          <input type="text" class="form-control"  name="min"  disabled="disabled" id="frs" >
                                           </div>
                                         </div>
                                     </div>
@@ -1906,7 +1906,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                      <input type="text" class="form-control"   disabled="disabled" >
+                                      <input type="text" class="form-control" id="glucotexs"   disabled="disabled" >
                                       </div>
                                       </div>
 
@@ -1916,7 +1916,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                          <input type="text" class="form-control"  name="min" disabled="disabled" >
+                                          <input type="text" class="form-control" id="ultimamenstruacions"  name="min" disabled="disabled" >
                                           </div>
                                         </div>
                                     </div>
@@ -1929,7 +1929,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                      <input type="text" class="form-control"  disabled="disabled" >
+                                      <input type="text" class="form-control" id="ultimapaps"  disabled="disabled" >
                                       </div>
                                       </div>
 
@@ -1939,7 +1939,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                          <input type="text" class="form-control"  name="min"   disabled="disabled" >
+                                          <input type="text" class="form-control"  name="min" id="pcs"  disabled="disabled" >
                                           </div>
                                         </div>
                                     </div>
@@ -1951,7 +1951,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                      <input type="text" class="form-control"   disabled="disabled" >
+                                      <input type="text" class="form-control" id="pts"  disabled="disabled" >
                                       </div>
                                       </div>
 
@@ -1961,7 +1961,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                          <input type="text" class="form-control"  name="min"  disabled="disabled" >
+                                          <input type="text" class="form-control"  name="min" id="pas"  disabled="disabled" >
                                           </div>
                                         </div>
                                     </div>
@@ -1973,7 +1973,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                            <textarea type="text" rows="3" class="form-control"  disabled="disabled">  </textarea>
+                                            <textarea type="text" rows="3" class="form-control" id="motivos"  disabled="disabled">  </textarea>
                                             </div>
                                           </div>
 
@@ -1988,7 +1988,7 @@ if (!empty($_SESSION['user']))
                                     <div class="input-group-addon">
                                     <i class="fa fa-user"></i>
                                     </div>
-                                            <textarea type="text" rows="3" class="form-control" id="observaciones" disabled="disabled">  </textarea>
+                                            <textarea type="text" rows="3" class="form-control" id="observacioness" disabled="disabled">  </textarea>
                                             </div>
                                           </div>
 
@@ -2014,7 +2014,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="1" class="form-control"  disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="1" class="form-control" id="enfermedads" disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2026,7 +2026,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control"   disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" class="form-control" id="estadonutricions"   disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2038,7 +2038,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control"  disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" id="alergiass" class="form-control"  disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2050,7 +2050,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control"  disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" id="cirugiaspreviass" class="form-control"  disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2062,7 +2062,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control"  disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" id="medicamentotomados" class="form-control"  disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2074,7 +2074,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control"  disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" id="examenfisicas" class="form-control"  disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2085,7 +2085,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtDiagnostico" disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" class="form-control" id="diagnosticos" name="txtDiagnostico" disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                   <div class="hidden">
@@ -2102,7 +2102,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control" id="comentarios" name="txtComentarios" disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" class="form-control" id="comentarioss" name="txtComentarios" disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2113,7 +2113,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control" id="otros" name="txtOtros" disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" class="form-control" id="otross" name="txtOtros" disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2125,7 +2125,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="3" class="form-control"  disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="3" id="plantratamientos" class="form-control"  disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2137,7 +2137,7 @@ if (!empty($_SESSION['user']))
                                           <div class="input-group-addon">
                                           <i class="fa fa-user"></i>
                                           </div>
-                                                    <textarea type="text" rows="1" class="form-control"  disabled="disabled">  </textarea>
+                                                    <textarea type="text" rows="1" id="fechaproximas" class="form-control"  disabled="disabled">  </textarea>
                                                     </div>
                                                   </div>
                                                 </div>
@@ -2790,17 +2790,34 @@ if (!empty($_SESSION['user']))
                     else{
                       $("#unidadalturas").val("Pies");
                     }
-                    $("#temperaturas").val(data.Temperatura)
+                    $("#temperaturas").val(data.Temperatura);
                     if (data.UnidadTemperatura ==1){
                         $("#unidadtemperaturas").val("C");
                     }
                     else{
                       $("#unidadtemperaturas").val("F");
                     }
-                    $("#pulsos").val(data.Pulso)
-                    $("#maxs").val(data.Max)
-                    $("#mins").val(data.Min)
-                    $("#observacioness").val(data.Observaciones)
+                    $("#pulsos").val(data.Pulso);
+                    $("#maxs").val(data.Max);
+                    $("#mins").val(data.Min);
+                    $("#observacioness").val(data.Observaciones);
+
+                    $("#frs").val(data.FR);
+                    $("#glucotexs").val(data.Glucotex);
+                    $("#ultimamenstruacions").val(data.PeriodoMeunstral);
+                    $("#ultimapaps").val(data.PAP);
+                    $("#pcs").val(data.PC);
+                    $("#pts").val(data.PT);
+                    $("#pas").val(data.PA);
+                    $("#motivos").val(data.Motivo);
+                    $("#estadonutricions").val(data.EstadoNutricional);
+                    $("#alergiass").val(data.Alergias);
+                    $("#cirugiaspreviass").val(data.CirugiasPrevias);
+                    $("#medicamentotomados").val(data.MedicamentosActuales);
+                    $("#plantratamientos").val(data.PlanTratamiento);
+                    $("#fechaproximas").val(data.FechaProxVisita);
+                    $("#examenfisicas").val(data.ExamenFisica);
+
                     $("#modalCargarConsulta").modal("show");
                 }
             });

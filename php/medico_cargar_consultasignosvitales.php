@@ -6,9 +6,13 @@ session_start();
     $idconsulta = $_POST["id"];
 
 
-    $queryexpedientesu = "SELECT CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', c.FechaConsulta, CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', m.NombreModulo As 'Especialidad', c.Diagnostico As 'Diagnostico', e.Nombre As 'Enfermedad',
-				c.Comentarios As 'Comentarios', c.Otros As 'Otros', i.Peso As 'Peso', i.UnidadPeso As 'UnidadPeso', i.Altura As 'Altura', i.UnidadAltura As 'UnidadAltura', i.Temperatura As 'Temperatura',
-                i.UnidadTemperatura As 'UnidadTemperatura', i.Pulso As 'Pulso', i.PresionMax As 'Max', i.PresionMin  As 'Min', i.Observaciones As 'Observaciones'
+    $queryexpedientesu = "SELECT CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', c.FechaConsulta, CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', 
+                        m.NombreModulo As 'Especialidad', c.Diagnostico As 'Diagnostico', e.Nombre As 'Enfermedad',
+				c.Comentarios As 'Comentarios', c.Otros As 'Otros', i.Peso As 'Peso', i.UnidadPeso As 'UnidadPeso', i.Altura As 'Altura', i.UnidadAltura As 'UnidadAltura', i.Temperatura As 'Temperatura', i.UnidadTemperatura As 'UnidadTemperatura', i.Pulso As 'Pulso', i.PresionMax As 'Max', 
+            i.PresionMin  As 'Min', i.Observaciones As 'Observaciones', 
+                c.EstadoNutricional As 'EstadoNutricional', c.CirugiasPrevias As 'CirugiasPrevias', c.MedicamentosActuales As 'MedicamentosActuales', c.ExamenFisica As 'ExamenFisica', c.PlanTratamiento As 'PlanTratamiento', c.FechaProxVisita As 'FechaProxVisita', 
+                  c.Alergias As 'Alergias', i.PeriodoMeunstral As 'PeriodoMeunstral', i.Glucotex  As 'Glucotex', i.PC As 'PC',
+                 i.PT As 'PT', i.PA As 'PA', i.FR As 'FR', i.PAP As 'PAP', i.Motivo As 'Motivo'
                     			FROM consulta c
                     			INNER JOIN usuario u ON c.IdUsuario = u.IdUsuario
                     			INNER JOIN persona p ON c.IdPersona = p.IdPersona
@@ -40,6 +44,23 @@ session_start();
                       $datos["Max"] = $test['Max'];
                       $datos["Min"] = $test['Min'];
                       $datos["Observaciones"] = $test['Observaciones'];
+                      $datos["EstadoNutricional"] = $test['EstadoNutricional'];
+                      $datos["CirugiasPrevias"] = $test['CirugiasPrevias'];
+                      $datos["MedicamentosActuales"] = $test['MedicamentosActuales'];
+                      $datos["ExamenFisica"] = $test['ExamenFisica'];
+                      $datos["PlanTratamiento"] = $test['PlanTratamiento'];
+                      $datos["FechaProxVisita"] = $test['FechaProxVisita'];
+                      $datos["Alergias"] = $test['Alergias'];
+                      $datos["PeriodoMeunstral"] = $test['PeriodoMeunstral'];
+                      $datos["Glucotex"] = $test['Glucotex'];
+                      $datos["PC"] = $test['PC'];
+                      $datos["PT"] = $test['PT'];
+                      $datos["PA"] = $test['PA'];
+                      $datos["FR"] = $test['FR'];
+                      $datos["PAP"] = $test['PAP'];
+                      $datos["Motivo"] = $test['Motivo'];
+
+
                   }
 
     header("Content-Type","application/json");
