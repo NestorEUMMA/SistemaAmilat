@@ -84,13 +84,17 @@ $(document).ready(function() {
             type: "POST",
             url: "check.php",
              data: dataString,
-            success: function(data) {
+            success: function
+
+            (data) {
         $('#Info').fadeIn(1000).html(data);
         //alert(data);
             }
         });
     });              
-    $('#demo-form').parsley().on('field:validated', function() {
+  
+
+  $('#demo-form').parsley().on('field:validated', function() {
     var ok = $('.parsley-error').length === 0;
     $('.bs-callout-info').toggleClass('hidden', !ok);
     $('.bs-callout-warning').toggleClass('hidden', ok);

@@ -186,11 +186,12 @@ if (!empty($_SESSION['user']))
                                           FROM enfermedad";
                   $resultadotablaenfermedad = $mysqli->query($querytablaenfermedad);
 
-                  $querytablarecetamedicamentos = "SELECT m.NombreMedicamento As 'Medicamento', rm.Total As 'Cantidad'
+                  $querytablarecetamedicamentos = "SELECT CONCAT(m.NombreComercial,' ',m.NombreMedicamento,' ',um.Nombre) As 'Medicamento', rm.Total As 'Cantidad'
                       FROM receta_medicamentos rm
                       INNER JOIN medicamentos m ON m.IdMedicamento = rm.IdMedicamento
                       INNER JOIN receta r ON r.IdReceta = rm.IdReceta
                       INNER JOIN consulta c ON c.IdConsulta = r.IdConsulta
+                      INNER JOIN unidadmedida um ON um.IdUnidadMedida = m.IdUnidadMedida
                       WHERE r.IdConsulta =$id";
                   $resultadotablarecetamedicamentos = $mysqli->query($querytablarecetamedicamentos);
 
@@ -201,6 +202,9 @@ if (!empty($_SESSION['user']))
 <html>
 
    <?php  include '../include/asset.php'; ?>
+   <link rel="stylesheet" href="../web/dist/parsley.css">
+   <script src="../web/dist/parsley.min.js"></script>
+   <script src="../web/dist/i18n/es.js"></script>
    <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
 
@@ -946,7 +950,7 @@ if (!empty($_SESSION['user']))
                               <div class="input-group-addon">
                               <i class="fa fa-user"></i>
                               </div>
-                                          <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtExamenFisica"> </textarea>
+                                          <textarea type="text" rows="3" class="form-control"  name="txtExamenFisica"> </textarea>
                                           </div>
                                         </div>
                                       </div>
@@ -2979,6 +2983,16 @@ if (!empty($_SESSION['user']))
                 }
             });
         });
+      $('#demo-form').parsley().on('field:validated', function() {
+    var ok = $('.parsley-error').length === 0;
+    $('.bs-callout-info').toggleClass('hidden', !ok);
+    $('.bs-callout-warning').toggleClass('hidden', ok);
+
+  })
+  .on('form:submit', function() {
+    return true;
+  });
+        
     });
 </script>
 

@@ -54,7 +54,9 @@ if (!empty($_SESSION['user']))
                                           inner join usuario u on c.IdUsuario = u.IdUsuario
                                           inner join modulo m on c.IdModulo = m.IdModulo
                                           inner join persona p on c.IdPersona = p.IdPersona
-                                          where c.IdPersona = $idpersona";
+                                          where c.IdPersona = $idpersona
+                                          order by c.IdConsulta DESC";
+
                    $resultadotablaconsulta = $mysqli->query($querytablaconsulta);
 
 ?>
@@ -639,15 +641,15 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-2"><input type="text" class="form-control" data-inputmask='"mask": "999.9"' data-mask name="txtPeso" id="peso" required=""> </div>
                                 <div class="col-sm-2">
                                  <select class="form-control select2" name="cboUnidadPeso" id="unidadpeso">
-                                    <option value="1">kg</option>
-                                    <option Value="2">lbs</option>
+                                    <option value="1">lbs</option>
+                                    <option Value="2">kg</option>
                                   </select>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Altura</label></div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999.9"' data-mask name="txtAltura" id="altura" required=""> </div>
+                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "9.99"' data-mask name="txtAltura" id="altura" required=""> </div>
                                 <div class="col-sm-2">
                                  <select class="form-control select2" name="cboUnidadAltura" id="unidadaltura">
                                     <option value="1">Mts</option>
@@ -681,7 +683,7 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Presion</label></div>
                                 <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMax" placeholder="MAX" id="max" required=""> </div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMin" placeholder="MIN" id="min" required=""> </div>
+                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "99"' data-mask name="txtMin" placeholder="MIN" id="min" required=""> </div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
@@ -756,7 +758,7 @@ if (!empty($_SESSION['user']))
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Motivo de Visita</label></div>
-                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtMotivo" data-parsley-maxlength="100" id="motivo" data-parsley-maxlength="100"> </textarea> </div>
+                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtMotivo" data-parsley-maxlength="100" id="motivo" data-parsley-maxlength="100" required=""> </textarea> </div>
                               </div>
                       </div>
                       </div>
@@ -834,18 +836,18 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-2"><input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "999.9"' data-mask name="txtPeso" id="pesos" required=""> </div>
                                 <div class="col-sm-2">
                                  <select class="form-control select2" disabled="disabled" name="cboUnidadPeso" id="unidadpesos">
-                                    <option value="1">kg</option>
-                                    <option Value="2">lbs</option>
+                                    <option value="1">lbs</option>
+                                    <option Value="2">kg</option>
                                   </select>
                                 </div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Altura</label></div>
-                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "999.9"' data-mask name="txtAltura" id="alturas" required=""> </div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "9.99"' data-mask name="txtAltura" id="alturas" required=""> </div>
                                 <div class="col-sm-2">
                                  <select class="form-control select2" disabled="disabled" name="cboUnidadAltura" id="unidadalturas">
-                                    <option value="1">Mts</option>
+                                    <option value="1">mts</option>
                                     <option Value="2">Pies</option>
                                   </select>
                                 </div>

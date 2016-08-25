@@ -45,6 +45,8 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/css/skins/_all-skins.min.css">
+<!-- 
+    <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/parsley.css"> -->
 
   <style>
     .example-modal .modal {
@@ -102,6 +104,10 @@
 
     <script src="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.min.js"></script>
 
+   <!--  <script src="<?php echo $ruta; ?>web/dist/parsley.min.js"></script>
+    
+    <script src="<?php echo $ruta; ?>web/dist/i18n/es.js"></script>
+ -->
 </head>
 
 <script>
@@ -169,9 +175,9 @@
           "paging": false,
           "lengthChange": true,
           "searching": true,
-          "ordering": true,
+          "ordering": false,
           "info": true,
-          "autoWidth": true
+          "autoWidth": true,
     });
       });
     </script>
