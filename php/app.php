@@ -32,6 +32,7 @@
                   $Mresultado = 0;
                   $Mresultado = $mujeres * 100;
                   
+                  $mujeresPor = 0;
                   if($listado != 0)
                     $mujeresPor = $Mresultado / $listado;
                  
@@ -77,7 +78,7 @@
       <html>
 
          <?php  include '../include/asset.php'; ?>
-         <body class="hold-transition skin-blue sidebar-mini">
+         <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
           <!-- Site wrapper -->
           <div class="wrapper">
 

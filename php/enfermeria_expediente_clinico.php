@@ -577,18 +577,24 @@ if (!empty($_SESSION['user']))
 
                     <!--    MODAL Signos    -->
 
-
                   <div class="example-modal modal fade" id="modalSignosVitales">
                     <div class="modal">
-                      <div class="modal-dialog modal-md">
+                      <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                         <form class="form-horizontal" action="enfermeria_guardar_indicador.php"  role="form" method="POST" id="demo-form1" data-parsley-validate="">
                               <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">Signos Vitales</h4>
+                                  <h3><i class="fa fa-globe"></i> Centro Medico Familiar Shalom</h3>
+                                <h4 class="modal-title">REPORTE DE SIGNOS VITALES</h4>
                               </div>
                               <div class="modal-body ">
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">FICHA DE CONSULTA</h3>
+                      </div>
                               <div class="form-group hidden">
                                 <div class="col-sm-5"><input type="text"  name="txtIdConsulta" id="idconsulta"></div>
                               </div>
@@ -616,6 +622,16 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Fecha</label></div>
                                 <div class="col-sm-5"> <input type="text" class="form-control" name="txtFecha" id="fecha" disabled="disabled"></div>
                               </div>
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">DATOS GENERALES</h3>
+                      </div>
 
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
@@ -652,8 +668,13 @@ if (!empty($_SESSION['user']))
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">F/R</label></div>
+                                <div class="col-sm-2"> <input type="text" class="form-control"  name="txtFR" id="FR" required=""> </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Pulso</label></div>
-                                <div class="col-sm-3"> <input type="text" class="form-control" data-inputmask='"mask": "999-999"' data-mask name="txtPulso" id="pulso" required=""> </div>
+                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtPulso" id="pulso" required=""> </div>
                                 <div class="col-sm-2"> <label for="inputEmail3" class="control-label">lat/min</label></div>
                               </div>
                               <div class="form-group">
@@ -661,14 +682,86 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Presion</label></div>
                                 <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMax" placeholder="MAX" id="max" required=""> </div>
                                 <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMin" placeholder="MIN" id="min" required=""> </div>
-
                               </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Glucotex</label></div>
+                                <div class="col-sm-2"> <input type="text" class="form-control"  name="txtGluco"  id="gluco" required=""> </div>
+                              </div>
+
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">USO GINECOLOGICO</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Ult. Menstruacion</label></div>
+                                <div class="col-sm-4"> <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtUmestruacion" id="ultimamestruacion"> </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Ult.PAP</label></div>
+                                <div class="col-sm-4"> <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtUpap" id="ultimapap"> </div>
+                              </div>
+
+                      </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">USO PEDIATRICO</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/C</label></div>
+                                <div class="col-sm-3"> <input type="text" class="form-control" name="txtpc" id="pc"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/T</label></div>
+                                <div class="col-sm-3"> <input type="text" class="form-control"  name="txtpt" id="pt"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/A</label></div>
+                                <div class="col-sm-3"> <input type="text" class="form-control"  name="txtpa" id="pa"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>  
+                              </div>
+
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">OTROS</h3>
+                      </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Observaciones</label></div>
                                 <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtObservaciones" data-parsley-maxlength="100" id="observaciones" data-parsley-maxlength="100"> </textarea> </div>
-
                               </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Motivo de Visita</label></div>
+                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtMotivo" data-parsley-maxlength="100" id="motivo" data-parsley-maxlength="100"> </textarea> </div>
+                              </div>
+                      </div>
+                      </div>
+                      </div>      
+
 
                               </div>
                               <div class="modal-footer">
@@ -684,15 +777,25 @@ if (!empty($_SESSION['user']))
                   <!-- MODAL PARA CARGAR LOS SIGNOS VITALES CON LA SEGUN LA CONSULTA -->
                   <div class="example-modal modal fade" id="modalCargarSignosVitales">
                     <div class="modal">
-                      <div class="modal-dialog modal-md">
+                      <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                        <form class="form-horizontal"  role="form"  id="demo-form1" data-parsley-validate="">
+                        <form class="form-horizontal"  role="form" method="POST" id="demo-form1" data-parsley-validate="">
                               <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">Signos Vitales</h4>
+                                  <h3><i class="fa fa-globe"></i> Centro Medico Familiar Shalom</h3>
+                                <h4 class="modal-title">Reporte de Signos Vitales</h4>
                               </div>
                               <div class="modal-body ">
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">Datos Personales</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-5"><input type="text" hidden="hidden" name="txtid" value="<?php echo $idpersona ?>">  </div>
+                              </div>
 
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
@@ -714,42 +817,146 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Fecha</label></div>
                                 <div class="col-sm-5"> <input type="text" class="form-control" name="txtFecha" id="fechas" disabled="disabled"></div>
                               </div>
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">Datos Generales</h3>
+                      </div>
+
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Peso</label></div>
-                                <div class="col-sm-2"><input type="text" class="form-control"  name="txtPeso" id="pesos" disabled="disabled"> </div>
-                                <div class="col-sm-2"><input type="text" class="form-control"  name="txtUnidadPeso" id="unidadpesos" disabled="disabled"> </div>
+                                <div class="col-sm-2"><input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "999.9"' data-mask name="txtPeso" id="pesos" required=""> </div>
+                                <div class="col-sm-2">
+                                 <select class="form-control select2" disabled="disabled" name="cboUnidadPeso" id="unidadpesos">
+                                    <option value="1">kg</option>
+                                    <option Value="2">lbs</option>
+                                  </select>
+                                </div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Altura</label></div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" name="txtAltura" id="alturas" disabled="disabled"> </div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" name="txtUnidadAltura" id="unidadalturas" disabled="disabled"> </div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "999.9"' data-mask name="txtAltura" id="alturas" required=""> </div>
+                                <div class="col-sm-2">
+                                 <select class="form-control select2" disabled="disabled" name="cboUnidadAltura" id="unidadalturas">
+                                    <option value="1">Mts</option>
+                                    <option Value="2">Pies</option>
+                                  </select>
+                                </div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Temperatura</label></div>
-                                <div class="col-sm-2"><input type="text" class="form-control" name="txtTemperatura" id="temperaturas" disabled="disabled"> </div>
-                                <div class="col-sm-2"><input type="text" class="form-control" name="txtTemperatura" id="unidadtemperaturas" disabled="disabled"> </div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "99.9"' data-mask name="txtTemperatura" id="temperaturas" required=""> </div>
+                                <div class="col-sm-2">
+                                 <select class="form-control select2" disabled="disabled" name="cboUnidadTemperatura" id="unidadtemperatura">
+                                    <option value="1">C</option>
+                                    <option Value="2">F</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">F/R</label></div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control"  name="txtFR" id="frs" required=""> </div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Pulso</label></div>
-                                <div class="col-sm-3"> <input type="text" class="form-control"  name="txtPulso" id="pulsos" disabled="disabled"> </div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtPulso" id="pulsos" required=""> </div>
                                 <div class="col-sm-2"> <label for="inputEmail3" class="control-label">lat/min</label></div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Presion</label></div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" name="txtMax"  id="maxs" disabled="disabled"> </div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" name="txtMin"  id="mins" disabled="disabled"> </div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMax" placeholder="MAX" id="maxs" required=""> </div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMin" placeholder="MIN" id="mins" required=""> </div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
-                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Observaciones</label></div>
-                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtObservaciones" id="observacioness" disabled="disabled"> </textarea> </div>
-
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Glucotex</label></div>
+                                <div class="col-sm-2"> <input type="text" disabled="disabled" class="form-control"  name="txtGluco"  id="glucos" required=""> </div>
                               </div>
+
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">Uso Ginecológico</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Ult. Menstruacion</label></div>
+                                <div class="col-sm-4"> <input type="text" disabled="disabled" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtUmestruacion" id="ultimamestruacions"> </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Ult.PAP</label></div>
+                                <div class="col-sm-4"> <input type="text" disabled="disabled" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtUpap" id="ultimapaps"> </div>
+                              </div>
+
+                      </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">Uso Pediátrico</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/C</label></div>
+                                <div class="col-sm-3"> <input type="text" disabled="disabled" class="form-control" name="txtpc" id="pcs"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/T</label></div>
+                                <div class="col-sm-3"> <input type="text" disabled="disabled" class="form-control"  name="txtpt" id="pts"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/A</label></div>
+                                <div class="col-sm-3"> <input type="text" disabled="disabled" class="form-control"  name="txtpa" id="pas"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>  
+                              </div>
+
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">Otros</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Observaciones</label></div>
+                                <div class="col-sm-7"> <textarea type="text" rows="4" disabled="disabled" class="form-control" name="txtObservaciones" data-parsley-maxlength="100" id="observacioness" data-parsley-maxlength="100"> </textarea> </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Motivo de Visita</label></div>
+                                <div class="col-sm-7"> <textarea type="text" rows="4" disabled="disabled" class="form-control" name="txtMotivo" data-parsley-maxlength="100" id="motivos" data-parsley-maxlength="100"> </textarea> </div>
+                              </div>
+                      </div>
+                      </div>
+                      </div>      
+
 
                               </div>
                               <div class="modal-footer">
@@ -832,17 +1039,25 @@ if (!empty($_SESSION['user']))
                     else{
                       $("#unidadalturas").val("Pies");
                     }
-                    $("#temperaturas").val(data.Temperatura)
+                    $("#temperaturas").val(data.Temperatura);
                     if (data.UnidadTemperatura ==1){
                         $("#unidadtemperaturas").val("C");
                     }
                     else{
                       $("#unidadtemperaturas").val("F");
                     }
-                    $("#pulsos").val(data.Pulso)
-                    $("#maxs").val(data.Max)
-                    $("#mins").val(data.Min)
-                    $("#observacioness").val(data.Observaciones)
+                    $("#pulsos").val(data.Pulso);
+                    $("#maxs").val(data.Max);
+                    $("#mins").val(data.Min);
+                    $("#observacioness").val(data.Observaciones);
+                    $("#frs").val(data.FR);
+                    $("#glucos").val(data.Glucotex);
+                    $("#ultimamestruacions").val(data.PeriodoMeunstral);
+                    $("#ultimapaps").val(data.PAP);
+                    $("#pcs").val(data.PC);
+                    $("#pts").val(data.PT);
+                    $("#pas").val(data.PA);
+                    $("#motivos").val(data.Motivo);
                     $("#modalCargarSignosVitales").modal("show");
                 }
             });

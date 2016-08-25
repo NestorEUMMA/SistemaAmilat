@@ -24,9 +24,17 @@ session_start();
     $max = $_POST['txtMax'];
     $min = $_POST['txtMin'];
     $observaciones = $_POST['txtObservaciones'];
+    $fr = $_POST['txtFR'];
+    $glucotex = $_POST['txtGluco'];
+    $ulmenstruacion = $_POST['txtUmestruacion'];
+    $ulpap = $_POST['txtUpap'];
+    $pc = $_POST['txtpc'];
+    $pt = $_POST['txtpt'];
+    $pa = $_POST['txtpa'];
+    $motivo = $_POST['txtMotivo'];
 
-    $insertexpediente = "INSERT INTO indicador(IdConsulta,Peso,UnidadPeso,Altura,UnidadAltura,Temperatura,UnidadTemperatura,Pulso,PresionMax,PresionMin,Observaciones)
-                             VALUES ('$idconsulta','$peso','$pesoindicador','$altura','$alturaindicador','$temperatura','$temperaturaindicador','$pulso','$max','$min','$observaciones') ";
+    $insertexpediente = "INSERT INTO indicador(IdConsulta,Peso,UnidadPeso,Altura,UnidadAltura,Temperatura,UnidadTemperatura,Pulso,PresionMax,PresionMin,Observaciones,PeriodoMeunstral,Glucotex,PC,PT,PA,FR,PAP,Motivo)
+                             VALUES ('$idconsulta','$peso','$pesoindicador','$altura','$alturaindicador','$temperatura','$temperaturaindicador','$pulso','$max','$min','$observaciones','$ulmenstruacion','$glucotex','$pc','$pt','$pa','$fr','$ulpap','$motivo')";
     $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
 
 		//EL IDESTADO DE LA CONSULTA SI ESTA EN 2 SIGNIFICA QUE YA TIENE ALMACENADO LOS SIGNOS VITALES
@@ -34,7 +42,7 @@ session_start();
   	$insertexpediente2 = "UPDATE consulta SET IdEstado=2, Status=1 WHERE IdConsulta='$idconsulta'";
     $resultadoinsertmovimiento2 = $mysqli->query($insertexpediente2);
 
-		//  echo $insertexpediente;
+		// echo $insertexpediente;
 		//  echo $insertexpediente2;
 
 
