@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 include '../include/dbconnect.php';
 session_start();
@@ -256,7 +256,7 @@ if (!empty($_SESSION['user']))
                                     </div>
                                 
 
-                                    <label for="txtDuiResponsable" class="col-sm-1 control-label">Telefono</label>
+                                    <label for="txtDuiResponsable" class="col-sm-1 control-label">Dui Responsable</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>

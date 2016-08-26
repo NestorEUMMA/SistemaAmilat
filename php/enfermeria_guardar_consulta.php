@@ -22,7 +22,7 @@ session_start();
     $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
 
 
-        $insertexpediente2 = "UPDATE persona SET IdEstado=4  WHERE IdPersona='$persona'";
+        $insertexpediente2 = "UPDATE persona SET IdEstado=5  WHERE IdPersona='$persona'";
     $resultadoinsertmovimiento2 = $mysqli->query($insertexpediente2);
     //header('Location: ../php/expediente_clinico.php?IdPersona='.$persona);
 

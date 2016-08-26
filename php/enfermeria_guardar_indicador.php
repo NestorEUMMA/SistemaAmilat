@@ -42,7 +42,7 @@ session_start();
   	$insertexpediente2 = "UPDATE consulta SET IdEstado=2, Status=1 WHERE IdConsulta='$idconsulta'";
     $resultadoinsertmovimiento2 = $mysqli->query($insertexpediente2);
 
-    $insertexpediente3 = "UPDATE persona SET IdEstado=5  WHERE IdPersona='$idpersona'";
+    $insertexpediente3 = "UPDATE persona SET IdEstado=6 WHERE IdPersona='$idpersona'";
     $resultadoinsertmovimiento3 = $mysqli->query($insertexpediente3);
 
 		// echo $insertexpediente;

@@ -684,6 +684,7 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-3"><label for="inputEmail3" class="control-label">Presion</label></div>
                                 <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMax" placeholder="MAX" id="max" required=""> </div>
                                 <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "99"' data-mask name="txtMin" placeholder="MIN" id="min" required=""> </div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">mmHg</label></div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>

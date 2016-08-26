@@ -16,14 +16,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-
+         
           <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
 
+            <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
                   <span class="hidden-xs"> Bienvenido: <?php echo $_SESSION["user"] ?></span>
+                  <span class="hidden-xs"> </span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
