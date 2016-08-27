@@ -8,9 +8,9 @@
 <?php
 
 include_once '../include/dbconnect.php';
-//session_start();
+session_start();
 
-$id = '1'; //$_POST["IdFactor"];
+$id = $_POST["IdFactor"];
 
 $query = "select IdPregunta,Nombre from pregunta where IdFactor = $id";
 $tblPreguntas = $mysqli->query($query);
@@ -44,22 +44,24 @@ while ($f = $tblRespuestas->fetch_assoc())
 $i=0;
 foreach ($arrPreguntas as $iP => $vP) {
 	echo "<tr>";
-	echo "<td class='text-center'>". ++$i . "</td>";
-	echo "<td><label class='form-label'>". $vP["Nombre"]. "<label></td>";
-	echo "<td>". "<select style='width:100%'>";
-	echo "<option value=''></option>";
-	foreach ($arrRespuestas as $iR => $vR) {
-		if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
-			echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
-		}
-	}
+		echo "<td class='text-center'>". ++$i . "</td>";
+		echo "<td>";
+			//echo "<label for='selPregunta". $vP["IdPregunta"] ."' class='form-label'>". $vP["Nombre"]. "<label>";
+			echo $vP["Nombre"];
+		echo "</td>";
+		echo "<td>";
+			echo "<select id='selPregunta". $vP["IdPregunta"] . "' name='selPregunta".$vP["IdPregunta"] . "' class='form-control select2' required  onfocus='inFocus(this)' onfocusout='outFocus(this)' >";
+				echo "<option value=''></option>";
+				
+				foreach ($arrRespuestas as $iR => $vR) {
+					if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
+						echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
+					}
+				}
 	
-	echo "</select></td>";
-
+			echo "</select>";
+		echo "</td>";
 	echo "<tr>";
-
-
-
 }
 
 

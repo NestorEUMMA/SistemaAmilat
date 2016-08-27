@@ -24,6 +24,8 @@ if (!empty($_SESSION['user']))
 
    <style type="text/css">
     .box-solid .box-body{ min-height: 300px;}
+    li.active a{ background-color: red; }
+   
    </style>
 
    <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
@@ -170,7 +172,7 @@ if (!empty($_SESSION['user']))
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" name="cboCanton" id="cboCanton" required=""></select>
+                                        <select class="form-control select2" style="width: 100%;" name="cboCanton" id="cboCanton"></select>
                                       </div>
                                     </div>
                                   </div> 
@@ -231,7 +233,7 @@ if (!empty($_SESSION['user']))
                                   <div class="col-sm-5">
                                     <div class="input-group">
                                       <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                      <input type="text" class="form-control" id="txtNombresResponsable"  name="txtNombresResponsable" required=""/>
+                                      <input type="text" class="form-control" id="txtNombresResponsable"  name="txtNombresResponsable"/>
                                     </div>
                                   </div>
 
@@ -239,7 +241,7 @@ if (!empty($_SESSION['user']))
                                   <div class="col-sm-5">
                                     <div class="input-group">
                                       <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                      <input type="text" class="form-control" id="txtApellidosResponsable"  name="txtApellidosResponsable" required=""/>
+                                      <input type="text" class="form-control" id="txtApellidosResponsable"  name="txtApellidosResponsable"/>
                                     </div>
                                   </div>
                                 </div>
@@ -249,14 +251,25 @@ if (!empty($_SESSION['user']))
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                                        <select class="form-control" id="txtParentesco" name="txtParentesco" required="">
-
+                                        <select class="form-control" id="txtParentesco" name="txtParentesco">
+                                            <option value=""></option>
+                                            <option value="MADRE">MADRE</option>
+                                            <option value="PADRE">PADRE</option>
+                                            <option value="ABUELO">ABUELO</option>
+                                            <option value="ABUELA">ABUELA</option>
+                                            <option value="TIO">TIO</option>
+                                            <option value="TIA">TIA</option>
+                                            <option value="HERMANO">HERMANO</option>
+                                            <option value="HERMANA">HERMANA</option>
+                                            <option value="PRIMO">PRIMO</option>
+                                            <option value="PRIMA">PRIMA</option>
+                                            <option value="NINGUNO">NINGUNO</option>
                                         </select>
                                       </div>
                                     </div>
                                 
 
-                                    <label for="txtDuiResponsable" class="col-sm-1 control-label">Telefono</label>
+                                    <label for="txtDuiResponsable" class="col-sm-1 control-label">DUI</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
@@ -345,7 +358,8 @@ if (!empty($_SESSION['user']))
                                     </div>
                                     <div class="box-body">
                                         <div class="col-sm-10 col-sm-offset-1">
-                                        <?php include 'test.php' ?>
+                                        <?php //include 'test.php' ?>
+                                        <div id="test"></div>
                                         </div>
                                     </div>
                                   </div>
@@ -383,8 +397,28 @@ if (!empty($_SESSION['user']))
   });
 
 
+  function inFocus(e)
+  {
+    $(e).closest("tr").css("backgroundColor","#F0F0F0");
+  }
+
+  function outFocus(e)
+  {
+    $(e).closest("tr").css("backgroundColor","#FFFFFF"); 
+  }
+
 
   $(document).ready(function(){
+
+    
+    $.post( "test.php", { IdFactor: 1})
+      .done(function( data ) {
+        $("#test").html(data);
+    });
+
+
+
+
 
       $("#cboGeografia").change(function(){
 

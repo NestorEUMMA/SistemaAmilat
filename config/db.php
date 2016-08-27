@@ -5,7 +5,7 @@ return [
     'dsn' => 'mysql:host=localhost;dbname=db_clinica',
     'username' => 'root',
     //'password' => 'hope2900clinic',
-    'password' => 'nest2013',
+    'password' => '',
     //'password' => '12345',
     'charset' => 'utf8',
 ];
