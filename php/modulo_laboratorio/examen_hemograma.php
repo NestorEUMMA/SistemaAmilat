@@ -61,135 +61,152 @@ if (!empty($_SESSION['user']))
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Globulos Rojos</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="globulosrojos" name = "globulosrojos" placeholder="Globulos Rojos">
                   </div>
-                  </div>
-                  <div class="col-sm-10 hidden">
+
+                  <div class="col-sm-6 hidden">
                     <input type="text" class="form-control" id="idconsulta" name = "idconsulta" value="<?php echo $idconsulta ?>" placeholder="Globulos Rojos">
                   </div>
-                  <div class="col-sm-10 hidden">
+                  <div class="col-sm-6 hidden">
                     <input type="text" class="form-control" id="idpersona" name = "idpersona" value="<?php echo $idpersona ?>" placeholder="Globulos Rojos">
                   </div>
-                  <div class="col-sm-10 hidden">
+                  <div class="col-sm-6 hidden">
                     <input type="text" class="form-control" id="idlistaexamen" name = "idlistaexamen" value="<?php echo $idlistaexamen ?>" placeholder="Globulos Rojos">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">X mm3</label>
                 </div>
                  <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Hemoglobina</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="hemoglobina" name="hemoglobina" placeholder="Hemoglobina">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">Gr/dl</label>
                 </div>
                      <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Hematocrito</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="hematocrito" name="hematocrito" placeholder="Hematocrito">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">VGM</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="vgm" name="vgm" placeholder="VGM">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">Micras cubicas</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">HCM</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="hcm" name="hcm" placeholder="HCM">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">Micro microgramos</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">CHCM</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="chcm" name="chcm" placeholder="CHCM">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
                 </div>
                      <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Leucocitos</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="leucocitos" name="leucocitos" placeholder="Leucocitos">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">Xmm3</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Neutrofilos En Banda</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="neutrofilosenbanda" name="neutrofilosenbanda" placeholder="Neutrofilos En Banda">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Linfocitos</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="linfocitos" name="linfocitos" placeholder="Linfocitos">
                   </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Monocitos</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="monocitos" name="monocitos" placeholder="Monocitos">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Eosinofilos</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="eosinofilos" name="eosinofilos" placeholder="Eosinofilos">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Basofilos</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="basofilos" name="basofilos" placeholder="Basofilos">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Plaquetas</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="plaquetas" name="plaquetas" placeholder="Plaquetas">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Eritrosedimentacion</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="eritrosedimentacion" name="eritrosedimentacion" placeholder="Eritrosedimentacion">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Otros</label>
-
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="otros" name="otros" placeholder="Otros">
-                  </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Neutrofilos Segmentados</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="neutrofilossegmentados" name="neutrofilossegmentados" placeholder="neutrofilos Segmentados">
                   </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Monocitos</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="monocitos" name="monocitos" placeholder="Monocitos">
+                  </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Eosinofilos</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="eosinofilos" name="eosinofilos" placeholder="Eosinofilos">
+                  </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Basofilos</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="basofilos" name="basofilos" placeholder="Basofilos">
+                  </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">%</label>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Plaquetas</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="plaquetas" name="plaquetas" placeholder="Plaquetas">
+                  </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">X mm3</label>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Eritrosedimentacion</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="eritrosedimentacion" name="eritrosedimentacion" placeholder="Eritrosedimentacion">
+                  </div>
+                   <label for="inputEmail3" class="col-sm-0 control-label">mm/h</label>
+                </div>
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">Otros</label>
+
+                  <div class="col-sm-6">
+                    <input type="text" class="form-control" id="otros" name="otros" placeholder="Otros">
+                  </div>
+                   
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Observaciones</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones">
                   </div>
+                 
                 </div>
 
                 <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
+                  <div class="col-sm-offset-2 col-sm-6">
 
                   </div>
                 </div>

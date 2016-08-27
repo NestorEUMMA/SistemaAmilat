@@ -591,6 +591,8 @@ if (!empty($_SESSION['user']))
                                 <h4 class="modal-title">REPORTE DE SIGNOS VITALES</h4>
                               </div>
                               <div class="modal-body ">
+                      
+
                       <div class="row">
                       <div class="col-md-12">
                       <div class="box box-primary">

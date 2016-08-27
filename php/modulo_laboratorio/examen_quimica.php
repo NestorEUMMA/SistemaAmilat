@@ -70,78 +70,85 @@ if (!empty($_SESSION['user']))
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Glucosa</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="glucosa" name = "glucosa" placeholder="Glucosa">
                   </div>
-                  <div class="col-sm-10 hidden">
+                  <div class="col-sm-6 hidden">
                     <input type="text" class="form-control" id="idconsulta" name = "idconsulta" value="<?php echo $idconsulta ?>" placeholder="Globulos Rojos">
                   </div>
-                  <div class="col-sm-10 hidden">
+                  <div class="col-sm-6 hidden">
                     <input type="text" class="form-control" id="idpersona" name = "idpersona" value="<?php echo $idpersona ?>" placeholder="Globulos Rojos">
                   </div>
-                  <div class="col-sm-10 hidden">
+                  <div class="col-sm-6 hidden">
                     <input type="text" class="form-control" id="idlistaexamen" name = "idlistaexamen" value="<?php echo $idlistaexamen ?>" placeholder="Globulos Rojos">
                   </div>
+                  <label for="inputEmail3" class="col-sm-0 control-label">70 - 110 mg/dl</label>
                 </div>
                      <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Glucosapost</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="glucosapost" name="glucosapost" placeholder="Glucosapost">
                   </div>
                 </div>
                      <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Colesteroltotal</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="colesteroltotal" name="colesteroltotal" placeholder="Colesteroltotal">
                   </div>
+                  <label for="inputEmail3" class="col-sm-0 control-label">Hasta 200 mg/dl</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Triglicerido</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="triglicerido" name="triglicerido" placeholder="Triglicerido">
                   </div>
+                  <label for="inputEmail3" class="col-sm-0 control-label">Hasta 150 mg/dl</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Acidourico</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="acidourico" name="acidourico" placeholder="Acidourico">
                   </div>
+                  <label for="inputEmail3" class="col-sm-0 control-label">M: 2.0 – 6.0 mg/dl, H: 3.4 – 7.0 mg/dl</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Creatinina</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="creatinina" name="creatinina" placeholder="Creatinina">
                   </div>
+                  <label for="inputEmail3" class="col-sm-0 control-label">0.6 - 1.2 mg/dl</label>
                 </div>
                      <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Nitrogeno Ureico</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="nitrogenoureico" name="nitrogenoureico" placeholder="Nitrogeno Ureico">
                   </div>
+                  <label for="inputEmail3" class="col-sm-0 control-label">7.0 - 21.0 mg/dl</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Urea</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="urea" name="urea" placeholder="Urea">
                   </div>
+                  <label for="inputEmail3" class="col-sm-0 control-label">15.0 - 45.0 mg/dl</label>
                 </div>
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">Observaciones</label>
 
-                  <div class="col-sm-10">
+                  <div class="col-sm-6">
                     <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
+                  <div class="col-sm-offset-2 col-sm-6">
 
                   </div>
                 </div>

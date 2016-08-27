@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header">
         <h1 class="box-title"><?= Html::encode($this->title) ?></h1>
         <div class="pull-right box-tools">
-           <a href="../php/recepcion_nuevo_expediente.php" class="btn btn-success btn-sm btn-tool " role="button">Ingresar nuevo Paciente</a>
+           <a href="../php/recepcion_nuevo_expediente2.php" class="btn btn-success btn-sm btn-tool " role="button">Ingresar nuevo Paciente</a>
         </div>
     </div>
 

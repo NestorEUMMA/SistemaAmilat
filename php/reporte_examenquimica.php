@@ -6,8 +6,10 @@ include '../include/dbconnect.php';
 if (!empty($_SESSION['user']))
   {
 
-  $idlistaexamen = $_POST['txtListaExamen'];
-  $idpersona = $_POST['txtPersona'];
+  //$idlistaexamen = $_POST['txtListaExamen'];
+  //$idpersona = $_POST['txtPersona'];
+  $idlistaexamen = 1; 
+  $idpersona = 1;
      
 $querymedicamentos = " SELECT le.IdListaExamen, CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente',te.NombreExamen,
 
@@ -86,28 +88,28 @@ label{
                   <td><label>Fecha:</label> </td><td>".$row['ExamenQuimicaFecha']."</td>
                   </tr>
                       <tr>
-                        <td><label>Glucosa:</label> </td><td>".$row['ExamenQuimicaGlucosa']."</td>
+                        <td><label>Glucosa:</label> </td><td>".$row['ExamenQuimicaGlucosa']."</td><td><label>70 - 110 mg/dl</label> </td>
                       </tr>
                       <tr>
                         <td><label>Glucosa Post:</label> </td><td>".$row['ExamenQuimicaGlucosaPost']."</td>
                       </tr>
                       <tr>
-                        <td><label>Colesterol Total:</label> </td><td>".$row['ExamenQuimicaColesterolTotal']."</td>
+                        <td><label>Colesterol Total:</label> </td><td>".$row['ExamenQuimicaColesterolTotal']."</td><td><label>Hasta 200 mg/dl</label> </td>
                       </tr>
                       <tr>
-                        <td><label>Triglicerido:</label> </td><td>".$row['ExamenQuimicaTriglicerido']."</td>
+                        <td><label>Triglicerido:</label> </td><td>".$row['ExamenQuimicaTriglicerido']."</td><td><label>Hasta 150 mg/dl</label> </td>
                       </tr>
                       <tr>
-                        <td><label>Acido Urico:</label> </td><td>".$row['ExamenQuimicaAcidoUrico']."</td>
+                        <td><label>Acido Urico:</label> </td><td>".$row['ExamenQuimicaAcidoUrico']."</td><td><label>M: 2.0 – 6.0 mg/dl, H: 3.4 – 7.0 mg/dl</label> </td>
                       </tr>
                       <tr>
-                        <td><label>Creatinina:</label> </td><td>".$row['ExamenQuimicaCreatinina']."</td>
+                        <td><label>Creatinina:</label> </td><td>".$row['ExamenQuimicaCreatinina']."</td><td><label>0.6 - 1.2 mg/dl</label> </td>
                       </tr>
                       <tr>
-                        <td><label>Nitrogeno Ureico:</label> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td><td>".$row['ExamenQuimicaNitrogenoUreico']."</td>
+                        <td><label>Nitrogeno Ureico:</label> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp </td><td>".$row['ExamenQuimicaNitrogenoUreico']."</td><td><label>7.0 - 21.0 mg/dl</label> </td>
                       </tr>
                       <tr>
-                        <td><label>Urea:</label> </td><td>".$row['ExamenQuimicaUrea']."</td>
+                        <td><label>Urea:</label> </td><td>".$row['ExamenQuimicaUrea']."</td><td><label>15.0 - 45.0 mg/dl</label> </td>
                       </tr>
                         
                 ";

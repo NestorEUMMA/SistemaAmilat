@@ -2266,85 +2266,106 @@ if (!empty($_SESSION['user'])) {
                                                                         <input type="text" class="form-control" id="ExamenHemogramaFecha" disabled="disabled">
                                                                     </div>
                                                                 </div>
+
+
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Globulos Rojos</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaGlobulosRojos" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>X mm3</small></label>
+
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Hemoglobina</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaHemoglobina" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>Gr/dl</small></label>
                                                                 </div>
+
+
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Hematocrito</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaHematocrito" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>%</small></label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">VGM</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaVgm" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>Micras cubicas</small></label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">HCM</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaHcm" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>Micro microgramos</small></label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">CHCM</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaChcm" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>%</small></label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Leucocitos</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaLeucocitos" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>X mm3</small></label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Neutrofilos en Banda</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaNeutrofilos" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>%</small></label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Linfocitos</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaLinfocitos" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>%</small></label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Monocitos</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaMonocitos" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>%</small></label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Eosinofilos</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaEosinofilos" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>%</small></label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Basofilos</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaBasofilos" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>%</small></label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Plaquetas</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaPlaquetas" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>X mm3</small></label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Eritro Sedimentacion</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaEritrosedimentacion" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>mm/h</small></label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Otros</label>
                                                                     <div class="col-sm-3">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaOtros" disabled="disabled">
                                                                     </div>
+                                                                   
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Neutrofilos Segmentados</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenHemogramaNeutrofilosSegmentados" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-1 control-label"><small>X mm3</small></label>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
@@ -2688,43 +2709,50 @@ if (!empty($_SESSION['user'])) {
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Glucosa</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaGlucosa" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">70 - 110 mg/dl</label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Glucosa Post</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-3">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaGlucosaPost" disabled="disabled">
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Colesterol Total</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaColesterolTotal" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">Hasta 200 mg/dl</label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Triglicerido</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-1">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaTriglicerido" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">Hasta 150 mg/dl</label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Acido Urico</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaAcidoUrico" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">M: 2.0 – 6.0 mg/dl H: 3.4 – 7.0 mg/dl</label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Creatinina</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-1">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaCreatinina" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">0.6 - 1.2 mg/dl</label>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Nitrogeno Ureico</label>
-                                                                    <div class="col-sm-3">
+                                                                    <div class="col-sm-2">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaNitrogenoUreico" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">7.0 - 21.0 mg/dl</label>
                                                                     <label for="inputEmail3" class="col-sm-2 control-label">Urea</label>
-                                                                    <div class="col-sm-4">
+                                                                    <div class="col-sm-1">
                                                                         <input type="text" class="form-control" id="ExamenQuimicaUrea" disabled="disabled">
                                                                     </div>
+                                                                    <label for="inputEmail3" class="col-sm-2 control-label">15.0 - 45.0 mg/dl</label>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">

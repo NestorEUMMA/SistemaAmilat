@@ -31,13 +31,9 @@ $resultadomedicamentos = $mysqli->query($querymedicamentos);
       <!-- title row -->
       <div class="row">
         <div class="col-xs-7">
-          <h2 class="page-header">
-            </br></br>
-            <i class="fa fa-globe"></i> Centro Medico Familiar Shalom
-          </h2>
         </div>
-        <div class="col-xs-5">
-                  <img src="reportes/Imagen/logo.png" alt="..." class="margin">
+        <div class="col-xs-10">
+                  <img src="reportes/Imagen/header.png" alt="..." class="margin">
         </div>
         <!-- /.col -->
       </div>

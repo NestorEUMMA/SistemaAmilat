@@ -8,7 +8,7 @@ session_start();
     $apellidos = $_POST['txtApellidos'];
     $dui = $_POST['txtDui'];
     $fnacimiento = $_POST['txtFNacimiento'];
-    $geografia = $_POST['cboGeografia'];
+    $geografia = $_POST['z'];
     $direccion = $_POST['txtDireccion'];
     $genero = $_POST['cboGenero'];
     $estadocivil = $_POST['cboEstadoCivil'];
