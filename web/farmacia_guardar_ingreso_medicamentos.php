@@ -5,7 +5,6 @@ include '../include/asset.php';
 
 $nombre = $_POST['nombre'];
 $nombrecomercial = $_POST['nombrecomercial'];
-$existencia = $_POST['existencia'];
 $idpresentacion = $_POST['ID_PRESENTACION'];
 $idlaboratorio = $_POST['ID_LABORATORIO'];
 $idcategoria = $_POST['ID_CATEGORIA'];
@@ -20,12 +19,13 @@ $preciod = 0;
 
 $insermedicamentos = "
 INSERT INTO medicamentos
-(NombreMedicamento, NombreComercial, Existencia, IdPresentacion, IdLaboratorio, IdCategoria, Concentracion, IdUnidadMedida, PrecioLab, PrecioVentaA, PrecioVentaB, 
+(NombreMedicamento, NombreComercial, IdPresentacion, IdLaboratorio, IdCategoria, Concentracion, IdUnidadMedida, PrecioLab, PrecioVentaA, PrecioVentaB, 
 PrecioVentaC, PrecioVentaD, Activo)
 VALUES
-('$nombre', '$nombrecomercial', $existencia, $idpresentacion, $idlaboratorio, $idcategoria, $concentracion, $idunidadmedida, 
+('$nombre', '$nombrecomercial', $idpresentacion, $idlaboratorio, $idcategoria, $concentracion, $idunidadmedida, 
 	$precio, $precioa, $preciob, $precioc, $preciod, 1)
 			";
+
 $resultadoinsermedicamentos = $mysqli->query($insermedicamentos);
 
 

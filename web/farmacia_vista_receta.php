@@ -64,6 +64,10 @@ while ($row2 = $resultadocuentamedicamentos->fetch_assoc()) {
     </div>
 	<!-- /.box-header -->
     <div class="box-body">
+  <form action = "../php/reportes/reporte_farmacia_receta.php" method = "POST">
+  <input type = "submit" class = "btn btn-warning" value = "Imprimir">
+  <input type = "hidden" name = "idreceta" value = "<?php echo $idreceta; ?>">
+  </form>
 	
   <form action = "farmacia_guardar_despacho.php" method = "POST">
   <table id="example2" class="table table-bordered table-hover">

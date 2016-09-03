@@ -1,4 +1,4 @@
-<?php
+z<?php
 
 include '../include/dbconnect.php';
 session_start();
@@ -6,7 +6,7 @@ session_start();
 if (!empty($_SESSION['user']))
   {
   $queryingresomedicamentos = "
-      SELECT a.IdMedicamento as ID, a.NombreMedicamento as NOMBRE_MEDICAMENTO, a.NombreComercial as NOMBRE_COMERCIAL, a.Existencia as EXISTENCIA, 
+      SELECT a.IdMedicamento as ID, a.NombreMedicamento as NOMBRE_MEDICAMENTO, a.NombreComercial as NOMBRE_COMERCIAL, 
       b.NombrePresentacion as PRESENTACION, c.NombreLaboratorio as LABORATORIO, d.NombreCategoria as CATEGORIA, a.Concentracion as CONCENTRACION, 
       e.NombreUnidadMedida as UNIDAD_MEDIDA, a.PrecioLab as PRECIO, a.PrecioVentaA as PRECIOA, a.PrecioVentaB as PRECIOB, a.PrecioVentaC as PRECIOC, 
       a.PrecioVentaD as PRECIOD
@@ -80,12 +80,11 @@ if (!empty($_SESSION['user']))
     <form action = "farmacia_guardar_ingreso_medicamentos.php" method = "POST">
     <table id="example2" class="table table-bordered table-hover">
     <tr>
-      <th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>EXISTENCIA</th><th>PRESENTACION</th><th>LABORATORIO</th>
+      <th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>PRESENTACION</th><th>LABORATORIO</th>
     </tr>
         <tr>
       <td><input type = "text" name = "nombre"></td>
       <td><input type = "text" name = "nombrecomercial"></td>
-      <td><input type = "text" name = "existencia"></td>
       <td>
         <select class="form-control select2" style="width: 100%;" name = "ID_PRESENTACION">
           <option value = '' selected>Elija... </option>
@@ -145,7 +144,7 @@ if (!empty($_SESSION['user']))
       echo "
       <thead>
       <tr>
-      <th>ID</th><th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>EXISTENCIA</th><th>PRESENTACION</th><th>LABORATORIO</th><th>CATEGORIA</th><th>CONCENTRACION</th><th>U. MEDIDA</th><th>PRECIO</th><th>A</th><th>B</th><th>C</th><th>D</th>
+      <th>ID</th><th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>PRESENTACION</th><th>LABORATORIO</th><th>CATEGORIA</th><th>CONCENTRACION</th><th>U. MEDIDA</th><th>PRECIO</th><th>A</th><th>B</th><th>C</th><th>D</th>
       </tr>
       </thead>
       <tbody>
@@ -157,7 +156,6 @@ if (!empty($_SESSION['user']))
           <td>".$row['ID']."</td>
           <td>".$row['NOMBRE_MEDICAMENTO']."</td>
           <td>".$row['NOMBRE_COMERCIAL']."</td>
-          <td>".$row['EXISTENCIA']."</td>
           <td>".$row['PRESENTACION']."</td>
           <td>".$row['LABORATORIO']."</td>
           <td>".$row['CATEGORIA']."</td>

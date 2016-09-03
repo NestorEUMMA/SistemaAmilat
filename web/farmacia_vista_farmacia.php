@@ -53,11 +53,9 @@ while ($row2 = $resultadocuentarecetas->fetch_assoc()) {
     <h3 class="box-title">LISTADO DE RECETAS ACTIVAS</h3>
     </div>
 	<!-- /.box-header -->
-    <div class="box-body";
-	<form action = reporte formtarget = reporte_vista_farmacia.pdf>
-  <input type = submit class = "btn btn-warning" value = "Imprimir">
+    <div class="box-body">
 
-  </div>form>
+  </div>
   <?php
   if (empty($cuentarecetas)){
     echo "
