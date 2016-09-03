@@ -2,7 +2,8 @@
 
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'nest2013');
+//define('DB_PASSWORD', 'nest2013');
+define('DB_PASSWORD', '12345');
 define('DB_DATABASE', 'db_clinica');
 //define('DB_PASSWORD', 'hope2900clinic');
 //define('DB_PASSWORD', '12345');
