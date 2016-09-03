@@ -27,12 +27,6 @@ WHERE CodigoLote = '$codigo'
 $resultadoupdatelotes = $mysqli->query($updatelotes);
 
 
-$updatemedicamentos = "
-UPDATE medicamentos
-set Existencia = (Existencia - $cantidad)
-WHERE IdMedicamento = $idmedicamento
-			";
-$resultadoupdatemedicamentos = $mysqli->query($updatemedicamentos);
 
 $inserttransaccion = "
 	INSERT INTO transaccion
@@ -42,7 +36,7 @@ $inserttransaccion = "
 			";
 $resultadoinserttransaccion = $mysqli->query($inserttransaccion);
 
-if (!$resultadoinsertbaja and !$resultadoupdatemedicamentos and !$resultadoupdatelotes){
+if (!$resultadoinsertbaja and !$resultadoupdatelotes){
 					echo "
 						<script>
 							alert('No se dio de baja');

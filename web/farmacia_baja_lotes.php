@@ -7,7 +7,7 @@ if (!empty($_SESSION['user']))
   {
   $querylotes = "
 SELECT concat(B.NombreMedicamento, ' - ', C.NombrePresentacion) as NOMBRE, A.CodigoLote as CODIGO, A.FechaExpedicion as FECHA_EXPEDICION,
- A.FechaVencimiento as FECHA_VENCIMIENTO, A.Cantidad as CANTIDAD, B.Existencia as EXISTENCIA, B.IdMedicamento as IDMEDICAMENTO
+ A.FechaVencimiento as FECHA_VENCIMIENTO, A.Cantidad as CANTIDAD, B.IdMedicamento as IDMEDICAMENTO
 FROM medicamentolote as A
 LEFT JOIN medicamentos as B on B.IdMedicamento = A.IdMedicamento
 LEFT JOIN presentacion as C on C.IdPresentacion = B.IdPresentacion
