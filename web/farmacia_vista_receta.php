@@ -10,7 +10,7 @@ $idreceta = $_POST['idreceta'];
 
 $queryreceta = "
 SELECT b.NombreMedicamento as NOMBRE, truncate(a.cantidad, 0) as CANTIDAD, a.horas as HORAS, a.dias as DIAS, a.total as TOTAL, 
-a.IdMedicamento as idmedicamento, b.Existencia as existencia,
+a.IdMedicamento as idmedicamento,
 CASE 
 WHEN d.Categoria = 'A' THEN b.PrecioVentaA
 WHEN d.Categoria = 'B' THEN b.PrecioVentaB
@@ -81,7 +81,6 @@ while ($row2 = $resultadocuentamedicamentos->fetch_assoc()) {
   <tr>
   <td>".$row['NOMBRE']."</td><td>".$row['CANTIDAD']."</td><td>".$row['HORAS']."</td><td>".$row['DIAS']."</td><td>".$row['TOTAL']."</td><td>".$row['PRECIO']."</td>
   <input type='hidden' name = 'idmedicamento".$i."' value='".$row['idmedicamento']."'>
-  <input type='hidden' name = 'existencia".$i."' value='".$row['existencia']."'>
   <input type='hidden' name = 'total".$i."' value='".$row['TOTAL']."'>
   <input type='hidden' name = 'precio".$i."' value='".$row['PRECIO']."'>
   </tr>
