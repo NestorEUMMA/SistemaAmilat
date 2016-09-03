@@ -1,8 +1,8 @@
 <?php
-  //$ruta = 'http://localhost:8080/SistemaAmilat/';
- $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
+  $ruta = 'http://localhost:8080/SistemaAmilat/';
+ // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   //$ruta = 'http://localhost/SistemaAmilat/';
-
+  
 ?>
   <head>
 
@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="<?php echo $ruta; ?>lib\Font-Awesome-master\css\font-awesome.min.css">
 
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.print.css" media="print">
+    <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.print.css" media="print"> 
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>lib\ionicons-master\css\ionicons.min.css">
@@ -45,7 +45,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/css/skins/_all-skins.min.css">
-<!--
+<!-- 
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/parsley.css"> -->
 
   <style>
@@ -105,7 +105,7 @@
     <script src="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.min.js"></script>
 
    <!--  <script src="<?php echo $ruta; ?>web/dist/parsley.min.js"></script>
-
+    
     <script src="<?php echo $ruta; ?>web/dist/i18n/es.js"></script>
  -->
 </head>
