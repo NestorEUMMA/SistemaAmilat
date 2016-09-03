@@ -5,7 +5,8 @@ session_start();
 
 if (!empty($_SESSION['user']))
   {
-    $queryexamenesactivos = "SELECT le.IdListaExamen As 'IdListaExamen', c.IdConsulta As 'Consulta', CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', te.IdTipoExamen As IdTipoExamen, te.NombreExamen As 'Examen', le.Activo
+    $queryexamenesactivos = "SELECT le.IdListaExamen As 'IdListaExamen', c.IdConsulta As 'Consulta', CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', te.IdTipoExamen As IdTipoExamen, te.NombreExamen As 'Examen', le.Activo, 
+    le.Indicacion As 'Indicacion'
                           FROM listaexamen le
                           INNER JOIN usuario u ON le.IdUsuario = u.IdUsuario
                           INNER JOIN persona p ON le.IdPersona = p.IdPersona
@@ -40,7 +41,6 @@ if (!empty($_SESSION['user']))
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Inicio
             <small></small>
           </h1>
           <ol class="breadcrumb">
@@ -63,6 +63,7 @@ if (!empty($_SESSION['user']))
                                 echo"<th>Medico</th>";
                                 echo"<th>Paciente</th>";
                                 echo"<th>Examen</th>";
+                                echo"<th>Indicacion</th>";
                                 echo"<th>Accion</th>";
                                 echo"</tr>";
                             echo"</thead>";
@@ -75,6 +76,7 @@ if (!empty($_SESSION['user']))
                                  echo"<td>".$row['Medico']."</td>";
                                  echo"<td>".$row['Paciente']."</td>";
                                  echo"<td>".$row['Examen']."</td>";
+                                 echo"<td>".$row['Indicacion']."</td>";
                                  echo "<td>".
                                         "<span id='btn".$idlistaexamen."' class='btn btn-xs btn-success btn-mdl'>Seleccionar Examen</span>".
                                         "</td>";

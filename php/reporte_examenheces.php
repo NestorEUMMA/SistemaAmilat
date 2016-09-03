@@ -8,6 +8,7 @@ if (!empty($_SESSION['user']))
 
       $idlistaexamen = $_POST['txtListaExamen'];
       $idpersona = $_POST['txtPersona'];
+  
 
 $querymedicamentos = "SELECT le.IdListaExamen, CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente',te.NombreExamen,
     eh.Fecha As 'ExamenHecesFecha', eh.Color As 'ExamenHecesColor', eh.Consistencia As 'ExamenHecesConsistencia',

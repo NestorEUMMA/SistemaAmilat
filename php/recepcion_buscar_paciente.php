@@ -6,10 +6,11 @@ session_start();
 if (!empty($_SESSION['user']))
   {
     $queryexpedientes = "SELECT p.IdPersona, CONCAT(p.Nombres,  ' ', p.Apellidos) as NombreCte, p.FechaNacimiento, p.Genero, p.Direccion , e.NombreEstado as Estado  FROM persona p
-    INNER JOIN estado e on p.IdEstado = e.IdEstado order by Nombres ASC";
+    INNER JOIN estado e on p.IdEstado = e.IdEstado 
+    order by Nombres ASC";
     $resultadoexpedientes = $mysqli->query($queryexpedientes);
 
-    $queryestado = " SELECT * FROM estado ";
+    $queryestado = " SELECT * FROM estado limit 1,3 ";
     $resultadoestado = $mysqli->query($queryestado);
 
 ?>
@@ -75,11 +76,27 @@ if (!empty($_SESSION['user']))
                                  echo"<td>".$row['Direccion']."</td>";
                                  echo"<td>".$row['Estado']."</td>";
                                  if($row['Estado'] == 'Consulta'){
-                                  echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' class='btn  btn-danger' data-toggle='modal' data-target='#modalConsulta'> Estado Consulta <i class='fa fa-heartbeat  '></i></span></div></td>";
+                                  echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled'style='width: 75%' class='btn  btn-info' data-toggle='modal' data-target='#modalConsulta'> ESTADO: INICIANDO PROCESO <i class='fa fa-heartbeat  '></i></span></div></td>";
+
+                                 }
+                                 elseif ($row['Estado'] == 'Signos Vitales') {
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-warning' data-toggle='modal' data-target='#modalConsulta'> ESTADO: SIGNOS VITALES <i class='fa fa-heartbeat  '></i></span></div></td>";
+
+                                 }
+                                 elseif ($row['Estado'] == 'Consulta Medica') {
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-danger' data-toggle='modal' data-target='#modalConsulta'> ESTADO CONSULTA MEDICA <i class='fa fa-heartbeat  '></i></span></div></td>";
+
+                                 }
+                                elseif ($row['Estado'] == 'Examenes Laboratorio') {
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-success' data-toggle='modal' data-target='#modalConsulta'> ESTADO LABORATORIO <i class='fa fa-heartbeat  '></i></span></div></td>";
+
+                                 }
+                               elseif ($row['Estado'] == 'Enfermeria') {
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled'  style='width: 75%' class='btn  btn-success' data-toggle='modal' data-target='#modalConsulta'> ESTADO ENFERMERIA <i class='fa fa-heartbeat  '></i></span></div></td>";
 
                                  }
                                  else{
-                                 echo"<td><div id='btn$id' class='btn-exp'><span class='btn  btn-success' data-toggle='modal' data-target='#modalConsulta'> Ingresar Consulta <i class='fa fa-heartbeat  '></i></span></div></td>";
+                                 echo"<td><div id='btn$id' class='btn-exp'><span  style='width: 75%' class='btn  btn-success' data-toggle='modal' data-target='#modalConsulta'> INICIAR CONSULTA <i class='fa fa-heartbeat  '></i></span></div></td>";
                                  echo"</tr>"; 
                                  }
                                  

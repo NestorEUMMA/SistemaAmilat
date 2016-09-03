@@ -6,12 +6,13 @@ $idusuario = $_SESSION['IdUsuario'];
 
 if (!empty($_SESSION['user']))
   {
-    $queryexpedientes = "SELECT c.IdPersona as 'IdPersona', c.IdConsulta, CONCAT(u.Nombres,' ',u.Apellidos) as 'Medico', CONCAT(p.Nombres,' ',p.Apellidos) as 'Paciente', c.FechaConsulta as 'Fecha',
+    $queryexpedientes = "SELECT c.IdPersona as 'IdPersona', c.IdConsulta As 'IdConsulta', CONCAT(u.Nombres,' ',u.Apellidos) as 'Medico', CONCAT(p.Nombres,' ',p.Apellidos) as 'Paciente', c.FechaConsulta as 'Fecha',
       c.Activo, c.IdEstado
       FROM consulta c
       INNER JOIN usuario u ON u.IdUsuario = c.IdUsuario
       INNER JOIN persona p ON p.IdPersona = c.IdPersona
-      where u.IdUsuario = ".$idusuario." and c.Activo = 1 and c.IdEstado = 2";
+      where u.IdUsuario = ".$idusuario." and c.Activo = 1 and c.IdEstado = 2
+      ORDER BY IdConsulta ASC";
 
     $resultadoexpedientes = $mysqli->query($queryexpedientes);
 
@@ -58,6 +59,7 @@ if (!empty($_SESSION['user']))
                         <?php
                                 echo"<thead>";
                                     echo"<tr>";
+                                    echo"<th>ID</th>";
                                     echo"<th>Medico</th>";
                                     echo"<th>Nombre Completo del Paciente</th>";
                                     echo"<th>Fecha</th>";
@@ -71,6 +73,7 @@ if (!empty($_SESSION['user']))
                                        $id = $row['IdConsulta'];
                                      $idp = $row['IdPersona'];
                                      echo"<tr>";
+                                     echo"<td>".$row['IdConsulta']."</td>";
                                      echo"<td>".$row['Medico']."</td>";
                                      echo"<td>".$row['Paciente']."</td>";
                                      echo"<td>".$row['Fecha']."</td>";

@@ -2,6 +2,8 @@
   //$ruta = 'http://localhost:8080/SistemaAmilat/';
   //$ruta = 'http://sistema.shalom.org/SistemaAmilat/';
  $ruta = 'http://localhost/SistemaAmilat/';
+//  $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
+ //$ruta = 'http://localhost/SistemaAmilat/';
 ?>
   <head>
 
@@ -35,7 +37,7 @@
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/select2/select2.min.css">
 
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/datatables/dataTables.bootstrap.css">
-    
+
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
@@ -56,7 +58,7 @@
       background: transparent !important;
     }
   </style>
-    
+
     <script src="<?php echo $ruta; ?>web/plugins/jQuery/jQuery-2.2.0.min.js"></script>
     <!-- Bootstrap 3.3.6 -->
     <script src="<?php echo $ruta; ?>web/bootstrap/js/bootstrap.min.js"></script>
@@ -78,7 +80,7 @@
     <script src="<?php echo $ruta; ?>web/plugins/input-mask/jquery.inputmask.extensions.js"></script>
     <!-- date-range-picker -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-    
+
     <script src="<?php echo $ruta; ?>web/plugins/daterangepicker/daterangepicker.js"></script>
     <!-- bootstrap datepicker -->
     <script src="<?php echo $ruta; ?>web/plugins/datepicker/bootstrap-datepicker.js"></script>
@@ -94,7 +96,7 @@
     <script src="<?php echo $ruta; ?>web/plugins/datatables/jquery.dataTables.min.js"></script>
 
     <script src="<?php echo $ruta; ?>web/plugins/datatables/dataTables.bootstrap.min.js"></script>
-      
+
 </head>
 
 <script>

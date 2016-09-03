@@ -1,4 +1,4 @@
-<?php
+  <?php
 
 include '../include/dbconnect.php';
 session_start();
@@ -63,7 +63,7 @@ if (!empty($_SESSION['user']))
                               <li><a href="#tab_1" data-toggle="tab"><i class="fa fa-user"></i> Datos generales</a></li>
                               <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-users"></i> Responsable</a></li>
                               <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-heartbeat"></i> Datos médicos</a></li>
-                              <li class="active"><a href="#tab_4" data-toggle="tab"><i class="fa fa-money"></i> Socioeconómico</a></li>
+                              <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-money"></i> Socioeconómico</a></li>
 
                               <li class="pull-right">
                                 <button type="submit" class="btn btn-success" name="guardarPaciente">Guardar</button>
@@ -71,7 +71,7 @@ if (!empty($_SESSION['user']))
                               </li>
                             </ul>
                             <div class="tab-content">
-                              <div class="tab-pane" id="tab_1">
+                              <div class="tab-pane active" id="tab_1">
                                 
                                 <div class="box box-success box-solid">                              
                                     <div class="box-header">
@@ -148,7 +148,7 @@ if (!empty($_SESSION['user']))
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" id="cboGeografia" name="cboGeografia" required="">
+                                        <select class="form-control select2" style="width: 100%;" id="cboGeografia" name="cboGeografia" >
                                           <option value=""></option>
                                           <?php
                                             while ($row = $resultadodepartamentos->fetch_assoc()) {
@@ -251,6 +251,7 @@ if (!empty($_SESSION['user']))
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-users"></i></div>
+<<<<<<< HEAD
                                         <select class="form-control" id="txtParentesco" name="txtParentesco">
                                             <option value=""></option>
                                             <option value="MADRE">MADRE</option>
@@ -265,11 +266,18 @@ if (!empty($_SESSION['user']))
                                             <option value="PRIMA">PRIMA</option>
                                             <option value="NINGUNO">NINGUNO</option>
                                         </select>
+=======
+                                        <input type="text" class="form-control" id="txtParentesco"  name="txtParentesco" required=""/>
+>>>>>>> 6b005de6b121a84db0feecdd311434779ad8a025
                                       </div>
                                     </div>
                                 
 
+<<<<<<< HEAD
                                     <label for="txtDuiResponsable" class="col-sm-1 control-label">DUI</label>
+=======
+                                    <label for="txtDuiResponsable" class="col-sm-1 control-label">Dui Responsable</label>
+>>>>>>> 6b005de6b121a84db0feecdd311434779ad8a025
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
@@ -334,7 +342,7 @@ if (!empty($_SESSION['user']))
                                 </div>
                               </div>
 
-                              <div class="tab-pane active" id="tab_4">
+                              <div class="tab-pane " id="tab_4">
 
 
                                 <div class="box box-warning box-solid">                              
@@ -367,6 +375,7 @@ if (!empty($_SESSION['user']))
                             </div>            
                           </div>
                         </div>
+
                       </form>
                     </div>
                   </div>

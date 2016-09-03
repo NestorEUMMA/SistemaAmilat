@@ -22,10 +22,14 @@ session_start();
     $apellidos = $_POST['txtApellidos'];
     $dui = $_POST['txtDui'];
     $fnacimiento = $_POST['txtFNacimiento'];
+<<<<<<< HEAD
     
 
 
 
+=======
+    $geografia = $_POST['z'];
+>>>>>>> 6b005de6b121a84db0feecdd311434779ad8a025
     $direccion = $_POST['txtDireccion'];
     $genero = $_POST['cboGenero'];
     $estadocivil = $_POST['cboEstadoCivil'];

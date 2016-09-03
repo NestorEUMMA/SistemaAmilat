@@ -651,62 +651,251 @@ if (!empty($_SESSION['user']))
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
+                                <div class="col-sm-2"><label for="inputEmail3" class="control-label">F/R</label></div>
+                                <div class="col-sm-2"> <input type="text" class="form-control"  name="txtFR" id="FR" required=""> </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
                                 <div class="col-sm-2"><label for="inputEmail3" class="control-label">Pulso</label></div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999-999"' data-mask name="txtPulso" id="pulso" required=""> </div>
+                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtPulso" id="pulso" required=""> </div>
                                 <div class="col-sm-2"> <label for="inputEmail3" class="control-label">lat/min</label></div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
                                 <div class="col-sm-2"><label for="inputEmail3" class="control-label">Presion</label></div>
                                 <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMax" placeholder="MAX" id="max" required=""> </div>
-                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "999"' data-mask name="txtMin" placeholder="MIN" id="min" required=""> </div>
+                                <div class="col-sm-2"> <input type="text" class="form-control" data-inputmask='"mask": "99"' data-mask name="txtMin" placeholder="MIN" id="min" required=""> </div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">mmHg</label></div>
                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
-                                <div class="col-sm-2"><label for="inputEmail3" class="control-label">Observaciones</label></div>
+                                <div class="col-sm-2"><label for="inputEmail3" class="control-label">Glucotex</label></div>
+                                <div class="col-sm-2"> <input type="text" class="form-control"  name="txtGluco"  id="gluco" required=""> </div>
+                              </div>
+                              </div>
+                              </div>
+
+                              <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">USO GINECOLOGICO</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Ult. Menstruacion</label></div>
+                                <div class="col-sm-4"> <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtUmestruacion" id="ultimamestruacion"> </div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Ult.PAP</label></div>
+                                <div class="col-sm-4"> <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtUpap" id="ultimapap"> </div>
+                              </div>
+
+                      </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">USO PEDIATRICO</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/C</label></div>
+                                <div class="col-sm-3"> <input type="text" class="form-control" name="txtpc" id="pc"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/T</label></div>
+                                <div class="col-sm-3"> <input type="text" class="form-control"  name="txtpt" id="pt"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>
+                              </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">P/A</label></div>
+                                <div class="col-sm-3"> <input type="text" class="form-control"  name="txtpa" id="pa"></div>
+                                <div class="col-sm-1"><label for="inputEmail3" class="control-label">cm.</label></div>  
+                              </div>
+
+                      </div>
+                      </div>
+                      </div>
+
+                      <div class="row">
+                      <div class="col-md-12">
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">OTROS</h3>
+                      </div>
+                              <div class="form-group">
+                                <div class="col-sm-1"></div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Observaciones</label></div>
                                 <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtObservaciones" data-parsley-maxlength="100" id="observaciones" data-parsley-maxlength="100"> </textarea> </div>
                               </div>
-                              </div>
-                              </div>
-
-
-                              <div class="box-header with-border">
-                                <h3 class="box-title">Diagnostico de Consulta</h3>
-                              </div>
-                              <div class="box box-primary">
-                               <div class="box-body">
-                               </br>
-                               <div class="form-group">
-                               <div class="col-sm-1"></div>
-                                <div class="col-sm-2"><label for="inputEmail3" class="control-label">Enfermedad</label></div>
-                                 <div class="col-sm-7">
-                                                <select class="form-control select2" style="width: 100%;" name="cboEnfermedad">
-                                                <?php
-                                                while ($row = $resultadotablaenfermedad->fetch_assoc()) {
-                                                  echo "<option value = '".$row['IdEnfermedad']."'>".$row['Nombre']."</option>";
-                                                }
-                                              ?>
-                                                </select>
-                                </div>
-                               </div>
                               <div class="form-group">
                                 <div class="col-sm-1"></div>
-                                <div class="col-sm-2"><label for="inputEmail3" class="control-label">Diagnostico</label></div>
-                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtDiagnostico" data-parsley-maxlength="100" id="observaciones" data-parsley-maxlength="100"> </textarea> </div>
+                                <div class="col-sm-3"><label for="inputEmail3" class="control-label">Motivo de Visita</label></div>
+                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtMotivo" data-parsley-maxlength="100" id="motivo" data-parsley-maxlength="100" required=""> </textarea> </div>
                               </div>
-                              <div class="form-group">
-                                <div class="col-sm-1"></div>
-                                <div class="col-sm-2"><label for="inputEmail3" class="control-label">Comentarios</label></div>
-                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtComentarios" data-parsley-maxlength="100" id="observaciones" data-parsley-maxlength="100"> </textarea> </div>
-                              </div>
-                              <div class="form-group">
-                                <div class="col-sm-1"></div>
-                                <div class="col-sm-2"><label for="inputEmail3" class="control-label">Otros</label></div>
-                                <div class="col-sm-7"> <textarea type="text" rows="4" class="form-control" name="txtOtros" data-parsley-maxlength="100" id="observaciones" data-parsley-maxlength="100"> </textarea> </div>
-                              </div>
+                      </div>
+                      </div>
+                      </div> 
+                      <div class="row">
+                      <div class=col-md-12>
+                      <div class="box box-primary">
+                      <div class="box-header with-border">
+                      <h3 class="box-title">CONSULTA</h3>
+                      </div>
+                            <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label" >Enfermedad </label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <select class="form-control select2" style="width: 100%;"  name="cboEnfermedad">
+                                                                     <?php
+                                                                     while ($row = $resultadotablaenfermedad->fetch_assoc()) {
+                                                                         echo "<option value = '" . $row['IdEnfermedad'] . "'>" . $row['Nombre'] . "</option>";
+                                                                     }
+                                                                     ?>
+                                                                 </select>
+                                                             </div>
+                                                         </div>
+                                                     </div>
 
-                              </div>
-                              </div>
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Estado Nutricional</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtEstadoNutriconal" required=""> </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Alergias</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtAlergiass" required=""> </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Cirugias Previas</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtCirugiasPrevias" required=""> </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Medicamentos tomados Actualmente</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtMedicamentosTomados"> </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Examen Fisica</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control"  name="txtExamenFisica"> </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Diagnostico</label>
+                                                         <div class="col-sm-9"><div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtDiagnostico" required=""> </textarea>
+                                                             </div>
+                                                             <div class="hidden">
+                                                                 <textarea  type="text" rows="4" class="form-control"   name="txtconsultaID"> <?php echo $idconsulta ?> </textarea>
+                                                             </div>
+                                                             <div class="hidden">
+                                                                 <textarea  type="text" rows="4" class="form-control"   name="txtpersonaID"> <?php echo $idpersonaid ?> </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label" >Comentarios</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="comentarios" name="txtComentarios">  </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Otros</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="otros" name="txtOtros">  </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Plan de Tratamiento</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <textarea type="text" rows="3" class="form-control" id="otros" name="txtPlanTratamiento">  </textarea>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Fecha proxima visita</label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
+                                                                 <div class="input-group-addon">
+                                                                     <i class="fa fa-user"></i>
+                                                                 </div>
+                                                                 <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaProxima" required="">
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                      </div> 
+                      </div>
+                      </div>
+
+
+
+                           
                             </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-danger pull-left" id="btn-cerrarmodal" data-dismiss="modal" >Cerrar</button>

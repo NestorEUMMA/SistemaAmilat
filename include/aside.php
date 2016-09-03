@@ -1,6 +1,19 @@
+
+
     <aside class="main-sidebar">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
+              <div class="user-panel">
+        <div class="pull-left image">
+          </br>
+          </br>
+        </div>
+        <div class="pull-left info">
+          <p> <?php echo $_SESSION["user"] ?> </p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
           <ul class="sidebar-menu">
             <li class="header">MENU DE NAVEGACION</li>
 
@@ -71,7 +84,8 @@
                 <i class="fa fa-dashboard"></i> <span>Enfermeria</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="../php/enfermeria_index.php"><i class="fa fa-circle-o"></i> Busqueda de Expediente </a></li>
+                  <li><a href="../php/enfermeria_index.php"><i class="fa fa-circle-o"></i> Pacientes con Consulta </a></li>
+                  <li><a href="../php/enfermeria_index_sinconsulta.php"><i class="fa fa-circle-o"></i> Procedimientos </a></li>
               </ul>
             </li>
                   <?php
@@ -98,7 +112,7 @@
               <i class="fa fa-dashboard"></i> <span>Laboratorio</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../php/laboratorio_index_paciente.php"><i class="fa fa-circle-o"></i> Listado de Examenes Pendientes </a></li>
+                <li><a href="../php/laboratorio_index_paciente.php"><i class="fa fa-circle-o"></i> Examenes Pendientes </a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -119,7 +133,7 @@
                 <i class="fa fa-dashboard"></i> <span>Ver Recetas Activas</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="../web/vista_farmacia.php"><i class="fa fa-circle-o"></i> Farmacia </a></li>
+                  <li><a href="../web/farmacia_vista_farmacia.php"><i class="fa fa-circle-o"></i> Farmacia </a></li>
 
               </ul>
             </li>
@@ -128,8 +142,8 @@
               <i class="fa fa-dashboard"></i> <span>Ingreso de Medicamentos</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../web/index.php?r=medicamentos"><i class="fa fa-circle-o"></i> Ingreso de Medicamentos </a></li>
-                <li><a href="../web/entrada_medicamentos.php"><i class="fa fa-circle-o"></i> Ingreso de Lotes </a></li>
+                <li><a href="../web/farmacia_ingreso_medicamentos.php"><i class="fa fa-circle-o"></i> Ingreso de Medicamentos </a></li>
+                <li><a href="../web/farmacia_ingreso_lotes.php"><i class="fa fa-circle-o"></i> Ingreso de Lotes </a></li>
                 <li><a href="../web/index.php?r=laboratorio"><i class="fa fa-circle-o"></i> Ingreso de Laboratorio </a></li>
                 <li><a href="../web/index.php?r=categoria"><i class="fa fa-circle-o"></i> Ingreso de Categoria </a></li>
                 <li><a href="../web/index.php?r=unidadmedida"><i class="fa fa-circle-o"></i> Ingreso de Unidad de Medida </a></li>
@@ -140,8 +154,7 @@
               <i class="fa fa-dashboard"></i> <span>Ingreso de Bajas</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../web/historial_bajas.php"><i class="fa fa-circle-o"></i> Historial de Bajas </a></li>
-                <li><a href="../web/baja_vencimiento.php"><i class="fa fa-circle-o"></i> Bajas por Vencimiento </a></li>
+                <li><a href="../web/farmacia_baja_lotes.php"><i class="fa fa-circle-o"></i> Bajas </a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -149,7 +162,7 @@
               <i class="fa fa-dashboard"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../web/farmacia_listadomedicamento.php"><i class="fa fa-circle-o"></i> Lista de Medicamentos </a></li>
+                <li><a href="../web/farmacia_vista_kardex.php"><i class="fa fa-circle-o"></i> Entradas y Salidas </a></li>
             </ul>
           </li>
                 <?php

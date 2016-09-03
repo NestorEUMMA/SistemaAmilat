@@ -6,6 +6,7 @@ return [
     'username' => 'root',
     //'password' => 'hope2900clinic',
     'password' => '',
+    //'password' => 'nest2013',
     //'password' => '12345',
     'charset' => 'utf8',
 ];

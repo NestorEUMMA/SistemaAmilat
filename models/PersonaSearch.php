@@ -19,7 +19,7 @@ class PersonaSearch extends Persona
     {
         return [
             [['IdPersona', 'IdEstadoCivil', 'IdEstado'], 'integer'],
-            [['Nombres', 'Apellidos', 'FechaNacimiento', 'Direccion', 'Correo', 'IdGeografia', 'Genero', 'IdResponsable', 'IdParentesco', 'Telefono', 'Celular', 'Alergias', 'Medicamentos', 'Enfermedad', 'Dui', 'TelefonoResponsable'], 'safe'],
+            [['Nombres', 'Apellidos', 'FechaNacimiento', 'Direccion', 'Correo', 'IdGeografia', 'Genero', 'IdParentesco', 'Telefono', 'Celular', 'Alergias', 'Medicamentos', 'Enfermedad', 'Dui', 'TelefonoResponsable'], 'safe'],
         ];
     }
 
@@ -68,7 +68,7 @@ class PersonaSearch extends Persona
             ->andFilterWhere(['like', 'Correo', $this->Correo])
             ->andFilterWhere(['like', 'IdGeografia', $this->IdGeografia])
             ->andFilterWhere(['like', 'Genero', $this->Genero])
-            ->andFilterWhere(['like', 'IdResponsable', $this->IdResponsable])
+           // ->andFilterWhere(['like', 'IdResponsable', $this->IdResponsable])
             ->andFilterWhere(['like', 'IdParentesco', $this->IdParentesco])
             ->andFilterWhere(['like', 'Telefono', $this->Telefono])
             ->andFilterWhere(['like', 'Celular', $this->Celular])
