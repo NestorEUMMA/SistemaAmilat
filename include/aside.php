@@ -113,6 +113,7 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="../php/laboratorio_index_paciente.php"><i class="fa fa-circle-o"></i> Examenes Pendientes </a></li>
+                 <li><a href="../php/laboratorio_pacientes_externos.php"><i class="fa fa-circle-o"></i> Pacientes Externos Activos </a></li>
             </ul>
           </li>
           <li class="treeview">
