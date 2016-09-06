@@ -7,13 +7,10 @@ return [
     //'username' => 'root',
 	'username' => '9b35fa_clinica',
     //'password' => 'hope2900clinic',
-<<<<<<< HEAD
-    'password' => 'nest2013',
+    //'password' => 'nest2013',
     //'password' => '12345',
-=======
     //'password' => 'nest2013',
     //'password' => '12345',
 	'password' => 'clinica2016',
->>>>>>> 2e4fa8ab64c4bf93cec674c56cdaa344bedcb62d
     'charset' => 'utf8',
 ];

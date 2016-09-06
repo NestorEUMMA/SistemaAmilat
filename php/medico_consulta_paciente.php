@@ -408,7 +408,7 @@ if (!empty($_SESSION['user'])) {
                                                                                                        if ($unidadpeso == 1) {
                                                                                                            echo "<option>Mts</option>";
                                                                                                        } else {
-                                                                                                           echo "<option>Pies</option>";
+                                                                                                           echo "<option>Cms</option>";
                                                                                                        }
                                                                                                        ?>
                                                                                                    </select>
@@ -1882,7 +1882,7 @@ if (!empty($_SESSION['user'])) {
                                                                                                     if ($unidadpeso == 1) {
                                                                                                         echo "<option>Mts</option>";
                                                                                                     } else {
-                                                                                                        echo "<option>Pies</option>";
+                                                                                                        echo "<option>Cms</option>";
                                                                                                     }
                                                                                                     ?>
                                                                                                 </select>
@@ -2902,7 +2902,7 @@ if (!empty($_SESSION['user'])) {
                         if (data.UnidadAltura == 1) {
                             $("#unidadalturas").val("Mts");
                         } else {
-                            $("#unidadalturas").val("Pies");
+                            $("#unidadalturas").val("Cms");
                         }
                         $("#temperaturas").val(data.Temperatura);
                         if (data.UnidadTemperatura == 1) {
