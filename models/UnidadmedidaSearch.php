@@ -19,7 +19,7 @@ class UnidadmedidaSearch extends Unidadmedida
     {
         return [
             [['IdUnidadMedida'], 'integer'],
-            [['Nombre'], 'safe'],
+            [['NombreUnidadMedida'], 'safe'],
         ];
     }
 
@@ -59,7 +59,7 @@ class UnidadmedidaSearch extends Unidadmedida
             'IdUnidadMedida' => $this->IdUnidadMedida,
         ]);
 
-        $query->andFilterWhere(['like', 'Nombre', $this->Nombre]);
+        $query->andFilterWhere(['like', 'NombreUnidadMedida', $this->NombreUnidadMedida]);
 
         return $dataProvider;
     }

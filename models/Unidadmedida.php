@@ -8,7 +8,7 @@ use Yii;
  * This is the model class for table "unidadmedida".
  *
  * @property integer $IdUnidadMedida
- * @property string $Nombre
+ * @property string $NombreUnidadMedida
  *
  * @property Medicamentos[] $medicamentos
  */
@@ -28,8 +28,8 @@ class Unidadmedida extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Nombre'], 'required'],
-            [['Nombre'], 'string', 'max' => 50]
+            [['NombreUnidadMedida'], 'required'],
+            [['NombreUnidadMedida'], 'string', 'max' => 50]
         ];
     }
 
@@ -40,7 +40,7 @@ class Unidadmedida extends \yii\db\ActiveRecord
     {
         return [
             'IdUnidadMedida' => 'Id Unidad Medida',
-            'Nombre' => 'Nombre',
+            'NombreUnidadMedida' => 'Nombre Unidad Medida',
         ];
     }
 

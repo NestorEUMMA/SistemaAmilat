@@ -9,6 +9,8 @@ return [
     //'password' => 'hope2900clinic',
     //'password' => 'nest2013',
     //'password' => '12345',
+    //'password' => 'nest2013',
+    //'password' => '12345',
 	'password' => 'clinica2016',
     'charset' => 'utf8',
 ];

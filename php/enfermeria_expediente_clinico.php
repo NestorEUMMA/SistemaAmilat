@@ -655,7 +655,7 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-2">
                                  <select class="form-control select2" name="cboUnidadAltura" id="unidadaltura">
                                     <option value="1">Mts</option>
-                                    <option Value="2">Pies</option>
+                                    <option Value="2">Cms</option>
                                   </select>
                                 </div>
                               </div>
@@ -851,7 +851,7 @@ if (!empty($_SESSION['user']))
                                 <div class="col-sm-2">
                                  <select class="form-control select2" disabled="disabled" name="cboUnidadAltura" id="unidadalturas">
                                     <option value="1">mts</option>
-                                    <option Value="2">Pies</option>
+                                    <option Value="2">Cms</option>
                                   </select>
                                 </div>
                               </div>
@@ -1042,7 +1042,7 @@ if (!empty($_SESSION['user']))
                         $("#unidadalturas").val("Mts");
                     }
                     else{
-                      $("#unidadalturas").val("Pies");
+                      $("#unidadalturas").val("Cms");
                     }
                     $("#temperaturas").val(data.Temperatura);
                     if (data.UnidadTemperatura ==1){

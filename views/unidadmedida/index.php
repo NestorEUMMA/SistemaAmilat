@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'IdUnidadMedida',
-            'Nombre',
+            'NombreUnidadMedida',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

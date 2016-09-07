@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\Models\Unidadmedida */
 
-$this->title = $model->Nombre;
+$this->title = $model->NombreUnidadMedida;
 $this->params['breadcrumbs'][] = ['label' => 'Unidad Medida', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -36,7 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attributes' => [
 
                         'IdUnidadMedida',
-            'Nombre',
+            'NombreUnidadMedida',
                     ],
                 ]) ?>
 
