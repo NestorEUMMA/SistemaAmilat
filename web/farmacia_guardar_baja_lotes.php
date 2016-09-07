@@ -20,9 +20,9 @@ $resultadoinsertbaja = $mysqli->query($insertbaja);
 
 
 $updatelotes = "
-UPDATE medicamentolote
+UPDATE medicamentos
 set activo = 0
-WHERE CodigoLote = '$codigo'
+WHERE IdMedicamento = '$idmedicamento'
 				";
 $resultadoupdatelotes = $mysqli->query($updatelotes);
 

@@ -6,11 +6,10 @@ session_start();
 if (!empty($_SESSION['user']))
   {
   $querylotes = "
-SELECT concat(B.NombreMedicamento, ' - ', C.NombrePresentacion) as NOMBRE, A.CodigoLote as CODIGO, A.FechaExpedicion as FECHA_EXPEDICION,
- A.FechaVencimiento as FECHA_VENCIMIENTO, A.Cantidad as CANTIDAD, B.IdMedicamento as IDMEDICAMENTO
-FROM medicamentolote as A
-LEFT JOIN medicamentos as B on B.IdMedicamento = A.IdMedicamento
-LEFT JOIN presentacion as C on C.IdPresentacion = B.IdPresentacion
+SELECT concat(A.NombreMedicamento, ' - ', B.NombrePresentacion) as NOMBRE, A.Codigo as CODIGO, A.Lote as LOTE, A.FechaExpedicion as FECHA_EXPEDICION,
+ A.FechaVencimiento as FECHA_VENCIMIENTO, A.IdMedicamento as IDMEDICAMENTO, A.Existencia as EXISTENCIA
+FROM medicamentos as A
+LEFT JOIN presentacion as B on B.IdPresentacion = A.IdPresentacion
 WHERE A.activo = 1
 ORDER BY A.FechaVencimiento DESC
               ";
@@ -56,7 +55,7 @@ ORDER BY A.FechaVencimiento DESC
     <div class="box-body">
     <table id="example2" class="table table-bordered table-hover">
     <tr>
-      <th>MEDICAMENTO</th><th>CODIGO</th><th>F.EXPEDICION</th>
+      <th>MEDICAMENTO</th><th>CODIGO</th><th>LOTE</th><th>F.EXPEDICION</th>
       <th>F.VENCIMIENTO</th><th>CANTIDAD</th><th>MOTIVO</th><th>ACCION</th>
     </tr>
      <?php
@@ -68,13 +67,15 @@ ORDER BY A.FechaVencimiento DESC
           <tr>
           <td>".$row['NOMBRE']."</td>
           <td>".$row['CODIGO']."</td>
+          <td>".$row['LOTE']."</td>
           <td>".$row['FECHA_EXPEDICION']."</td>
           <td>".$row['FECHA_VENCIMIENTO']."</td>
-          <td><input type = 'text' name = 'cantidad'></td>
+          <td><input type = 'text' name = 'cantidad'> / ".$row['EXISTENCIA']."</td>
           <td>
             <select class='form-control select2' style='width: 100%;' name = 'ID_MOVIMIENTO'>
               <option value = '3'>Baja por Vencimiento</option>
               <option value = '4'>Baja por Deterioro</option>
+              <option value = '5'>Baja por Donacion</option>
             </select>
           </td>
           <td>

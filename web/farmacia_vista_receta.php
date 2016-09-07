@@ -9,18 +9,20 @@ $idreceta = $_POST['idreceta'];
 
 
 $queryreceta = "
-SELECT b.NombreMedicamento as NOMBRE, truncate(a.cantidad, 0) as CANTIDAD, a.horas as HORAS, a.dias as DIAS, a.total as TOTAL, 
+SELECT concat(b.NombreMedicamento, ' - ', e.NombrePresentacion) as NOMBRE, truncate(a.cantidad, 0) as CANTIDAD, a.horas as HORAS, a.dias as DIAS, a.total as TOTAL, 
 a.IdMedicamento as idmedicamento,
 CASE 
-WHEN d.Categoria = 'A' THEN b.PrecioVentaA
-WHEN d.Categoria = 'B' THEN b.PrecioVentaB
-WHEN d.Categoria = 'C' THEN b.PrecioVentaC
-WHEN d.Categoria = 'D' THEN b.PrecioVentaD 
-END PRECIO
+WHEN d.Categoria = 'A' THEN (b.PrecioUnitario * a.total) * 1
+WHEN d.Categoria = 'B' THEN (b.PrecioUnitario * a.total) * 0.7
+WHEN d.Categoria = 'C' THEN (b.PrecioUnitario * a.total) * 0.5
+WHEN d.Categoria = 'D' THEN 0
+END PRECIO,
+b.Existencia as existencia
 FROM receta_medicamentos as a
-INNER JOIN medicamentos as b on b.IdMedicamento = a.IdMedicamento
-INNER JOIN receta as c on c.IdReceta = a.IdReceta
-INNER JOIN persona as d on d.IdPersona = c.IdReceta
+LEFT JOIN medicamentos as b on b.IdMedicamento = a.IdMedicamento
+LEFT JOIN receta as c on c.IdReceta = a.IdReceta
+LEFT JOIN persona as d on d.IdPersona = c.IdReceta
+LEFT JOIN presentacion e on e.IdPresentacion = b.IdPresentacion
 WHERE a.IdReceta = $idreceta
 ";
 $resultadoreceta = $mysqli->query($queryreceta);
@@ -83,6 +85,7 @@ while ($row2 = $resultadocuentamedicamentos->fetch_assoc()) {
   <input type='hidden' name = 'idmedicamento".$i."' value='".$row['idmedicamento']."'>
   <input type='hidden' name = 'total".$i."' value='".$row['TOTAL']."'>
   <input type='hidden' name = 'precio".$i."' value='".$row['PRECIO']."'>
+  <input type='hidden' name = 'existencia".$i."' value='".$row['existencia']."'>
   </tr>
   ";
   $i = $i + 1;
