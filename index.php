@@ -10,15 +10,13 @@ if(isset($_POST['btn-login']))
 SELECT a.IdUsuario, a.InicioSesion, b.IdPuesto, b.Descripcion as NombrePuesto, concat(a.Nombres, ' ', a.Apellidos) as NombreCompleto
 FROM usuario as a 
 inner join puesto as b on b.IdPuesto = a.IdPuesto
-WHERE InicioSesion='$InicioSesion' and Clave = md5('$Clave') and Activo = 1
-";
+WHERE InicioSesion='$InicioSesion' and Clave = md5('$Clave') and Activo = 1";
  $resultado_usuario = $mysqli->query($queryusuario);
  while ($row = $resultado_usuario->fetch_assoc()) {
         $_SESSION['IdUsuario'] = $row['IdUsuario']; 
         $_SESSION['user'] = $row['InicioSesion'];
         $_SESSION['IdPuesto'] = $row['IdPuesto'];
-        $_SESSION['NombrePuesto'] = $row['NombrePuesto'];
-        $_SESSION['IdPuesNombreCompletoto'] = $row['NombreCompleto'];
+      
               }
 
 if(!empty($_SESSION['user']))
