@@ -10,7 +10,7 @@
 include_once '../include/dbconnect.php';
 session_start();
 
-$id = 2; //$_POST["IdFactor"];
+$id = $_POST["IdFactor"];
 
 $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = $id";
 $tblPreguntas = $mysqli->query($query);
@@ -69,7 +69,8 @@ foreach ($arrPreguntas as $iP => $vP) {
 				case "1":
 				{
 					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<input id='$IdPregunta' name='$IdPregunta' type='text' />";
+					//echo "<input id='$IdPregunta' name='$IdPregunta' type='text' />";
+					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='2'> </textarea>";
 					break;
 				}
 				case "2":

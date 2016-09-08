@@ -64,6 +64,7 @@ if (!empty($_SESSION['user']))
                               <li><a href="#tab_2" data-toggle="tab"><i class="fa fa-users"></i> Responsable</a></li>
                               <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-heartbeat"></i> Datos médicos</a></li>
                               <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-money"></i> Socioeconómico</a></li>
+                              <li><a href="#tab_5" data-toggle="tab"><i class="fa fa-heartbeat"></i> Historial Clinico</a></li>
 
                               <li class="pull-right">
                                 <button type="submit" class="btn btn-success" name="guardarPaciente">Guardar</button>
@@ -366,7 +367,25 @@ if (!empty($_SESSION['user']))
                                         </div>
                                     </div>
                                   </div>
-                              </div>              
+                              </div> 
+                              <div class="tab-pane " id="tab_5">
+
+
+                                <div class="box box-warning box-solid">                              
+                                    <div class="box-header">
+                                        <h3 class="box-title"><i class="fa fa-credit-card"></i> Historial Clinico:</h3>
+
+
+
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="col-sm-10 col-sm-offset-1">
+                                        <?php //include 'test.php' ?>
+                                        <div id="historialclinico"></div>
+                                        </div>
+                                    </div>
+                                  </div>
+                              </div>             
                             </div>            
                           </div>
                         </div>
@@ -414,12 +433,20 @@ if (!empty($_SESSION['user']))
 
   $(document).ready(function(){
 
-    $(".select3").select2();
     
-    $.post( "test.php", { IdFactor: 2})
+    
+    $.post( "test.php", { IdFactor: 1})
       .done(function( data ) {
         $("#test").html(data);
+        
     });
+
+      $.post( "test.php", { IdFactor: 2})
+      .done(function( data ) {
+        $("#historialclinico").html(data);
+        $(".select3").select2();
+        $(".select2-container").css("width","100%");
+      });
 
 
 
