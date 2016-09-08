@@ -133,7 +133,7 @@
                 <i class="fa fa-dashboard"></i> <span>Ver Recetas Activas</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                  <li><a href="../web/farmacia_vista_farmacia.php"><i class="fa fa-circle-o"></i> Farmacia </a></li>
+                  <li><a href="../web/vista_farmacia.php"><i class="fa fa-circle-o"></i> Farmacia </a></li>
 
               </ul>
             </li>
@@ -142,8 +142,8 @@
               <i class="fa fa-dashboard"></i> <span>Ingreso de Medicamentos</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../web/farmacia_ingreso_medicamentos.php"><i class="fa fa-circle-o"></i> Ingreso de Medicamentos </a></li>
-                <li><a href="../web/farmacia_ingreso_lotes.php"><i class="fa fa-circle-o"></i> Ingreso de Lotes </a></li>
+                <li><a href="../web/index.php?r=medicamentos"><i class="fa fa-circle-o"></i> Ingreso de Medicamentos </a></li>
+                <li><a href="../web/entrada_medicamentos.php"><i class="fa fa-circle-o"></i> Ingreso de Lotes </a></li>
                 <li><a href="../web/index.php?r=laboratorio"><i class="fa fa-circle-o"></i> Ingreso de Laboratorio </a></li>
                 <li><a href="../web/index.php?r=categoria"><i class="fa fa-circle-o"></i> Ingreso de Categoria </a></li>
                 <li><a href="../web/index.php?r=unidadmedida"><i class="fa fa-circle-o"></i> Ingreso de Unidad de Medida </a></li>
@@ -154,7 +154,8 @@
               <i class="fa fa-dashboard"></i> <span>Ingreso de Bajas</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../web/farmacia_baja_lotes.php"><i class="fa fa-circle-o"></i> Bajas </a></li>
+                <li><a href="../web/historial_bajas.php"><i class="fa fa-circle-o"></i> Historial de Bajas </a></li>
+                <li><a href="../web/baja_vencimiento.php"><i class="fa fa-circle-o"></i> Bajas por Vencimiento </a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -162,7 +163,7 @@
               <i class="fa fa-dashboard"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../web/farmacia_vista_kardex.php"><i class="fa fa-circle-o"></i> Entradas y Salidas </a></li>
+                <li><a href="../web/farmacia_listadomedicamento.php"><i class="fa fa-circle-o"></i> Lista de Medicamentos </a></li>
             </ul>
           </li>
                 <?php
