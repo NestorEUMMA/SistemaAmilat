@@ -91,7 +91,7 @@
 
                 <section class="content-header">
                   <h1>
-                    Sistema Amilat
+                    SistemaTPV | Centro Medico Familiar Shalom
                     <small>Adminstración de Inventarios y Farmacia</small>
                   </h1>
                   <ol class="breadcrumb">
@@ -227,6 +227,8 @@
                     <!-- ./col -->
                   </div>
 
+
+            
 
 
                 </section>

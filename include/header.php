@@ -1,11 +1,28 @@
+<?php 
+    $iniciosesion = $_SESSION["user"];
+
+    $queryexpedientes = "SELECT u.InicioSesion As 'InicioSesion', CONCAT(u.Nombres,' ',u.Apellidos) As 'Usuario', p.Descripcion As 'Puesto'
+                      from usuario u
+                      INNER JOIN puesto p on u.IdPuesto = p.IdPuesto
+                      WHERE InicioSesion = '$iniciosesion'";
+                  $resultadoexpedientes = $mysqli->query($queryexpedientes);
+                  while ($test = $resultadoexpedientes->fetch_assoc())
+                  {
+                      $inicio = $test['InicioSesion'];
+                      $usuario = $test['Usuario'];
+                      $puesto = $test['Puesto'];
+                      
+                  }
+ ?>
+
 
      <header class="main-header">
         <!-- Logo -->
         <a href="../php/app.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>S</b>A</span>
+          <span class="logo-mini"><b>S</b>TPV</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Sistema</b>Amilat</span>
+          <span class="logo-lg"><b>Sistema</b>PiedrasVivas</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -22,14 +39,31 @@
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs"> Bienvenido: <?php echo $_SESSION["user"] ?></span>
-                  <span class="hidden-xs"> </span>
+                  <span class="hidden-xs"> BIENVENIDO: <?php echo $inicio; ?></span>
                 </a>
                 <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-footer">
-                    <img src="../img/Captura.JPG"  alt="User Image">
-                  </li>
+                 <li class="user-header">
+                <img src="../img/Captura.JPG" alt="User Image">
+
+                <p>
+                  <?php echo $usuario; ?> - <?php echo $puesto;  ?>
+                </p>
+              </li>
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#"></a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+        
 
                   <!-- Menu Footer-->
                   <li class="user-footer">

@@ -8,11 +8,11 @@
 <?php
 
 include_once '../include/dbconnect.php';
-//session_start();
+session_start();
 
-$id = '1'; //$_POST["IdFactor"];
+$id = 2; //$_POST["IdFactor"];
 
-$query = "select IdPregunta,Nombre from pregunta where IdFactor = $id";
+$query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = $id";
 $tblPreguntas = $mysqli->query($query);
 $arrPreguntas = array();
 
@@ -44,22 +44,56 @@ while ($f = $tblRespuestas->fetch_assoc())
 $i=0;
 foreach ($arrPreguntas as $iP => $vP) {
 	echo "<tr>";
-	echo "<td class='text-center'>". ++$i . "</td>";
-	echo "<td><label class='form-label'>". $vP["Nombre"]. "<label></td>";
-	echo "<td>". "<select style='width:100%'>";
-	echo "<option value=''></option>";
-	foreach ($arrRespuestas as $iR => $vR) {
-		if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
-			echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
-		}
-	}
-	
-	echo "</select></td>";
+		echo "<td class='text-center'>". ++$i . "</td>";
+		echo "<td>";
+			//echo "<label for='selPregunta". $vP["IdPregunta"] ."' class='form-label'>". $vP["Nombre"]. "<label>";
+			echo $vP["Nombre"];
+		echo "</td>";
+		echo "<td>";
 
+			switch ($vP["Ponderacion"]) {
+				case "0":
+				{
+					echo "<select id='selPregunta". $vP["IdPregunta"] . "' name='selPregunta".$vP["IdPregunta"] . "' class='form-control select2' required  onfocus='inFocus(this)' onfocusout='outFocus(this)' >";
+					echo "<option value=''></option>";
+						
+					foreach ($arrRespuestas as $iR => $vR) {
+						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
+							echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
+						}
+					}
+			
+					echo "</select>";
+					break;
+				}
+				case "1":
+				{
+					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
+					echo "<input id='$IdPregunta' name='$IdPregunta' type='text' />";
+					break;
+				}
+				case "2":
+				{
+					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
+					echo "<select id='$IdPregunta' name='$IdPregunta' class='form-control select3' multiple='multiple' required >";
+					echo "<option value=''></option>";
+						
+					foreach ($arrRespuestas as $iR => $vR) {
+						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
+							echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
+						}
+					}
+			
+					echo "</select>";
+					break;
+				}
+				default:
+					
+					break;
+			}
+			
+		echo "</td>";
 	echo "<tr>";
-
-
-
 }
 
 

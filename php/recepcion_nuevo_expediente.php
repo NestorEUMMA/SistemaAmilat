@@ -24,6 +24,8 @@ if (!empty($_SESSION['user']))
 
    <style type="text/css">
     .box-solid .box-body{ min-height: 300px;}
+    li.active a{ background-color: red; }
+   
    </style>
 
    <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
@@ -90,34 +92,36 @@ if (!empty($_SESSION['user']))
                                     <div class="col-sm-5">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                        <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" required="">
+                                        <input type="text" class="form-control" id="txtApellidos" name="txtApellidos" required="" >
                                       </div>
                                     </div>
                                   </div>
                                   
                                   <div class="form-group">
 
+                                    
+                                    
+                                    <label for="txtFechaNacimiento" class="col-sm-1 control-label">Nacimiento</label>
+                                    <div class="col-sm-2">
+                                      <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
+                                        <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaNacimiento" id="txtFechaNacimiento" required="">
+                                      </div>
+                                    </div>
+
                                     <label for="txtDui" class="col-sm-1 control-label">Dui</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                                        <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDui" id="txtDui" >
+                                        <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDui" id="txtDui"  >
                                       </div>
                                     </div>
                                     
-                                    <label for="txtFNacimiento" class="col-sm-1 control-label">Nacimiento</label>
-                                    <div class="col-sm-2">
-                                      <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
-                                        <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFNacimiento" id="txtFNacimiento" required="">
-                                      </div>
-                                    </div>
-                                    
-                                    <label for="cboGenero" class="col-sm-1 control-label">Genero</label>
+                                    <label for="txtGenero" class="col-sm-1 control-label">Genero</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-genderless"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" name="cboGenero" id="cboGenero" required="">
+                                        <select class="form-control select2" style="width: 100%;" name="txtGenero" id="txtGenero" required="">
                                           <option>Seleccione..</option>
                                           <option>Masculino</option>
                                           <option>Femenino</option>
@@ -125,11 +129,11 @@ if (!empty($_SESSION['user']))
                                       </div>
                                     </div>
 
-                                    <label for="cboEstadoCivil" class="col-sm-1 control-label">Estado Civil</label>
+                                    <label for="txtIdEstadoCivil" class="col-sm-1 control-label">Estado Civil</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-circle-o"></i></div>
-                                          <select class="form-control select2" style="width: 100%;" id="cboEstadoCivil" name="cboEstadoCivil" required="">
+                                          <select class="form-control select2" style="width: 100%;" id="txtIdEstadoCivil" name="txtIdEstadoCivil" required="">
                                             <?php
                                               while ($row = $resultadoestadocivil->fetch_assoc()) {
                                                 echo "<option value = '".$row['IdEstadoCivil']."'>".$row['Nombre']."</option>";
@@ -142,11 +146,11 @@ if (!empty($_SESSION['user']))
                                   
                                   <div class="form-group">
 
-                                    <label for="cboGeografia" class="col-sm-1 control-label">Departamento</label>
+                                    <label for="txtDepartamento" class="col-sm-1 control-label">Departamento</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" id="cboGeografia" name="cboGeografia" >
+                                        <select class="form-control select2" style="width: 100%;" id="txtDepartamento" name="txtDepartamento" >
                                           <option value=""></option>
                                           <?php
                                             while ($row = $resultadodepartamentos->fetch_assoc()) {
@@ -158,30 +162,30 @@ if (!empty($_SESSION['user']))
                                     </div>
 
 
-                                    <label for="cboMunicipio" class="col-sm-1 control-label">Municipio</label>
+                                    <label for="txtMunicipio" class="col-sm-1 control-label">Municipio</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" id="cboMunicipio" name="cboMunicipio" required=""></select>
+                                        <select class="form-control select2" style="width: 100%;" id="txtMunicipio" name="txtMunicipio" required=""></select>
                                       </div>
                                     </div>
 
-                                    <label for="cboCanton" class="col-sm-1 control-label">Cantón</label>
+                                    <label for="txtCanton" class="col-sm-1 control-label">Cantón</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" name="cboCanton" id="cboCanton"></select>
+                                        <select class="form-control select2" style="width: 100%;" name="txtCanton" id="txtCanton"></select>
                                       </div>
                                     </div>
                                   </div> 
 
                                   <div class="form-group">
                                     
-                                    <label for="inputEmail3" class="col-sm-1 control-label">Dirección</label>
+                                    <label for="txtDireccion" class="col-sm-1 control-label">Dirección</label>
                                     <div class="col-sm-11">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-arrows"></i></div>
-                                        <input type="text" class="form-control" name="txtDireccion" required="">
+                                        <input type="text" class="form-control" id="txtDireccion" name="txtDireccion" required="">
                                       </div>
                                     </div>
                                   </div>
@@ -209,7 +213,7 @@ if (!empty($_SESSION['user']))
                                     <div class="col-sm-5">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                        <input type="email" class="form-control" id="txtCorreo" name="txtCorreo"  data-parsley-trigger="change">
+                                        <input type="text" class="form-control" id="txtCorreo" name="txtCorreo"  data-parsley-trigger="change">
                                       </div>
                                     </div>
                                   </div>    
@@ -231,7 +235,7 @@ if (!empty($_SESSION['user']))
                                   <div class="col-sm-5">
                                     <div class="input-group">
                                       <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                      <input type="text" class="form-control" id="txtNombresResponsable"  name="txtNombresResponsable" required=""/>
+                                      <input type="text" class="form-control" id="txtNombresResponsable"  name="txtNombresResponsable"/>
                                     </div>
                                   </div>
 
@@ -239,7 +243,7 @@ if (!empty($_SESSION['user']))
                                   <div class="col-sm-5">
                                     <div class="input-group">
                                       <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                      <input type="text" class="form-control" id="txtApellidosResponsable"  name="txtApellidosResponsable" required=""/>
+                                      <input type="text" class="form-control" id="txtApellidosResponsable"  name="txtApellidosResponsable"/>
                                     </div>
                                   </div>
                                 </div>
@@ -249,11 +253,25 @@ if (!empty($_SESSION['user']))
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                                        <input type="text" class="form-control" id="txtParentesco"  name="txtParentesco" required=""/>
+                                        <select class="form-control" id="txtParentesco" name="txtParentesco">
+                                            <option value=""></option>
+                                            <option value="MADRE">MADRE</option>
+                                            <option value="PADRE">PADRE</option>
+                                            <option value="ABUELO">ABUELO</option>
+                                            <option value="ABUELA">ABUELA</option>
+                                            <option value="TIO">TIO</option>
+                                            <option value="TIA">TIA</option>
+                                            <option value="HERMANO">HERMANO</option>
+                                            <option value="HERMANA">HERMANA</option>
+                                            <option value="PRIMO">PRIMO</option>
+                                            <option value="PRIMA">PRIMA</option>
+                                            <option value="NINGUNO">NINGUNO</option>
+                                        </select>
                                       </div>
                                     </div>
                                 
 
+                                    <label for="txtDuiResponsable" class="col-sm-1 control-label">DUI</label>
                                     <label for="txtDuiResponsable" class="col-sm-1 control-label">Dui Responsable</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -263,11 +281,11 @@ if (!empty($_SESSION['user']))
                                     </div>
 
 
-                                    <label for="txtTelefonoContacto" class="col-sm-1 control-label">Telefono</label>
+                                    <label for="txtTelefonoResponsable" class="col-sm-1 control-label">Telefono</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-phone-square"></i></div>
-                                        <input type="text" class="form-control"  data-inputmask='"mask": "9999-9999"' data-mask id="txtTelefonoContacto" name="txtTelefonoContacto" />
+                                        <input type="text" class="form-control"  data-inputmask='"mask": "9999-9999"' data-mask id="txtTelefonoResponsable" name="txtTelefonoResponsable" />
                                       </div>
                                     </div>
 
@@ -327,9 +345,9 @@ if (!empty($_SESSION['user']))
                                         <h3 class="box-title"><i class="fa fa-credit-card"></i> Socioeconómico:</h3>
 
                                         <div class="pull-right">
-                                          <label for="cboCategoria" class="col-sm-6 control-label">Categoría:</label>
+                                          <label for="txtCategoria" class="col-sm-6 control-label">Categoría:</label>
                                           <div class="col-sm-6">
-                                          <select class="form-control" id="cboCategoria" name="cboCategoria" required="">
+                                          <select class="form-control" id="txtCategoria" name="txtCategoria" required="">
                                             <option>Seleccione..</option>
                                             <option>A</option>
                                             <option>B</option>
@@ -343,7 +361,8 @@ if (!empty($_SESSION['user']))
                                     </div>
                                     <div class="box-body">
                                         <div class="col-sm-10 col-sm-offset-1">
-                                        <?php include 'test.php' ?>
+                                        <?php //include 'test.php' ?>
+                                        <div id="test"></div>
                                         </div>
                                     </div>
                                   </div>
@@ -382,14 +401,35 @@ if (!empty($_SESSION['user']))
   });
 
 
+  function inFocus(e)
+  {
+    $(e).closest("tr").css("backgroundColor","#F0F0F0");
+  }
+
+  function outFocus(e)
+  {
+    $(e).closest("tr").css("backgroundColor","#FFFFFF"); 
+  }
+
 
   $(document).ready(function(){
 
-      $("#cboGeografia").change(function(){
+    $(".select3").select2();
+    
+    $.post( "test.php", { IdFactor: 2})
+      .done(function( data ) {
+        $("#test").html(data);
+    });
+
+
+
+
+
+      $("#txtDepartamento").change(function(){
 
         //alert($("#cboGeografia").val());
         var id = '';
-        id = $("#cboGeografia").val();
+        id = $("#txtDepartamento").val();
 
         $.ajax({
           url: 'Municipios.php',
@@ -399,13 +439,13 @@ if (!empty($_SESSION['user']))
           beforeSend: function() { },
           success: function(data) {
               
-              $("#cboMunicipio").empty();
+              $("#txtMunicipio").empty();
               
               var opcs = "<option value=''></option>";              
               $.each(data, function(i,v){
                   opcs += "<option value='" + v.IdGeografia + "'>" + v.Nombre + "</option>";
               });             
-              $("#cboMunicipio").html(opcs).select2().val(null);
+              $("#txtMunicipio").html(opcs).select2().val(null);
 
           },
           error: function(xhr, textStatus, errorThrown) {
@@ -416,11 +456,11 @@ if (!empty($_SESSION['user']))
       });
 
 
-      $("#cboMunicipio").change(function(){
+      $("#txtMunicipio").change(function(){
 
         //alert($("#cboGeografia").val());
         var id = '';
-        id = $("#cboMunicipio").val();
+        id = $("#txtMunicipio").val();
 
         $.ajax({
           url: 'Municipios.php',
@@ -430,13 +470,13 @@ if (!empty($_SESSION['user']))
           beforeSend: function() { },
           success: function(data) {
               
-              $("#cboCanton").empty();
-              $("#cboCanton span.select2-selection__rendered").html("");
+              $("#txtCanton").empty();
+              $("#txtCanton span.select2-selection__rendered").html("");
               var opcs = "";              
               $.each(data, function(i,v){
                   opcs += "<option value='" + v.IdGeografia + "'>" + v.Nombre + "</option>";
               });             
-              $("#cboCanton").html(opcs);
+              $("#txtCanton").html(opcs);
 
           },
           error: function(xhr, textStatus, errorThrown) {
