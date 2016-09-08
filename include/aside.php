@@ -144,7 +144,6 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="../web/farmacia_ingreso_medicamentos.php"><i class="fa fa-circle-o"></i> Ingreso de Medicamentos </a></li>
-                <li><a href="../web/farmacia_ingreso_lotes.php"><i class="fa fa-circle-o"></i> Ingreso de Lotes </a></li>
                 <li><a href="../web/index.php?r=laboratorio"><i class="fa fa-circle-o"></i> Ingreso de Laboratorio </a></li>
                 <li><a href="../web/index.php?r=categoria"><i class="fa fa-circle-o"></i> Ingreso de Categoria </a></li>
                 <li><a href="../web/index.php?r=unidadmedida"><i class="fa fa-circle-o"></i> Ingreso de Unidad de Medida </a></li>

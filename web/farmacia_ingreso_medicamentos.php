@@ -6,16 +6,17 @@ session_start();
 if (!empty($_SESSION['user']))
   {
   $queryingresomedicamentos = "
-      SELECT a.IdMedicamento as ID, a.NombreMedicamento as NOMBRE_MEDICAMENTO, a.NombreComercial as NOMBRE_COMERCIAL, 
-      b.NombrePresentacion as PRESENTACION, c.NombreLaboratorio as LABORATORIO, d.NombreCategoria as CATEGORIA, a.Concentracion as CONCENTRACION, 
-      e.NombreUnidadMedida as UNIDAD_MEDIDA, a.PrecioLab as PRECIO, a.PrecioVentaA as PRECIOA, a.PrecioVentaB as PRECIOB, a.PrecioVentaC as PRECIOC, 
-      a.PrecioVentaD as PRECIOD
+      SELECT a.IdMedicamento as ID, a.NombreMedicamento as NOMBRE_MEDICAMENTO, a.NombreComercial as NOMBRE_COMERCIAL, a.Codigo as CODIGO, 
+      a.Lote as LOTE, b.NombrePresentacion as PRESENTACION, c.NombreLaboratorio as LABORATORIO, d.NombreCategoria as CATEGORIA, 
+      concat(a.Concentracion, ' ', e.NombreUnidadMedida) as CONCENTRACION, a.PrecioUnitario as PRECIO_UNITARIO, DATE_FORMAT(a.FechaIngreso,'%d-%m-%Y') as FECHA_INGRESO, 
+      DATE_FORMAT(a.FechaExpedicion,'%d-%m-%Y') as FECHA_EXPEDICION, DATE_FORMAT(a.FechaVencimiento,'%d-%m-%Y') as FECHA_VENCIMIENTO, a.Existencia as EXISTENCIA
+      , alertaVencimiento( datediff(a.FechaVencimiento,now()) ) as  color
       FROM medicamentos as a
       LEFT JOIN presentacion as b on b.IdPresentacion = a.IdPresentacion
       LEFT JOIN laboratorio as c on c.IdLaboratorio = a.IdLaboratorio
       LEFT JOIN categoria as d on d.IdCategoria = a.IdCategoria
       LEFT JOIN unidadmedida as e on e.IdUnidadMedida = a.IdUnidadMedida
-      ORDER BY a.NombreMedicamento ASC
+      ORDER BY a.IdMedicamento DESC
               ";
     $resultadoingresomedicamentos = $mysqli->query($queryingresomedicamentos);
 
@@ -55,7 +56,7 @@ if (!empty($_SESSION['user']))
    <link rel="stylesheet" href="../web/dist/parsley.css">
    <script src="../web/dist/parsley.min.js"></script>
    <script src="../web/dist/i18n/es.js"></script>
-   <body class="hold-transition skin-blue sidebar-mini">
+   <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
 
     <div class="wrapper">
 	<?php include '../include/header.php'; ?>
@@ -79,12 +80,14 @@ if (!empty($_SESSION['user']))
     <div class="box-body">
     <form action = "farmacia_guardar_ingreso_medicamentos.php" method = "POST">
     <table id="example2" class="table table-bordered table-hover">
-    <tr>
-      <th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>PRESENTACION</th><th>LABORATORIO</th>
+    <tr class = "fila">
+      <th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>CODIGO</th><th>LOTE</th><th>PRESENTACION</th><th>LABORATORIO</th>
     </tr>
-        <tr>
+        <tr class = "fila">
       <td><input type = "text" name = "nombre"></td>
       <td><input type = "text" name = "nombrecomercial"></td>
+      <td><input type = "text" name = "codigo"></td>
+      <td><input type = "text" name = "lote"></td>
       <td>
         <select class="form-control select2" style="width: 100%;" name = "ID_PRESENTACION">
           <option value = '' selected>Elija... </option>
@@ -106,10 +109,10 @@ if (!empty($_SESSION['user']))
         </select>
       </td>
     </tr>
-    <tr>  
-      <th>CATEGORIA</th><th>CONCENTRACION</th><th>U. MEDIDA</th><th>PRECIO</th>
+    <tr class = "fila">  
+      <th>CATEGORIA</th><th>CONCENTRACION</th><th>U. MEDIDA</th><th>PRECIO U.</th><th>EXISTENCIA</th>
     </tr>
-    <tr>
+    <tr class = "fila">
       <td>
         <select class="form-control select2" style="width: 100%;" name = "ID_CATEGORIA">
           <option value = '' selected>Elija... </option>
@@ -132,19 +135,28 @@ if (!empty($_SESSION['user']))
         </select>
       </td>
       <td><input type = "text" name = "precio"></td>
+      <td><input type = "text" name = "existencia"></td>
+      </tr>
+    <tr class = "fila">
+      <th>F.Exp.</th><th>F.Venc.</th>
+    </tr>
+    <tr class = "fila">
+      <td><input type="text" class="form-control"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="fecha_expedicion"></td>
+      <td><input type="text" class="form-control"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="fecha_vencimiento"></td>
     </tr>
     <tr>
-    <td><input type = "submit" value = "Guardar Medicamento" class = "btn btn-warning"></td>
+    <td><span id = "btn_nuevo" class = "btn btn-info">Nuevo Medicamento</span></td>
+    <td><input id = "btn_guardar" type = "submit" value = "Guardar Medicamento" class = "btn btn-warning"></td>
     </tr>
     </table>
     </form>
     <h3 class="box-title">EXISTENCIA DE MEDICAMENTOS</h3>
-	 <table id="example2" class="table table-bordered table-hover">
+	 <table id="example2" class="table table-bordered table-hover table-striped table-responsive">
     <?php
       echo "
       <thead>
-      <tr>
-      <th>ID</th><th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>PRESENTACION</th><th>LABORATORIO</th><th>CATEGORIA</th><th>CONCENTRACION</th><th>U. MEDIDA</th><th>PRECIO</th><th>A</th><th>B</th><th>C</th><th>D</th>
+      <tr class = 'info'>
+      <th>ID</th><th>NOMBRE</th><th>NOMBRE COMERCIAL</th><th>CODIGO</th><th>LOTE</th><th>PRESENTACION</th><th>LAB</th><th>CATEGORIA</th><th>CONCENT.</th><th>F.INGRESO</th><th>F.EXP.</th><th>F.VENC.</th><th>EXISTENCIA</th>
       </tr>
       </thead>
       <tbody>
@@ -156,16 +168,16 @@ if (!empty($_SESSION['user']))
           <td>".$row['ID']."</td>
           <td>".$row['NOMBRE_MEDICAMENTO']."</td>
           <td>".$row['NOMBRE_COMERCIAL']."</td>
+          <td>".$row['CODIGO']."</td>
+          <td>".$row['LOTE']."</td>
           <td>".$row['PRESENTACION']."</td>
           <td>".$row['LABORATORIO']."</td>
           <td>".$row['CATEGORIA']."</td>
           <td>".$row['CONCENTRACION']."</td>
-          <td>".$row['UNIDAD_MEDIDA']."</td>
-          <td>".$row['PRECIO']."</td>
-          <td>".$row['PRECIOA']."</td>
-          <td>".$row['PRECIOB']."</td>
-          <td>".$row['PRECIOC']."</td>
-          <td>".$row['PRECIOD']."</td>
+          <td>".$row['FECHA_INGRESO']."</td>
+          <td>".$row['FECHA_EXPEDICION']."</td>
+          <td class='". $row['color'] ."'>".$row['FECHA_VENCIMIENTO']."</td>
+          <td>".$row['EXISTENCIA']."</td>
           </tr>
           ";
           
@@ -185,7 +197,20 @@ if (!empty($_SESSION['user']))
     </section>
 	</div>
     <?php include '../include/footer.php'; ?>
+
 </body>
+    <script type = "text/javascript">
+  //  $(document).ready(function(){
+      $(".fila").hide();
+      $("#btn_guardar").hide();
+
+      $("#btn_nuevo").click(function(){
+        $(".fila").show("fadeIn");
+        $("#btn_guardar").show("fadeIn");
+        $("#btn_nuevo").hide();
+      })
+   // });
+    </script>
 </html>
 <?php
 }
