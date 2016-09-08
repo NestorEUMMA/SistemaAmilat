@@ -204,7 +204,7 @@ session_start();
         $IdPregunta = $f["IdPregunta"];
         $Ponderacion = $f["Ponderacion"];
         
-        $IdFactor = 2;
+        $IdFactor = 3;
         $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
 
         switch ($Ponderacion) {
