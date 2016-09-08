@@ -31,7 +31,7 @@ if (!empty($_SESSION['user']))
     LEFT JOIN medicamentos as c on c.IdMedicamento = a.IdMedicamento
     LEFT JOIN movimientos as d on d.IdMovimiento = a.IdMovimiento
     LEFT JOIN presentacion as e on e.IdPresentacion  = c.IdPresentacion
-    ORDER BY a.FechaTransaccion ASC
+    ORDER BY a.FechaTransaccion DESC
               ";
     $resultadokardex = $mysqli->query($querykardex);
     }

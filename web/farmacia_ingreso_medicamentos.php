@@ -1,4 +1,4 @@
-z<?php
+<?php
 
 include '../include/dbconnect.php';
 session_start();

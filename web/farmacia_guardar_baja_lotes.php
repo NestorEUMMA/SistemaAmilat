@@ -8,7 +8,8 @@ $idusuario = $_SESSION['IdUsuario'];
 $codigo = $_POST['codigo'];
 $cantidad = $_POST['cantidad'];
 $idmedicamento = $_POST['idmedicamento'];
-$exitencia = $_POST['existencia'];
+$existencia = $_POST['existencia'];
+$nuevaexistencia = $existencia - $cantidad;
 
 
 $insertbaja = "
@@ -20,24 +21,35 @@ VALUES
 $resultadoinsertbaja = $mysqli->query($insertbaja);
 
 
+$updateexistencias = "
+UPDATE medicamentos
+set Existencia = Existencia - $cantidad
+WHERE IdMedicamento = '$idmedicamento'
+				";
+$resultadoupdateexistencias= $mysqli->query($updateexistencias);
+
+
+if ($cantidad > $existencia)
+{
 $updatelotes = "
 UPDATE medicamentos
 set activo = 0
 WHERE IdMedicamento = '$idmedicamento'
 				";
 $resultadoupdatelotes = $mysqli->query($updatelotes);
-
-
+}
+ 
 
 $inserttransaccion = "
 	INSERT INTO transaccion
 	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Existencia, Costo, Venta)
 	VALUES
-	(now(), $idusuario, $idmedicamento, $idmovimiento, '$codigo', $cantidad, $existencia, 0, 0)
+	(now(), $idusuario, $idmedicamento, $idmovimiento, '$codigo', $cantidad, $nuevaexistencia, 0, 0)
 			";
 $resultadoinserttransaccion = $mysqli->query($inserttransaccion);
 
-if (!$resultadoinsertbaja and !$resultadoupdatelotes){
+
+if (!$resultadoinsertbaja){
 					echo "
 						<script>
 							alert('No se dio de baja');
@@ -52,5 +64,4 @@ if (!$resultadoinsertbaja and !$resultadoupdatelotes){
 						</script>
 						";
 }
-
 ?>
