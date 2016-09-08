@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
   //$ruta = 'http://localhost:8080/SistemaAmilat/';
  // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
-  $ruta = 'http://localhost/SistemaAmilat/';
+  $ruta = 'http://localhost:8080/SistemaAmilat/';
   
 // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   //$ruta = 'http://localhost:8080/SistemaAmilat/';
-=======
-  $ruta = 'http://localhost:8080/SistemaAmilat/';
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
  // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   //$ruta = 'http://localhost/SistemaAmilat/';
   
@@ -17,7 +13,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SistemaTPV | Centro Medico Familiar Shalom</title>
+    <title>SistemaAmilat | Centro Medico Familiar Shalom</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -54,10 +50,6 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/css/skins/_all-skins.min.css">
-<<<<<<< HEAD
-=======
-    <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 <!-- 
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/parsley.css"> -->
 
@@ -117,11 +109,6 @@
 
     <script src="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.min.js"></script>
 
-<<<<<<< HEAD
-=======
-    <script src="<?php echo $ruta; ?>web/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
    <!--  <script src="<?php echo $ruta; ?>web/dist/parsley.min.js"></script>
     
     <script src="<?php echo $ruta; ?>web/dist/i18n/es.js"></script>
@@ -193,7 +180,7 @@
           "paging": false,
           "lengthChange": true,
           "searching": true,
-          "ordering": true    ,
+          "ordering": false,
           "info": true,
           "autoWidth": true,
     });

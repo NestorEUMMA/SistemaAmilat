@@ -9,8 +9,8 @@
           </br>
         </div>
         <div class="pull-left info">
-         <center> <p> Perfil: <?php echo $puesto; ?> </p> </center>
-          <small><i class="fa fa-circle text-success"></i> Online</small>
+          <p> <?php echo $_SESSION["user"] ?> </p>
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
 
@@ -100,8 +100,6 @@
               </a>
               <ul class="treeview-menu">
                   <li><a href="../php/medico_index_consulta.php"><i class="fa fa-circle-o"></i> Consultas Activas </a></li>
-                  <li><a href="../web/farmacia_ingreso_medicamentos.php"><i class="fa fa-circle-o"></i>Existencias de Medicamentos</a>
-            </li>
               </ul>
             </li>
                   <?php
@@ -115,7 +113,6 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="../php/laboratorio_index_paciente.php"><i class="fa fa-circle-o"></i> Examenes Pendientes </a></li>
-                 <li><a href="../php/laboratorio_pacientes_externos.php"><i class="fa fa-circle-o"></i> Pacientes Externos Activos </a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -145,12 +142,8 @@
               <i class="fa fa-dashboard"></i> <span>Ingreso de Medicamentos</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-<<<<<<< HEAD
                 <li><a href="../web/index.php?r=medicamentos"><i class="fa fa-circle-o"></i> Ingreso de Medicamentos </a></li>
                 <li><a href="../web/entrada_medicamentos.php"><i class="fa fa-circle-o"></i> Ingreso de Lotes </a></li>
-=======
-                <li><a href="../web/farmacia_ingreso_medicamentos.php"><i class="fa fa-circle-o"></i> Ingreso de Medicamentos </a></li>
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
                 <li><a href="../web/index.php?r=laboratorio"><i class="fa fa-circle-o"></i> Ingreso de Laboratorio </a></li>
                 <li><a href="../web/index.php?r=categoria"><i class="fa fa-circle-o"></i> Ingreso de Categoria </a></li>
                 <li><a href="../web/index.php?r=unidadmedida"><i class="fa fa-circle-o"></i> Ingreso de Unidad de Medida </a></li>
