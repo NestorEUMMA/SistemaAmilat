@@ -66,9 +66,9 @@ echo "<br>";
 
 $inserttransaccion = "
 	INSERT INTO transaccion
-	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Costo, Venta)
+	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Existencia, Costo, Venta)
 	VALUES
-	(now(), $idusuario, $idmedicamentoguardado, $idmovimiento, '$codigo', $existencia, $preciolote, 0)
+	(now(), $idusuario, $idmedicamentoguardado, $idmovimiento, '$codigo', $existencia, $existencia, $preciolote, 0)
 			";
 			
 $resultadoinserttransaccion = $mysqli->query($inserttransaccion);

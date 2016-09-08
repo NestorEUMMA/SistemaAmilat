@@ -6,8 +6,10 @@ session_start();
 if (!empty($_SESSION['user']))
   {
   $querylotes = "
-SELECT concat(A.NombreMedicamento, ' - ', B.NombrePresentacion) as NOMBRE, A.Codigo as CODIGO, A.Lote as LOTE, A.FechaExpedicion as FECHA_EXPEDICION,
- A.FechaVencimiento as FECHA_VENCIMIENTO, A.IdMedicamento as IDMEDICAMENTO, A.Existencia as EXISTENCIA
+SELECT concat(A.NombreMedicamento, ' - ', B.NombrePresentacion) as NOMBRE, A.Codigo as CODIGO, A.Lote as LOTE, 
+DATE_FORMAT(A.FechaExpedicion,'%d-%m-%Y') as FECHA_EXPEDICION,
+ DATE_FORMAT(A.FechaVencimiento,'%d-%m-%Y') as FECHA_VENCIMIENTO, A.IdMedicamento as IDMEDICAMENTO, A.Existencia as EXISTENCIA,
+ alertaVencimiento( datediff(A.FechaVencimiento,now()) ) as  color
 FROM medicamentos as A
 LEFT JOIN presentacion as B on B.IdPresentacion = A.IdPresentacion
 WHERE A.activo = 1
@@ -31,7 +33,7 @@ ORDER BY A.FechaVencimiento DESC
    <link rel="stylesheet" href="../web/dist/parsley.css">
    <script src="../web/dist/parsley.min.js"></script>
    <script src="../web/dist/i18n/es.js"></script>
-   <body class="hold-transition skin-blue sidebar-mini">
+   <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
 
     <div class="wrapper">
   <?php include '../include/header.php'; ?>
@@ -53,15 +55,15 @@ ORDER BY A.FechaVencimiento DESC
     </div>
   <!-- /.box-header -->
     <div class="box-body">
-    <table id="example2" class="table table-bordered table-hover">
-    <tr>
+    <table id="example2" class="table table-bordered table-hover table-striped table-responsive">
+    <tr class = "info">
       <th>MEDICAMENTO</th><th>CODIGO</th><th>LOTE</th><th>F.EXPEDICION</th>
       <th>F.VENCIMIENTO</th><th>CANTIDAD</th><th>MOTIVO</th><th>ACCION</th>
     </tr>
+    <tbody>
      <?php
       while ($row = $resultadoquerylotes->fetch_assoc())
         {
-          echo "<tbody>";
           echo "
           <form action = 'farmacia_guardar_baja_lotes.php' method = 'POST'>
           <tr>
@@ -69,7 +71,7 @@ ORDER BY A.FechaVencimiento DESC
           <td>".$row['CODIGO']."</td>
           <td>".$row['LOTE']."</td>
           <td>".$row['FECHA_EXPEDICION']."</td>
-          <td>".$row['FECHA_VENCIMIENTO']."</td>
+          <td class='". $row['color'] ."'>".$row['FECHA_VENCIMIENTO']."</td>
           <td><input type = 'text' name = 'cantidad'> / ".$row['EXISTENCIA']."</td>
           <td>
             <select class='form-control select2' style='width: 100%;' name = 'ID_MOVIMIENTO'>
@@ -83,6 +85,7 @@ ORDER BY A.FechaVencimiento DESC
           </td>
           <input type = 'hidden' name = 'codigo' value = ".$row['CODIGO'].">
           <input type = 'hidden' name = 'idmedicamento' value = ".$row['IDMEDICAMENTO'].">
+          <input type = 'hidden' name = 'existencia' value = '".$row['EXISTENCIA']."'>
           </tr>
           ";
           echo "</form>";

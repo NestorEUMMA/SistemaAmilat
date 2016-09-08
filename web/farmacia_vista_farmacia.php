@@ -27,7 +27,7 @@ while ($row2 = $resultadocuentarecetas->fetch_assoc()) {
 ?>
 <!DOCTYPE html>
 <html>
-
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
    <?php  include '../include/asset.php'; ?>
    <link rel="stylesheet" href="../web/dist/parsley.css">
    <script src="../web/dist/parsley.min.js"></script>
@@ -65,8 +65,8 @@ while ($row2 = $resultadocuentarecetas->fetch_assoc()) {
     ";
   }else{
   echo "
-  <table id='example2' class='table table-bordered table-hover'>
-  <tr>
+  <table id='example2' class='table table-bordered table-hover table-striped table-responsive'>
+  <tr class = 'info'>
   <th>PACIENTE</th><th>MEDICO</th><th>FECHA</th><th style='text-align: center;' colspan = 2>ACCION</th>
   </tr>
   ";

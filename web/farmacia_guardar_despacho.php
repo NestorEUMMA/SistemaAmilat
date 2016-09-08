@@ -52,9 +52,9 @@ $resultadoupdatereceta = $mysqli->query($updatereceta);
 for ($l = 1; $l <= $cuenta; $l ++){
 $inserttransaccion = "
 	INSERT INTO transaccion
-	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Costo, Venta)
+	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Existencia, Costo, Venta)
 	VALUES
-	(now(), $idusuario, $idmedicamento[$l], $idmovimiento, '', $total[$l], '0', $precio[$l])
+	(now(), $idusuario, $idmedicamento[$l], $idmovimiento, '', $total[$l], $existencia[$l], '0', $precio[$l])
 			";
 $resultadoinserttransaccion = $mysqli->query($inserttransaccion);
 									}

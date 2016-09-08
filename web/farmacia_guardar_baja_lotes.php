@@ -8,6 +8,7 @@ $idusuario = $_SESSION['IdUsuario'];
 $codigo = $_POST['codigo'];
 $cantidad = $_POST['cantidad'];
 $idmedicamento = $_POST['idmedicamento'];
+$exitencia = $_POST['existencia'];
 
 
 $insertbaja = "
@@ -30,9 +31,9 @@ $resultadoupdatelotes = $mysqli->query($updatelotes);
 
 $inserttransaccion = "
 	INSERT INTO transaccion
-	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Costo, Venta)
+	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Existencia, Costo, Venta)
 	VALUES
-	(now(), $idusuario, $idmedicamento, $idmovimiento, '$codigo', $cantidad, 0, 0)
+	(now(), $idusuario, $idmedicamento, $idmovimiento, '$codigo', $cantidad, $existencia, 0, 0)
 			";
 $resultadoinserttransaccion = $mysqli->query($inserttransaccion);
 
