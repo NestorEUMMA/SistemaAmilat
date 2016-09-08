@@ -68,6 +68,7 @@ if (!empty($_SESSION['user']))
                               <li><a href="#tab_3" data-toggle="tab"><i class="fa fa-heartbeat"></i> Datos médicos</a></li>
                               <li><a href="#tab_4" data-toggle="tab"><i class="fa fa-money"></i> Socioeconómico</a></li>
                               <li><a href="#tab_5" data-toggle="tab"><i class="fa fa-heartbeat"></i> Historial Clinico</a></li>
+                              <li><a href="#tab_6" data-toggle="tab"><i class="fa fa-eyedropper"></i> Esquema de vacunación</a></li>
 
                               <li class="pull-right">
                                 <button type="submit" class="btn btn-success" name="guardarPaciente">Guardar</button>
@@ -401,7 +402,7 @@ if (!empty($_SESSION['user']))
 
                                 <div class="box box-warning box-solid">                              
                                     <div class="box-header">
-                                        <h3 class="box-title"><i class="fa fa-credit-card"></i> Historial Clinico:</h3>
+                                        <h3 class="box-title"><i class="fa fa-credit-card"></i> Historial Clínico:</h3>
 
 
 
@@ -412,7 +413,27 @@ if (!empty($_SESSION['user']))
                                         </div>
                                     </div>
                                   </div>
-                              </div>             
+                              </div> 
+
+
+
+                              <div class="tab-pane " id="tab_6">
+
+
+                                <div class="box box-info box-solid">                              
+                                    <div class="box-header">
+                                        <h3 class="box-title"><i class="fa fa-eyedropper"></i> Esquema de vacunación:</h3>
+
+
+
+                                    </div>
+                                    <div class="box-body">
+                                        <div class="col-sm-10 col-sm-offset-1">
+                                        <div id="vacunacion"></div>
+                                        </div>
+                                    </div>
+                                  </div>
+                              </div>                         
                             </div>            
                           </div>
                         </div>
@@ -474,6 +495,13 @@ if (!empty($_SESSION['user']))
       $.post( "test.php", { IdFactor: 2})
       .done(function( data ) {
         $("#historialclinico").html(data);
+        $(".select3").select2();
+        $(".select2-container").css("width","100%");
+      });
+
+      $.post( "test.php", { IdFactor: 3})
+      .done(function( data ) {
+        $("#vacunacion").html(data);
         $(".select3").select2();
         $(".select2-container").css("width","100%");
       });
