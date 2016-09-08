@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 =======
 z<?php
 >>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
+=======
+<?php
+>>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
 
 include '../include/dbconnect.php';
 session_start();

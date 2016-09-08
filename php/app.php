@@ -240,56 +240,56 @@
         </body>
       </html>
       
-      <script>
+      // <script>
 
-      // request permission on page load
-      document.addEventListener('DOMContentLoaded', function () {
-        if (Notification.permission !== "granted")
-          Notification.requestPermission();
-      });
+      // // request permission on page load
+      // document.addEventListener('DOMContentLoaded', function () {
+      //   if (Notification.permission !== "granted")
+      //     Notification.requestPermission();
+      // });
 
-      var date = new Date();
-      if(date.getDay() == 4){
-         notifyMe("VEA EXISTENCIA DE MEDICAMENTOS AQUÍ");
-      }else{
-        notifyMe("BIENVENIDO");
-      }
+      // var date = new Date();
+      // if(date.getDay() == 4){
+      //    notifyMe("VEA EXISTENCIA DE MEDICAMENTOS AQUÍ");
+      // }else{
+      //   notifyMe("BIENVENIDO");
+      // }
 
-      function audioNotification(){
-        //var yourSound = new Audio('http://localhost:8080/SistemaAmilat/img/MgsAlert.mp3');
-        //var yourSound = new Audio('http://sistema.shalom.org/SistemaAmilat/img/MgsAlert.mp3');
-        var yourSound = new Audio('hhttp://localhost/SistemaAmilat/img/MgsAlert.mp3');
-        yourSound.play();
-      }
+      // function audioNotification(){
+      //   //var yourSound = new Audio('http://localhost:8080/SistemaAmilat/img/MgsAlert.mp3');
+      //   //var yourSound = new Audio('http://sistema.shalom.org/SistemaAmilat/img/MgsAlert.mp3');
+      //   var yourSound = new Audio('hhttp://localhost/SistemaAmilat/img/MgsAlert.mp3');
+      //   yourSound.play();
+      // }
 
 
-      function notifyMe(texto) {
-        if (!Notification) {
-          alert('Desktop notifications not available in your browser. Try Chromium.');
-          return;
-        }
+      // function notifyMe(texto) {
+      //   if (!Notification) {
+      //     alert('Desktop notifications not available in your browser. Try Chromium.');
+      //     return;
+      //   }
 
-        if (Notification.permission !== "granted")
-          Notification.requestPermission();
-        else {
-          var notification = new Notification('Sistema Amilat', {
-           // icon: 'http://localhost:8080/SistemaAmilat/img/logo22.png',
-          // icon: 'http://sistema.shalom.org/SistemaAmilat/img/logo22.png',
-            icon: 'http://localhost/SistemaAmilat/img/logo22.png',
+      //   if (Notification.permission !== "granted")
+      //     Notification.requestPermission();
+      //   else {
+      //     var notification = new Notification('Sistema Amilat', {
+      //      // icon: 'http://localhost:8080/SistemaAmilat/img/logo22.png',
+      //     // icon: 'http://sistema.shalom.org/SistemaAmilat/img/logo22.png',
+      //       icon: 'http://localhost/SistemaAmilat/img/logo22.png',
 
-            body: texto,
-          });
+      //       body: texto,
+      //     });
 
-           audioNotification();
-          notification.onclick = function () {
-           // window.open("http://stackoverflow.com/a/13328397/1269037");
-          };
+      //      audioNotification();
+      //     notification.onclick = function () {
+      //      // window.open("http://stackoverflow.com/a/13328397/1269037");
+      //     };
 
-        }
+      //   }
 
-      }
+      // }
 
-      </script>
+      // </script>
 
 
       <?php

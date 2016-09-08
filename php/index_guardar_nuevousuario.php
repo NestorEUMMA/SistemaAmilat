@@ -33,8 +33,8 @@ session_start();
     }
     else
     {
-        $insertexpediente = "INSERT INTO usuario(InicioSesion,Nombres,Apellidos,Correo,Clave,Activo)"
-                       . "VALUES ('$InicioSesion','$Nombre','$Apellido','$Correo',MD5('$Clave'),0)";
+        $insertexpediente = "INSERT INTO usuario(InicioSesion,Nombres,Apellidos,Correo,Clave,Activo,FechaIngreso)"
+                       . "VALUES ('$InicioSesion','$Nombre','$Apellido','$Correo',MD5('$Clave'),0,now())";
 
         $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
 

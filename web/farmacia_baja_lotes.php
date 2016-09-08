@@ -108,6 +108,7 @@ ORDER BY A.FechaVencimiento DESC
           <td><input type = 'text' name = 'cantidad'> / ".$row['EXISTENCIA']."</td>
           <td>
             <select class='form-control select2' style='width: 100%;' name = 'ID_MOVIMIENTO'>
+              <option value = '' selected>Elija un motivo</option>
               <option value = '2'>Salida de Medicamento</option>
               <option value = '3'>Baja por Vencimiento</option>
               <option value = '4'>Baja por Deterioro</option>

@@ -12,7 +12,7 @@ if (!empty($_SESSION['user']))
                                   FROM listaexamen le
                                   INNER JOIN usuario u ON le.IdUsuario = u.IdUsuario
                                   INNER JOIN persona p ON le.IdPersona = p.IdPersona
-                                  INNER JOIN consulta c ON le.IdConsulta = c.IdConsulta
+                                  LEFT JOIN consulta c ON le.IdConsulta = c.IdConsulta
                                   INNER JOIN tipoexamen te ON le.IdTipoExamen = te.IdTipoExamen
                                   WHERE le.IdListaExamen = '$idlistaexamen'";
             $resultadoexamenesactivos = $mysqli->query($queryexamenesactivos);
@@ -195,14 +195,6 @@ if (!empty($_SESSION['user']))
                     <input type="text" class="form-control" id="otros" name="otros" placeholder="Otros">
                   </div>
                    
-                </div>
-                <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">Observaciones</label>
-
-                  <div class="col-sm-6">
-                    <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="Observaciones">
-                  </div>
-                 
                 </div>
 
                 <div class="form-group">

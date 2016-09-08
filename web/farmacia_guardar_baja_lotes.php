@@ -9,9 +9,14 @@ $codigo = $_POST['codigo'];
 $cantidad = $_POST['cantidad'];
 $idmedicamento = $_POST['idmedicamento'];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 $exitencia = $_POST['existencia'];
 >>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
+=======
+$existencia = $_POST['existencia'];
+$nuevaexistencia = $existencia - $cantidad;
+>>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
 
 
 $insertbaja = "
@@ -23,6 +28,16 @@ VALUES
 $resultadoinsertbaja = $mysqli->query($insertbaja);
 
 
+$updateexistencias = "
+UPDATE medicamentos
+set Existencia = Existencia - $cantidad
+WHERE IdMedicamento = '$idmedicamento'
+				";
+$resultadoupdateexistencias= $mysqli->query($updateexistencias);
+
+
+if ($cantidad > $existencia)
+{
 $updatelotes = "
 <<<<<<< HEAD
 UPDATE medicamentolote
@@ -35,6 +50,7 @@ WHERE IdMedicamento = '$idmedicamento'
 >>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 				";
 $resultadoupdatelotes = $mysqli->query($updatelotes);
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -55,17 +71,26 @@ $resultadoinserttransaccion = $mysqli->query($inserttransaccion);
 
 if (!$resultadoinsertbaja and !$resultadoupdatemedicamentos and !$resultadoupdatelotes){
 =======
+=======
+}
+ 
+>>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
 
 $inserttransaccion = "
 	INSERT INTO transaccion
 	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Existencia, Costo, Venta)
 	VALUES
-	(now(), $idusuario, $idmedicamento, $idmovimiento, '$codigo', $cantidad, $existencia, 0, 0)
+	(now(), $idusuario, $idmedicamento, $idmovimiento, '$codigo', $cantidad, $nuevaexistencia, 0, 0)
 			";
 $resultadoinserttransaccion = $mysqli->query($inserttransaccion);
 
+<<<<<<< HEAD
 if (!$resultadoinsertbaja and !$resultadoupdatelotes){
 >>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
+=======
+
+if (!$resultadoinsertbaja){
+>>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
 					echo "
 						<script>
 							alert('No se dio de baja');
@@ -80,5 +105,4 @@ if (!$resultadoinsertbaja and !$resultadoupdatelotes){
 						</script>
 						";
 }
-
 ?>

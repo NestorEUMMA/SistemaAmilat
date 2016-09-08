@@ -17,6 +17,18 @@ session_start();
 			$urea = $_POST['urea'];
 			$idlistaexamen = $_POST['idlistaexamen'];
 
+				if(empty($id_consulta)){
+
+			$insertmovimiento = "INSERT INTO examenquimica(IdListaExamen, IdTipoExamen, IdUsuario, IdPersona, Fecha, Glucosa, GlucosaPost, ColesterolTotal, Triglicerido, AcidoUrico,
+																											Creatinina,	NitrogenoUreico, Urea, Activo)"
+																."VALUES('$idlistaexamen','$tipo_examen', '$usuario', '$id_persona', now(), '$glucosa', '$glucosapost', '$colesteroltotal', '$triglicerido',
+																					'$acidourico', '$creatinina', '$nitrogenoureico', '$urea',1)";
+
+			$insertmovimiento2 = "UPDATE listaexamen SET Activo=0 WHERE IdListaExamen='$idlistaexamen'";
+			$resultadoinsertmovimiento2 = $mysqli->query($insertmovimiento2);
+
+				}
+				else{
 
 			$insertmovimiento = "INSERT INTO examenquimica(IdListaExamen, IdTipoExamen, IdConsulta, IdUsuario, IdPersona, Fecha, Glucosa, GlucosaPost, ColesterolTotal, Triglicerido, AcidoUrico,
 																											Creatinina,	NitrogenoUreico, Urea, Activo)"
@@ -25,6 +37,9 @@ session_start();
 
 			$insertmovimiento2 = "UPDATE listaexamen SET Activo=0 WHERE IdListaExamen='$idlistaexamen'";
 			$resultadoinsertmovimiento2 = $mysqli->query($insertmovimiento2);
+
+				}
+
 
 			$resultadoinsertmovimiento = $mysqli->query($insertmovimiento);
 			if (!$resultadoinsertmovimiento){

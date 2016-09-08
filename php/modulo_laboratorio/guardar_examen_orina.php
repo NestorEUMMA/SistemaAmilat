@@ -28,8 +28,22 @@ session_start();
 			$observaciones = $_POST['observaciones'];
 			$idlistaexamen = $_POST['idlistaexamen'];
 
+	if(empty($id_consulta)){
 
-			$insertmovimiento = "INSERT INTO examenorina (IdListaExamen, IdTipoExamen, IdConsulta, IdUsuario, IdPersona, Fecha, Color, Olor, Aspecto, Densidad, Ph, Proteinas, Glucosa, SagreOculta,
+			$insertmovimiento = "INSERT INTO examenorina (IdListaExamen, IdTipoExamen, IdUsuario, IdPersona, Fecha, Color, Olor, Aspecto, Densidad, Ph, Proteinas, Glucosa, SagreOculta,
+																			 CuerposCetomicos, Urobilinogeno, Bilirrubina, EsterasaLeucocitaria, Cilindros, Hematies, Leucocitos, CelulasEpiteliales, ElementosMinerales,
+																			 Parasitos, Observaciones,Activo)"
+																 ."VALUES('$idlistaexamen','$tipo_examen', '$usuario', '$id_persona', now(), '$color', '$olor', '$aspecto', '$densidad', '$PH', '$proteinas', '$glucosa',
+																			'$sangreoculta', '$cuerposcetomicos', '$urobilinogeno', '$bilirrubina', '$esterasaleucocitaria', '$cilindros', '$hematies',
+																			'$leucocitos', '$celulasepiteliales', '$elementosminerales', '$parasitos', '$observaciones',1)";
+
+			$insertmovimiento2 = "UPDATE listaexamen SET Activo=0 WHERE IdListaExamen='$idlistaexamen'";
+			$resultadoinsertmovimiento2 = $mysqli->query($insertmovimiento2);
+
+	}
+
+	else{
+					$insertmovimiento = "INSERT INTO examenorina (IdListaExamen, IdTipoExamen, IdConsulta, IdUsuario, IdPersona, Fecha, Color, Olor, Aspecto, Densidad, Ph, Proteinas, Glucosa, SagreOculta,
 																			 CuerposCetomicos, Urobilinogeno, Bilirrubina, EsterasaLeucocitaria, Cilindros, Hematies, Leucocitos, CelulasEpiteliales, ElementosMinerales,
 																			 Parasitos, Observaciones,Activo)"
 																 ."VALUES('$idlistaexamen','$tipo_examen', '$id_consulta', '$usuario', '$id_persona', now(), '$color', '$olor', '$aspecto', '$densidad', '$PH', '$proteinas', '$glucosa',
@@ -38,6 +52,10 @@ session_start();
 
 			$insertmovimiento2 = "UPDATE listaexamen SET Activo=0 WHERE IdListaExamen='$idlistaexamen'";
 			$resultadoinsertmovimiento2 = $mysqli->query($insertmovimiento2);
+
+	}
+
+
 
 			$resultadoinsertmovimiento = $mysqli->query($insertmovimiento);
 			if (!$resultadoinsertmovimiento){

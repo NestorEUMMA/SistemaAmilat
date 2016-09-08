@@ -9,8 +9,13 @@
           </br>
         </div>
         <div class="pull-left info">
+<<<<<<< HEAD
           <p> <?php echo $_SESSION["user"] ?> </p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+=======
+         <center> <p> Perfil: <?php echo $puesto ?> </p> </center>
+          <small><i class="fa fa-circle text-success"></i> Online</small>
+>>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
         </div>
       </div>
 

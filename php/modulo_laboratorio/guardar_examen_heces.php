@@ -19,15 +19,30 @@ session_start();
 			$otros = $_POST['otros'];
 			$pactivos = $_POST['pactivos'];
 			$pquistes = $_POST['pquistes'];
-    	$idlistaexamen = $_POST['idlistaexamen'];
+    		$idlistaexamen = $_POST['idlistaexamen'];
 
-		    $insertmovimiento = "INSERT INTO examenheces(IdListaExamen, IdTipoExamen, IdConsulta, IdUsuario, IdPersona, Fecha, Color, Consistencia, Mucus, Hematies, Leucocitos, RestosAlimenticios,
+			if(empty($id_consulta)){
+						    $insertmovimiento = "INSERT INTO examenheces(IdListaExamen, IdTipoExamen IdUsuario, IdPersona, Fecha, Color, Consistencia, Mucus, Hematies, Leucocitos, RestosAlimenticios,
+	 																						Macrocopicos, Microscopicos, FloraBacteriana, Otros, PActivos, PQuistes,Activo)"
+													."VALUES('$idlistaexamen','$tipo_examen', '$usuario', '$id_persona', now(), '$color', '$consistencia', '$mucus', '$hematies', '$leucocitos',
+																		'$restosalimenticios', '$macroscopicos', '$microscopicos', '$florabacteriana', '$otros', '$pactivos', '$pquistes',1)";
+
+      $insertmovimiento2 = "UPDATE listaexamen SET Activo=0 WHERE IdListaExamen='$idlistaexamen'";
+			$resultadoinsertmovimiento2 = $mysqli->query($insertmovimiento2);
+
+			}
+			else{
+						    $insertmovimiento = "INSERT INTO examenheces(IdListaExamen, IdTipoExamen, IdConsulta, IdUsuario, IdPersona, Fecha, Color, Consistencia, Mucus, Hematies, Leucocitos, RestosAlimenticios,
 	 																						Macrocopicos, Microscopicos, FloraBacteriana, Otros, PActivos, PQuistes,Activo)"
 													."VALUES('$idlistaexamen','$tipo_examen', '$id_consulta', '$usuario', '$id_persona', now(), '$color', '$consistencia', '$mucus', '$hematies', '$leucocitos',
 																		'$restosalimenticios', '$macroscopicos', '$microscopicos', '$florabacteriana', '$otros', '$pactivos', '$pquistes',1)";
 
       $insertmovimiento2 = "UPDATE listaexamen SET Activo=0 WHERE IdListaExamen='$idlistaexamen'";
 			$resultadoinsertmovimiento2 = $mysqli->query($insertmovimiento2);
+
+			}
+
+
 
 				$resultadoinsertmovimiento = $mysqli->query($insertmovimiento);
 				if (!$resultadoinsertmovimiento){

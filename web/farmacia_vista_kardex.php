@@ -37,10 +37,14 @@ if (!empty($_SESSION['user']))
     LEFT JOIN movimientos as d on d.IdMovimiento = a.IdMovimiento
     LEFT JOIN presentacion as e on e.IdPresentacion  = c.IdPresentacion
 <<<<<<< HEAD
+<<<<<<< HEAD
               ";
     $resultadokardex = $mysqli->query($querykardex);
 =======
     ORDER BY a.FechaTransaccion ASC
+=======
+    ORDER BY a.FechaTransaccion DESC
+>>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
               ";
     $resultadokardex = $mysqli->query($querykardex);
     }

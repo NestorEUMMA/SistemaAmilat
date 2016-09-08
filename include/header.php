@@ -1,20 +1,19 @@
-<?php 
-    $iniciosesion = $_SESSION["user"];
-
-    $queryexpedientes = "SELECT u.InicioSesion As 'InicioSesion', CONCAT(u.Nombres,' ',u.Apellidos) As 'Usuario', p.Descripcion As 'Puesto'
-                      from usuario u
-                      INNER JOIN puesto p on u.IdPuesto = p.IdPuesto
-                      WHERE InicioSesion = '$iniciosesion'";
-                  $resultadoexpedientes = $mysqli->query($queryexpedientes);
-                  while ($test = $resultadoexpedientes->fetch_assoc())
+<?php
+  
+        $queryexpedientesu = "SELECT a.IdUsuario, a.InicioSesion, b.IdPuesto, b.Descripcion as NombrePuesto, concat(a.Nombres, ' ', a.Apellidos) as NombreCompleto, a.FechaIngreso as Fecha
+          FROM usuario as a 
+          inner join puesto as b on b.IdPuesto = a.IdPuesto
+          WHERE InicioSesion =  '" . $_SESSION['user'] . "'";
+       $resultadoexpedientesu = $mysqli->query($queryexpedientesu);
+       while ($test = $resultadoexpedientesu->fetch_assoc())
                   {
-                      $inicio = $test['InicioSesion'];
-                      $usuario = $test['Usuario'];
-                      $puesto = $test['Puesto'];
-                      
+                      $puesto = $test['NombrePuesto'];
+                      $nombreusuario = $test['NombreCompleto'];
+                      $fecha = $test['Fecha'];
+  
                   }
- ?>
 
+ ?>
 
      <header class="main-header">
         <!-- Logo -->
@@ -39,14 +38,15 @@
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs"> BIENVENIDO: <?php echo $inicio; ?></span>
+                  <span class="hidden-xs"> BIENVENIDO: <?php echo $_SESSION['user'] ?> </span>
                 </a>
                 <ul class="dropdown-menu">
                  <li class="user-header">
                 <img src="../img/Captura.JPG" alt="User Image">
 
                 <p>
-                  <?php echo $usuario; ?> - <?php echo $puesto;  ?>
+                   <?php echo $nombreusuario; ?> - <?php echo $puesto; ?>
+                    <small>Miembro desde <?php echo $fecha;  ?></small>
                 </p>
               </li>
               <li class="user-body">

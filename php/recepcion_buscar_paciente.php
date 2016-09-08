@@ -3,15 +3,17 @@
 include '../include/dbconnect.php';
 session_start();
 
+
+
 if (!empty($_SESSION['user']))
   {
-    $queryexpedientes = "SELECT p.IdPersona, CONCAT(p.Nombres,  ' ', p.Apellidos) as NombreCte, p.FechaNacimiento, p.Genero, p.Direccion , e.NombreEstado as Estado  FROM persona p
-    INNER JOIN estado e on p.IdEstado = e.IdEstado 
-    order by Nombres ASC";
-    $resultadoexpedientes = $mysqli->query($queryexpedientes);
+          $queryexpedientes = "SELECT p.IdPersona, CONCAT(p.Nombres,  ' ', p.Apellidos) as NombreCte, p.FechaNacimiento, p.Genero, p.Direccion , e.NombreEstado as Estado  FROM persona p
+          INNER JOIN estado e on p.IdEstado = e.IdEstado 
+          order by Nombres ASC";
+          $resultadoexpedientes = $mysqli->query($queryexpedientes);
 
-    $queryestado = " SELECT * FROM estado limit 1,3 ";
-    $resultadoestado = $mysqli->query($queryestado);
+          $queryestado = " SELECT * FROM estado limit 1,3 ";
+          $resultadoestado = $mysqli->query($queryestado);
 
 ?>
 
