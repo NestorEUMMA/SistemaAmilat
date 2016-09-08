@@ -301,7 +301,7 @@ if (!empty($_SESSION['user']))
                                     </div>
                                 
 
-                                    <label for="txtDuiResponsable" class="col-sm-1 control-label">DUI</label>
+                                  
                                     <label for="txtDuiResponsable" class="col-sm-1 control-label">Dui Responsable</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
