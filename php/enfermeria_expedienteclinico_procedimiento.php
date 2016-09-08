@@ -17,7 +17,8 @@ if (!empty($_SESSION['user'])) {
         $direccion = $test['Direccion'];
         $genero = $test['Genero'];
         $estadocivil = $test['IdEstadoCivil'];
-        $responsable = $test['IdResponsable'];
+          $nombreResponsable = $test['NombresResponsable'];
+          $apellidoResponsable = $test['ApellidosResponsable'];
         $parentesco = $test['IdParentesco'];
         $telefono = $test['Telefono'];
         $celular = $test['Celular'];
@@ -35,7 +36,7 @@ if (!empty($_SESSION['user'])) {
     $queryestadocivil = "SELECT * from estadocivil where IdEstadoCivil = '$estadocivil'";
     $resultadoestadocivil = $mysqli->query($queryestadocivil);
 
-    $queryusuario = "SELECT u.IdUsuario, CONCAT(u.Nombres,  ' ', u.Apellidos) as 'NombreCompleto'
+    $queryusuario = "SELECT u.IdUsuario as 'IdUsuario', CONCAT(u.Nombres,  ' ', u.Apellidos) as 'NombreCompleto', p.Descripcion
 																  from usuario u
 																  inner join puesto = p on u.IdPuesto = p.IdPuesto
 																  where p.Descripcion = 'Enfermeria' and u.Activo = 1 ";
@@ -399,7 +400,7 @@ if (!empty($_SESSION['user'])) {
                                                                     <div class="input-group-addon">
                                                                         <i class="fa fa-user"></i>
                                                                     </div>
-                                                                    <input type="text" class="form-control" disabled="disabled" name="txtResponsable" required="" value="<?php echo $responsable ?>" />
+                                                                    <input type="text" class="form-control" disabled="disabled" name="txtResponsable" required="" value="<?php echo $nombreResponsable. " " .$apellidoResponsable ?>" />
                                                                 </div>
                                                             </div>
                                                             <label for="inputEmail3" class="col-sm-2 control-label">
@@ -467,15 +468,9 @@ if (!empty($_SESSION['user'])) {
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <div class="col-sm-1"></div>
-                                                                    <div class="col-sm-3"><label for="inputEmail3" class="control-label">Medico</label></div>
+                                                                    <div class="col-sm-3"><label for="inputEmail3" class="control-label">Enfermera</label></div>
                                                                     <div class="col-sm-7">
-                                                                        <select class="form-control select2" style="width: 100%;" name="cboUsuario">
-                                                                            <?php
-                                                                            while ($row = $resultadousuario->fetch_assoc()) {
-                                                                                echo "<option value = '" . $row['IdUsuario'] . "'>" . $row['NombreCompleto'] . "</option>";
-                                                                            }
-                                                                            ?>
-                                                                        </select>
+                                                                    <input type="text" value="<?php echo $nombreusuario; ?>" class="form-control"  disabled="disabled" name="cboUsuario" >
                                                                     </div>
                                                                     <div class="col-sm-1"></div>
                                                                 </div>

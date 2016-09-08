@@ -8,15 +8,12 @@
           </br>
           </br>
         </div>
-        <div class="pull-left info">
-<<<<<<< HEAD
-          <p> <?php echo $_SESSION["user"] ?> </p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-=======
+      <div class="pull-left info">
          <center> <p> Perfil: <?php echo $puesto ?> </p> </center>
           <small><i class="fa fa-circle text-success"></i> Online</small>
->>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
+          </br>
         </div>
+        </br>
       </div>
 
           <ul class="sidebar-menu">
@@ -118,6 +115,7 @@
             </a>
             <ul class="treeview-menu">
                 <li><a href="../php/laboratorio_index_paciente.php"><i class="fa fa-circle-o"></i> Examenes Pendientes </a></li>
+                <li><a href="../php/laboratorio_pacientes_externos.php"><i class="fa fa-circle-o"></i> Pacientes Externos Activos </a></li>
             </ul>
           </li>
           <li class="treeview">

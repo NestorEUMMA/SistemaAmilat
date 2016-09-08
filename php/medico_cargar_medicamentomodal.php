@@ -5,7 +5,7 @@ session_start();
 
       $idmedicamento = $_POST["id"];
 
-      $querytablamedicamentos = "SELECT IdMedicamento As 'IdMedicamento' ,m.NombreMedicamento As 'Medicamento', u.Nombre As 'Presentacion', c.NombreCategoria As 'Categoria',
+      $querytablamedicamentos = "SELECT IdMedicamento As 'IdMedicamento' ,m.NombreMedicamento As 'Medicamento', u.NombreUnidadMedida As 'Presentacion', c.NombreCategoria As 'Categoria',
                                     l.NombreLaboratorio As 'Laboratorio', m.Existencia As 'Existencia'
                               FROM medicamentos m
                               INNER JOIN laboratorio l on m.IdLaboratorio = l.IdLaboratorio

@@ -79,7 +79,7 @@ if (!empty($_SESSION['user'])) {
                                           FROM listaexamen le
                                           INNER JOIN usuario u ON le.IdUsuario = u.IdUsuario
                                           INNER JOIN persona p ON le.IdPersona = p.IdPersona
-                                          INNER JOIN consulta c ON le.IdConsulta = c.IdConsulta
+                                          LEFT JOIN consulta c ON le.IdConsulta = c.IdConsulta
                                           INNER JOIN tipoexamen te ON le.IdTipoExamen = te.IdTipoExamen
                                           WHERE c.IdConsulta = '$id' ";
     $resultadoexamenestabla = $mysqli->query($queryexamenestabla);
@@ -140,7 +140,7 @@ if (!empty($_SESSION['user'])) {
                               FROM listaexamen le
                               INNER JOIN usuario u ON le.IdUsuario = u.IdUsuario
                               INNER JOIN persona p ON le.IdPersona = p.IdPersona
-                              INNER JOIN consulta c ON le.IdConsulta = c.IdConsulta
+                              LEFT JOIN consulta c ON le.IdConsulta = c.IdConsulta
                               INNER JOIN tipoexamen te ON le.IdTipoExamen = te.IdTipoExamen
                                         WHERE le.Activo = 0 and le.IdPersona = $idpersonaid
                                         ORDER BY le.FechaExamen DESC";
