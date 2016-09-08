@@ -5,7 +5,7 @@ session_start();
 
 if (!empty($_SESSION['user']))
   {
-    $queryexamenesactivos = "SELECT le.IdListaExamen As 'IdListaExamen', c.IdConsulta As 'Consulta', CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', te.IdTipoExamen As IdTipoExamen, te.NombreExamen As 'Examen', le.Activo, 
+    $queryexamenesactivos = "SELECT le.IdListaExamen As 'IdListaExamen', le.FechaExamen As 'Fecha', c.IdConsulta As 'Consulta', CONCAT(u.Nombres,' ', u.Apellidos) As 'Medico', CONCAT(p.Nombres,' ', p.Apellidos) As 'Paciente', te.IdTipoExamen As IdTipoExamen, te.NombreExamen As 'Examen', le.Activo, 
     le.Indicacion As 'Indicacion'
                           FROM listaexamen le
                           INNER JOIN usuario u ON le.IdUsuario = u.IdUsuario
@@ -60,6 +60,7 @@ if (!empty($_SESSION['user']))
                     <?php
                             echo"<thead>";
                                 echo"<tr>";
+                                echo"<th>Fecha</th>";
                                 echo"<th>Medico</th>";
                                 echo"<th>Paciente</th>";
                                 echo"<th>Examen</th>";
@@ -73,6 +74,7 @@ if (!empty($_SESSION['user']))
                             {
                                  $idlistaexamen = $row['IdListaExamen'];
                                  echo"<tr>";
+                                 echo"<td>".$row['Fecha']."</td>";
                                  echo"<td>".$row['Medico']."</td>";
                                  echo"<td>".$row['Paciente']."</td>";
                                  echo"<td>".$row['Examen']."</td>";

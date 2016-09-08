@@ -27,7 +27,11 @@ while ($row2 = $resultadocuentarecetas->fetch_assoc()) {
 ?>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 
+=======
+<body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
+>>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
    <?php  include '../include/asset.php'; ?>
    <link rel="stylesheet" href="../web/dist/parsley.css">
    <script src="../web/dist/parsley.min.js"></script>
@@ -53,11 +57,17 @@ while ($row2 = $resultadocuentarecetas->fetch_assoc()) {
     <h3 class="box-title">LISTADO DE RECETAS ACTIVAS</h3>
     </div>
 	<!-- /.box-header -->
+<<<<<<< HEAD
     <div class="box-body";
 	<form action = reporte formtarget = reporte_vista_farmacia.pdf>
   <input type = submit class = "btn btn-warning" value = "Imprimir">
 
   </div>form>
+=======
+    <div class="box-body">
+
+  </div>
+>>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
   <?php
   if (empty($cuentarecetas)){
     echo "
@@ -67,8 +77,13 @@ while ($row2 = $resultadocuentarecetas->fetch_assoc()) {
     ";
   }else{
   echo "
+<<<<<<< HEAD
   <table id='example2' class='table table-bordered table-hover'>
   <tr>
+=======
+  <table id='example2' class='table table-bordered table-hover table-striped table-responsive'>
+  <tr class = 'info'>
+>>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
   <th>PACIENTE</th><th>MEDICO</th><th>FECHA</th><th style='text-align: center;' colspan = 2>ACCION</th>
   </tr>
   ";

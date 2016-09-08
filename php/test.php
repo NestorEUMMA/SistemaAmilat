@@ -69,7 +69,12 @@ foreach ($arrPreguntas as $iP => $vP) {
 				case "1":
 				{
 					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
+<<<<<<< HEAD
 					echo "<input id='$IdPregunta' name='$IdPregunta' type='text' />";
+=======
+					//echo "<input id='$IdPregunta' name='$IdPregunta' type='text' />";
+					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='2'> </textarea>";
+>>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 					break;
 				}
 				case "2":

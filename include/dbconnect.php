@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
@@ -9,6 +10,23 @@ define('DB_PASSWORD', '');
 define('DB_DATABASE', 'db_clinica');
 //define('DB_PASSWORD', 'hope2900clinic');
 //define('DB_PASSWORD', '12345');
+=======
+// define('DB_SERVER', 'localhost');
+// define('DB_USERNAME', 'root');
+// define('DB_PASSWORD', 'nest2013');
+// define('DB_PASSWORD', '12345');
+// define('DB_DATABASE', 'db_clinica');
+
+//define('DB_SERVER', 'localhost');
+//define('DB_USERNAME', 'root');
+//define('DB_DATABASE', 'db_clinica');
+//define('DB_PASSWORD', 'hope2900clinic');
+
+define ('DB_SERVER', 'MYSQL5009.SmarterASP.Net');
+define ('DB_USERNAME', '9b35fa_clinica');
+define ('DB_PASSWORD', 'clinica2016');
+define ('DB_DATABASE', 'db_9b35fa_clinica');
+>>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 
 $mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 

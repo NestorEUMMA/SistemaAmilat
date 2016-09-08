@@ -52,7 +52,7 @@ if (!empty($_SESSION['user']))
               <h3 class="box-title">Busqueda de Pacientes</h3>
             </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table id="example1" class="table table-bordered table-hover">
+                  <table id="example2" class="table table-bordered table-hover">
                     <?php
                             echo"<thead>";
                                 echo"<tr>";
@@ -76,23 +76,23 @@ if (!empty($_SESSION['user']))
                                  echo"<td>".$row['Direccion']."</td>";
                                  echo"<td>".$row['Estado']."</td>";
                                  if($row['Estado'] == 'Consulta'){
-                                  echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled'style='width: 75%' class='btn  btn-info' data-toggle='modal' data-target='#modalConsulta'> ESTADO: INICIANDO PROCESO <i class='fa fa-heartbeat  '></i></span></div></td>";
+                                  echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled'style='width: 75%' class='btn  btn-info'> ESTADO: INICIANDO PROCESO <i class='fa fa-heartbeat  '></i></span></div></td>";
 
                                  }
                                  elseif ($row['Estado'] == 'Signos Vitales') {
-                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-warning' data-toggle='modal' data-target='#modalConsulta'> ESTADO: SIGNOS VITALES <i class='fa fa-heartbeat  '></i></span></div></td>";
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-warning' > ESTADO: SIGNOS VITALES <i class='fa fa-heartbeat  '></i></span></div></td>";
 
                                  }
                                  elseif ($row['Estado'] == 'Consulta Medica') {
-                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-danger' data-toggle='modal' data-target='#modalConsulta'> ESTADO CONSULTA MEDICA <i class='fa fa-heartbeat  '></i></span></div></td>";
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-danger' > ESTADO CONSULTA MEDICA <i class='fa fa-heartbeat  '></i></span></div></td>";
 
                                  }
                                 elseif ($row['Estado'] == 'Examenes Laboratorio') {
-                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-success' data-toggle='modal' data-target='#modalConsulta'> ESTADO LABORATORIO <i class='fa fa-heartbeat  '></i></span></div></td>";
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled' style='width: 75%' class='btn  btn-success'> ESTADO LABORATORIO <i class='fa fa-heartbeat  '></i></span></div></td>";
 
                                  }
                                elseif ($row['Estado'] == 'Enfermeria') {
-                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled'  style='width: 75%' class='btn  btn-success' data-toggle='modal' data-target='#modalConsulta'> ESTADO ENFERMERIA <i class='fa fa-heartbeat  '></i></span></div></td>";
+                                   echo"<td><div id='btn$id' class='btn-exp'><span disabled='disabled'  style='width: 75%' class='btn  btn-success' > ESTADO ENFERMERIA <i class='fa fa-heartbeat  '></i></span></div></td>";
 
                                  }
                                  else{

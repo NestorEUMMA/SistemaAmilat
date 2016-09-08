@@ -17,7 +17,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'IdUnidadMedida') ?>
 
-    <?= $form->field($model, 'Nombre') ?>
+    <?= $form->field($model, 'NombreUnidadMedida') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
