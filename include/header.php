@@ -1,18 +1,18 @@
 <?php 
-    $iniciosesion = $_SESSION["user"];
+    // $iniciosesion = $_SESSION["user"];
 
-    $queryexpedientes = "SELECT u.InicioSesion As 'InicioSesion', CONCAT(u.Nombres,' ',u.Apellidos) As 'Usuario', p.Descripcion As 'Puesto'
-                      from usuario u
-                      INNER JOIN puesto p on u.IdPuesto = p.IdPuesto
-                      WHERE InicioSesion = '$iniciosesion'";
-                  $resultadoexpedientes = $mysqli->query($queryexpedientes);
-                  while ($test = $resultadoexpedientes->fetch_assoc())
-                  {
-                      $inicio = $test['InicioSesion'];
-                      $usuario = $test['Usuario'];
-                      $puesto = $test['Puesto'];
+    // $queryexpedientes = "SELECT u.InicioSesion As 'InicioSesion', CONCAT(u.Nombres,' ',u.Apellidos) As 'Usuario', p.Descripcion As 'Puesto'
+    //                   from usuario u
+    //                   INNER JOIN puesto p on u.IdPuesto = p.IdPuesto
+    //                   WHERE InicioSesion = '$iniciosesion'";
+    //               $resultadoexpedientes = $mysqli->query($queryexpedientes);
+    //               while ($test = $resultadoexpedientes->fetch_assoc())
+    //               {
+    //                   $inicio = $test['InicioSesion'];
+    //                   $usuario = $test['Usuario'];
+    //                   $puesto = $test['Puesto'];
                       
-                  }
+    //               }
  ?>
 
 
@@ -39,14 +39,14 @@
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs"> BIENVENIDO: <?php echo $inicio; ?></span>
+                  <span class="hidden-xs"> BIENVENIDO: </span>
                 </a>
                 <ul class="dropdown-menu">
                  <li class="user-header">
                 <img src="../img/Captura.JPG" alt="User Image">
 
                 <p>
-                  <?php echo $usuario; ?> - <?php echo $puesto;  ?>
+
                 </p>
               </li>
               <li class="user-body">

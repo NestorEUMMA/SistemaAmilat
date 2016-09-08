@@ -9,7 +9,7 @@
           </br>
         </div>
         <div class="pull-left info">
-         <center> <p> Perfil: <?php echo $puesto; ?> </p> </center>
+         <center> <p> Perfil: </p> </center>
           <small><i class="fa fa-circle text-success"></i> Online</small>
         </div>
       </div>

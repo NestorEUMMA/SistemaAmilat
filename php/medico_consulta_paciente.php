@@ -89,24 +89,25 @@ if (!empty($_SESSION['user'])) {
     $queryexpedientes = "SELECT * FROM persona WHERE IdPersona  = '$idpersonaid'";
     $resultadoexpedientes = $mysqli->query($queryexpedientes);
     while ($test = $resultadoexpedientes->fetch_assoc()) {
-        $nombres = $test['Nombres'];
-        $apellidos = $test['Apellidos'];
-        $dui = $test['Dui'];
-        $fnacimiento = $test['FechaNacimiento'];
-        $geografia = $test['IdGeografia'];
-        $direccion = $test['Direccion'];
-        $genero = $test['Genero'];
-        $estadocivil = $test['IdEstadoCivil'];
-        $responsable = $test['IdResponsable'];
-        $parentesco = $test['IdParentesco'];
-        $telefono = $test['Telefono'];
-        $celular = $test['Celular'];
-        $correo = $test['Correo'];
-        $alergias = $test['Alergias'];
-        $medicinas = $test['Medicamentos'];
-        $enfermedad = $test['Enfermedad'];
-        $telefonoresponsable = $test['TelefonoResponsable'];
-        $date = date("Y-m-d H:i:s");
+ $nombres = $test['Nombres'];
+                      $apellidos = $test['Apellidos'];
+                      $dui = $test['Dui'];
+                      $fnacimiento = $test['FechaNacimiento'];
+                      $geografia = $test['IdGeografia'];
+                      $direccion = $test['Direccion'];
+                      $genero = $test['Genero'];
+                      $estadocivil = $test['IdEstadoCivil'];
+                      $nombreResponsable = $test['NombresResponsable'];
+                      $apellidoResponsable = $test['ApellidosResponsable'];
+                      $parentesco = $test['Parentesco'];
+                      $telefono = $test['Telefono'];
+                      $celular = $test['Celular'];
+                      $correo = $test['Correo'];
+                      $alergias = $test['Alergias'];
+                      $medicinas = $test['Medicamentos'];
+                      $enfermedad = $test['Enfermedad'];
+                      $telefonoresponsable = $test['TelefonoResponsable'];
+                      $date = date("Y-m-d H:i:s");
     }
 
 
@@ -177,7 +178,7 @@ if (!empty($_SESSION['user'])) {
                                           FROM enfermedad";
     $resultadotablaenfermedad = $mysqli->query($querytablaenfermedad);
 
-    $querytablarecetamedicamentos = "SELECT CONCAT(m.NombreComercial,' ',m.NombreMedicamento,' ',um.Nombre) As 'Medicamento', rm.Total As 'Cantidad'
+    $querytablarecetamedicamentos = "SELECT CONCAT(m.NombreComercial,' ',m.NombreMedicamento,' ',um.NombreUnidadMedida) As 'Medicamento', rm.Total As 'Cantidad'
                       FROM receta_medicamentos rm
                       INNER JOIN medicamentos m ON m.IdMedicamento = rm.IdMedicamento
                       INNER JOIN receta r ON r.IdReceta = rm.IdReceta
@@ -186,7 +187,7 @@ if (!empty($_SESSION['user'])) {
                       WHERE r.IdConsulta =$id";
     $resultadotablarecetamedicamentos = $mysqli->query($querytablarecetamedicamentos);
 
-    $queryhistoricomedicamentos = "SELECT c.IdConsulta As 'ID', r.IdReceta As 'IDReceta', r.Fecha As 'Fecha', CONCAT(p.Nombres,' ',p.Apellidos) As 'Nombre Completo', CONCAT(u.Nombres,' ',u.Apellidos) As 'Medico', CONCAT(m.NombreComercial,' ',m.NombreMedicamento,' ',um.Nombre) As 'Medicamento',  
+    $queryhistoricomedicamentos = "SELECT c.IdConsulta As 'ID', r.IdReceta As 'IDReceta', r.Fecha As 'Fecha', CONCAT(p.Nombres,' ',p.Apellidos) As 'Nombre Completo', CONCAT(u.Nombres,' ',u.Apellidos) As 'Medico', CONCAT(m.NombreComercial,' ',m.NombreMedicamento,' ',um.NombreUnidadMedida) As 'Medicamento',  
                           rm.Cantidad As 'Cantidad', rm.Dias As 'Dias', rm.Horas As 'Horas', rm.Total As 'Total'
                       FROM receta r
                       INNER JOIN  usuario u on u.IdUsuario = r.IdUsuario
@@ -1089,7 +1090,7 @@ if (!empty($_SESSION['user'])) {
                                                                          Responsable
                                                                      </label>
                                                                      <div class="col-sm-5">
-                                                                         <input type="text" class="form-control" disabled="disabled"  name="txtResponsable" value="<?php echo $responsable ?>"/>
+                                                                         <input type="text" class="form-control" disabled="disabled"  name="txtResponsable" value="<?php echo $nombreResponsable. " " .$apellidoResponsable ?>"/>
                                                                      </div>
                                                                      <label for="inputEmail3" class="col-sm-2 control-label">
                                                                          Parentesco

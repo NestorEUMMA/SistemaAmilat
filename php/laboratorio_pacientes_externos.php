@@ -37,7 +37,7 @@ if (!empty($_SESSION['user']))
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Inicio
+            Pacientes Externos Activos
             <small></small>
           </h1>
           <ol class="breadcrumb">
@@ -54,7 +54,7 @@ if (!empty($_SESSION['user']))
               <h3 class="box-title">Busqueda de Pacientes</h3>
             </div><!-- /.box-header -->
                 <div class="box-body">
-                  <table id="example1" class="table table-bordered table-hover">
+                  <table id="example2   " class="table table-bordered table-hover">
                     <?php
                             echo"<thead>";
                                 echo"<tr>";
@@ -94,7 +94,7 @@ if (!empty($_SESSION['user']))
                                  <div class="modal">
                                      <div class="modal-dialog modal-md">
                                          <div class="modal-content">
-                                             <form class="form-horizontal" method="POST" action="medico_guardar_examen.php"  id="demo-form1" data-parsley-validate="">
+                                             <form class="form-horizontal" method="POST" action="laboratorio_guardar_examen.php"  id="demo-form1" data-parsley-validate="">
                                                  <div class="modal-header">
                                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                          <span aria-hidden="true">&times;</span></button>
@@ -130,7 +130,10 @@ if (!empty($_SESSION['user']))
                                                              </div>
                                                          </div>
                                                          <div class="hidden">
-                                                             <textarea  type="text" rows="4" class="form-control"   name="txtpersonaID">  </textarea>
+                                                             <textarea type="text" rows="4" class="form-control"  id="IdPersona" name="txtpersonaID">  </textarea>
+                                                         </div>
+                                                        <div class="hidden">
+                                                             <textarea type="text" rows="4" class="form-control"   name="txtUsuarioID"> <?php echo $_SESSION['IdUsuario'] ?>  </textarea>
                                                          </div>
                                                          <div class="col-sm-9">
                                                          </div>
@@ -148,17 +151,24 @@ if (!empty($_SESSION['user']))
                                                  </div>
                                                  <div class="modal-footer">
                                                      <div class="col-sm-2">
-                                                     </div>
-                                                     <div class="col-sm-2">
                                                          <button type="button" class="btn btn-danger pull-left" id="btn-cerrarmodal" data-dismiss="modal" >Cerrar</button>
-                                                     </div>
-                                                     <div class="col-sm-4">
+                                                     </div> 
+                                                     <div class="col-sm-3">
                                                      </div>
                                                      <div class="col-sm-3">
                                                          <button type="submit" class="btn btn-primary" name="guardarIndicador" >Guardar Cambios</button>
                                                      </div>
+                                                     </form>
+                                                    <div class="col-sm-3">
+                                                    <form class="form-horizontal" method="POST" action="laboratorio_finalizar_externo.php">
+                                                     <div class="hidden">
+                                                        <textarea type="text" rows="4" class="form-control"  id="IdPersonas" name="txtpersonaIDs">  </textarea>
+                                                         </div>
+                                                     <button type="submit" class="btn btn-warning" name="" >Finalizar Consulta</button>
+                                                     </form>
+                                                     </div>
                                                  </div>
-                                             </form>
+                                             
                                          </div>
                                      </div>
                                  </div>
@@ -197,6 +207,7 @@ else{
         $(".btn-mdl").click(function(){
             var id = $(this).attr("id").replace("btn","");
             $("#IdPersona").val(id);
+            $("#IdPersonas").val(id);
             $("#modalGuardarExamenes").modal("show");
             //$("#frm").submit();
         });
