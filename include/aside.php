@@ -100,6 +100,8 @@
               </a>
               <ul class="treeview-menu">
                   <li><a href="../php/medico_index_consulta.php"><i class="fa fa-circle-o"></i> Consultas Activas </a></li>
+                  <li><a href="../web/farmacia_ingreso_medicamentos.php"><i class="fa fa-circle-o"></i>Existencias de Medicamentos</a>
+            </li>
               </ul>
             </li>
                   <?php

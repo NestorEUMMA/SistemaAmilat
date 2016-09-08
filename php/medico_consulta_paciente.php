@@ -148,8 +148,8 @@ if (!empty($_SESSION['user'])) {
 
 
     // CONSULTA PARA CARGAR LA TABLA DE LOS MEDICAMENTOS ACTIVOS EN MODAL
-    $querytablamedicamentos = "SELECT IdMedicamento , CONCAT(m.NombreComercial,' ',m.NombreMedicamento) As 'Medicamento', u.Nombre As 'Presentacion', c.NombreCategoria As 'Categoria',
-                                                l.NombreLaboratorio As 'Laboratorio', m.Existencia As 'Existencia'
+    $querytablamedicamentos = "SELECT IdMedicamento , CONCAT(m.NombreMedicamento, ' - ', m.NombreComercial, ' - ', m.codigo) As 'Medicamento', concat(m.concentracion, ' - ' ,u.NombreUnidadMedida) As 'Presentacion', c.NombreCategoria As 'Categoria',
+      l.NombreLaboratorio As 'Laboratorio', m.Existencia As 'Existencia'
                                           FROM medicamentos m
                                           INNER JOIN laboratorio l on m.IdLaboratorio = l.IdLaboratorio
                                           INNER JOIN categoria c on m.IdCategoria = c.IdCategoria
