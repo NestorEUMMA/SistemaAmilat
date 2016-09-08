@@ -8,7 +8,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SistemaAmilat | Centro Medico Familiar Shalom</title>
+    <title>SistemaTPV | Centro Medico Familiar Shalom</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -45,6 +45,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 <!-- 
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/parsley.css"> -->
 
@@ -103,6 +104,8 @@
     <script src="<?php echo $ruta; ?>web/plugins/datatables/dataTables.bootstrap.min.js"></script>
 
     <script src="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.min.js"></script>
+
+    <script src="<?php echo $ruta; ?>web/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 
    <!--  <script src="<?php echo $ruta; ?>web/dist/parsley.min.js"></script>
     
@@ -175,7 +178,7 @@
           "paging": false,
           "lengthChange": true,
           "searching": true,
-          "ordering": false,
+          "ordering": true    ,
           "info": true,
           "autoWidth": true,
     });

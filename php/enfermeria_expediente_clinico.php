@@ -20,8 +20,9 @@ if (!empty($_SESSION['user']))
                       $direccion = $test['Direccion'];
                       $genero = $test['Genero'];
                       $estadocivil = $test['IdEstadoCivil'];
-                      $responsable = $test['IdResponsable'];
-                      $parentesco = $test['IdParentesco'];
+                      $nombreResponsable = $test['NombresResponsable'];
+                      $apellidoResponsable = $test['ApellidosResponsable'];
+                      $parentesco = $test['Parentesco'];
                       $telefono = $test['Telefono'];
                       $celular = $test['Celular'];
                       $correo = $test['Correo'];
@@ -398,7 +399,7 @@ if (!empty($_SESSION['user']))
                                         <div class="input-group-addon">
                                         <i class="fa fa-user"></i>
                                         </div>
-                                     <input type="text" class="form-control" disabled="disabled" name="txtResponsable" required="" value="<?php echo $responsable ?>" />
+                                     <input type="text" class="form-control" disabled="disabled" name="txtResponsable" required="" value="<?php echo $nombreResponsable. " " .$apellidoResponsable ?>" />
                                      </div>
                                     </div>
                                     <label for="inputEmail3" class="col-sm-2 control-label">
