@@ -193,6 +193,71 @@ session_start();
     }
 
 
+
+    //Guardar vacunación
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 3;";
+    $tblPregEV = $mysqli->query($query);
+    $arrPregEV = array();
+
+    while ($f = $tblPregEV->fetch_assoc())
+    {
+        $IdPregunta = $f["IdPregunta"];
+        $Ponderacion = $f["Ponderacion"];
+        
+        $IdFactor = 2;
+        $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
+
+        switch ($Ponderacion) {
+            case "0":
+            {
+                //Insertar una respuesta por pregunta
+                $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,IdRespuesta)
+                        values 
+                            ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
+                        ";
+                $resultInsResp = $mysqli->query($queryInsResp);
+                //echo "<h3>$queryInsResp</h3>";
+                break;
+            }
+            case "1":
+            {
+                //Insertar la respuesta abierta
+                $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,Detalle)
+                        values 
+                            ($IdTest,$IdFactor,$IdPregunta,'$IdRespuesta');
+                        ";
+                $resultInsResp = $mysqli->query($queryInsResp);
+                //echo "<h3>$queryInsResp</h3>";
+                break;
+            }
+            case "2":
+            {
+                //Insertar múltiples respuestas
+                echo "<h1>$IdRespuesta</h1>";
+                for ($i=0;$i<count($IdRespuesta);$i++)    
+                {     
+                    $idResp = $IdRespuesta[$i];
+                    $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,IdRespuesta)
+                        values 
+                            ($IdTest,$IdFactor,$IdPregunta,$idResp);
+                        ";
+                    $resultInsResp = $mysqli->query($queryInsResp);
+                    //echo "<h3>$queryInsResp</h3>";    
+                } 
+                
+                break;
+            }
+            default:
+                
+                break;
+        }
+        
+    }
+
+
     
 
 
