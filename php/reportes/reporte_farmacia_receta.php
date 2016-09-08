@@ -12,11 +12,21 @@ WHERE a.IdReceta = $idreceta ";
 $resultadoencabezado = $mysqli->query($queryencabezado);
 
  $querydetalle = "
-SELECT concat(b.NombreMedicamento, ' - ', c.NombrePresentacion) as MEDICAMENTO, a.Cantidad as CANTIDAD, a.Horas as HORAS, a.Dias as DIAS, a.Total as TOTAL
+SELECT concat(b.NombreMedicamento, ' - ', e.NombrePresentacion) as MEDICAMENTO, truncate(a.cantidad, 0) as CANTIDAD, 
+a.horas as HORAS, a.dias as DIAS, a.total as TOTAL,
+CASE 
+WHEN d.Categoria = 'A' THEN (b.PrecioUnitario * a.total) * 1
+WHEN d.Categoria = 'B' THEN (b.PrecioUnitario * a.total) * 0.7
+WHEN d.Categoria = 'C' THEN (b.PrecioUnitario * a.total) * 0.5
+WHEN d.Categoria = 'D' THEN 0
+END PRECIO
 FROM receta_medicamentos as a
 LEFT JOIN medicamentos as b on b.IdMedicamento = a.IdMedicamento
-LEFT JOIN presentacion as c on c.IdPResentacion = b.IdPresentacion
-WHERE a.IdReceta = $idreceta ";
+LEFT JOIN receta as c on c.IdReceta = a.IdReceta
+LEFT JOIN persona as d on d.IdPersona = c.IdReceta
+LEFT JOIN presentacion e on e.IdPresentacion = b.IdPresentacion
+WHERE a.IdReceta = $idreceta 
+";
 
 $resultadodetalle = $mysqli->query($querydetalle);
 
@@ -61,19 +71,23 @@ echo "
 echo "</table>";
 
 echo "<table class='table table-bordered table-hover' >";
-echo "<tr><th>MEDICAMENTO</th><th>CANTIDAD</th><th>HORAS</th><th>DIAS</th><th>TOTAL</th></tr>";
+echo "<th>NOMBRE</th><th>CANTIDAD</th><th>HORAS</th><th>DIAS</th><th>TOTAL</th><th>PRECIO</th>";
 
+$t = 0;
 while ($row2 = $resultadodetalle->fetch_assoc()){
  echo " 
   <tr>
-  <td>".$row2['MEDICAMENTO']."</td>
-  <td>".$row2['CANTIDAD']."</td>
-  <td>".$row2['HORAS']."</td>
-  <td>".$row2['DIAS']."</td>
-  <td>".$row2['TOTAL']."</td>
+  <td>".$row2['MEDICAMENTO']."</td><td class = 'text-center'>".$row2['CANTIDAD']."</td><td class = 'text-center'>".$row2['HORAS']."</td><td class = 'text-center'>".$row2['DIAS']."</td><td class = 'text-center'>".$row2['TOTAL']."</td><td class = 'text-right'>".$row2['PRECIO']."</td>
   </tr>
 ";
+$t += $row2['PRECIO'];
 }
+  echo "
+  <tr>
+    <th class = 'text-right' colspan = '5'>TOTAL</th>
+    <th class = 'text-right'>".$t."</th>
+  </tr>  
+  ";
 echo "</table>";
 ?>
 </div>

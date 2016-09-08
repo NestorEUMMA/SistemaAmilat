@@ -74,6 +74,10 @@ if (!empty($_SESSION['user']))
     <div class="col-xs-12">
     <div class="box">
     <div class="box-header with-border">
+    <?php
+    if ($_SESSION['IdPuesto'] == 4)
+    {
+    ?>
     <h3 class="box-title">INGRESAR MEDICAMENTO NUEVO</h3>
     </div>
 	<!-- /.box-header -->
@@ -150,6 +154,9 @@ if (!empty($_SESSION['user']))
     </tr>
     </table>
     </form>
+    <?php
+    }
+    ?>
     <h3 class="box-title">EXISTENCIA DE MEDICAMENTOS</h3>
 	 <table id="example2" class="table table-bordered table-hover table-striped table-responsive">
     <?php
