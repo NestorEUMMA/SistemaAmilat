@@ -2,7 +2,7 @@
 	<tr>
 		<th class="text-center" style="width: 5%">No.</th>
 		<th class="text-center" style="width: 55%">Pregunta</th>
-		<th class="text-center" style="width: 40%">Respuesta</th>
+		<th class="text-center" style="width: 40%">Valor</th>
 	</tr>
 
 <?php
@@ -11,6 +11,7 @@ include_once '../include/dbconnect.php';
 session_start();
 
 $id = $_POST["IdFactor"];
+$IdPersona = $_POST["IdPersona"];
 
 $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = $id";
 $tblPreguntas = $mysqli->query($query);
@@ -22,16 +23,24 @@ while ($f = $tblPreguntas->fetch_assoc())
 }
 
 
-$query = "select
-				 b.IdPregunta
-				,b.Nombre as Pregunta
-				,a.IdRespuesta 
-			    ,a.Nombre as Respuesta
-			from 
-				respuesta a
-			left join pregunta b on a.IdPregunta = b.IdPregunta
-			where 
-				b.idFactor = $id";
+$query = "select 
+			 a.IdTest
+		    ,b.IdFactor
+		    ,b.IdPregunta
+		    ,c.Ponderacion
+		    ,c.Nombre as Pregunta
+		    ,b.IdRespuesta
+		    ,b.Detalle
+		    , (case 
+				when IdRespuesta is null then b.Detalle
+		        else (select Nombre from respuesta where IdRespuesta = b.IdRespuesta)
+			  end) as Respuesta
+		from 
+			test a
+		left join testdetalle b on a.IdTest = b.IdTest
+		left join pregunta c on b.IdPregunta = c.IdPregunta
+		where 
+			a.IdPersona=$IdPersona and b.IdFactor=$id";
 
 $tblRespuestas = $mysqli->query($query);
 $arrRespuestas = array();
@@ -54,38 +63,33 @@ foreach ($arrPreguntas as $iP => $vP) {
 			switch ($vP["Ponderacion"]) {
 				case "0":
 				{
-					echo "<select id='selPregunta". $vP["IdPregunta"] . "' name='selPregunta".$vP["IdPregunta"] . "' class='form-control select2' required  onfocus='inFocus(this)' onfocusout='outFocus(this)' >";
-					echo "<option value=''></option>";
 						
 					foreach ($arrRespuestas as $iR => $vR) {
 						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
-							echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
+							echo $vR["Respuesta"];
 						}
 					}
-			
-					echo "</select>";
 					break;
 				}
 				case "1":
 				{
-					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					//echo "<input id='$IdPregunta' name='$IdPregunta' type='text' />";
-					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='2' required > </textarea>";
+					foreach ($arrRespuestas as $iR => $vR) {
+						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
+							echo $vR["Respuesta"];
+						}
+					}
 					break;
 				}
 				case "2":
 				{
-					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<select id='$IdPregunta' name='$IdPregunta". "[]" ."' class='form-control select3' multiple='multiple' required >";
-					echo "<option value=''></option>";
-						
+					
 					foreach ($arrRespuestas as $iR => $vR) {
 						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
-							echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
+							$r = $vR["Respuesta"];
+							//echo "<span class='bagde bagde-info'>$r</span>";
+							echo "<small class='label bg-yellow'>$r</small>&nbsp;";
 						}
 					}
-			
-					echo "</select>";
 					break;
 				}
 				default:
@@ -98,7 +102,7 @@ foreach ($arrPreguntas as $iP => $vP) {
 }
 
 
-//header("Content-Type","application/json");
+//header("Content-Type","text/html");
 //print_r(json_encode($));
 
 ?>

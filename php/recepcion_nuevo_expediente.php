@@ -12,6 +12,9 @@ if (!empty($_SESSION['user']))
   $queryestadocivil = "SELECT * from estadocivil ";
   $resultadoestadocivil = $mysqli->query($queryestadocivil);
 
+  $queryPais = "SELECT IdPais,NombrePais FROM pais";
+  $resultPais = $mysqli->query($queryPais);
+
 ?>
 
 <!DOCTYPE html>
@@ -110,22 +113,15 @@ if (!empty($_SESSION['user']))
                                       </div>
                                     </div>
 
-                                    <label for="txtDui" class="col-sm-1 control-label">Dui</label>
-                                    <div class="col-sm-2">
-                                      <div class="input-group">
-                                        <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
-                                        <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDui" id="txtDui"  >
-                                      </div>
-                                    </div>
-                                    
+                                                                        
                                     <label for="txtGenero" class="col-sm-1 control-label">Genero</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-genderless"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" name="txtGenero" id="txtGenero" required="">
-                                          <option>Seleccione..</option>
-                                          <option>Masculino</option>
-                                          <option>Femenino</option>
+                                        <select class="form-control select2" style="width: 100%;" name="txtGenero" id="txtGenero" required="required">
+                                          <option value=""></option>
+                                          <option value="Masculino">Masculino</option>
+                                          <option value="Femenino">Femenino</option>
                                         </select>
                                       </div>
                                     </div>
@@ -135,6 +131,7 @@ if (!empty($_SESSION['user']))
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-circle-o"></i></div>
                                           <select class="form-control select2" style="width: 100%;" id="txtIdEstadoCivil" name="txtIdEstadoCivil" required="">
+                                            <option value=""></option>
                                             <?php
                                               while ($row = $resultadoestadocivil->fetch_assoc()) {
                                                 echo "<option value = '".$row['IdEstadoCivil']."'>".$row['Nombre']."</option>";
@@ -143,15 +140,45 @@ if (!empty($_SESSION['user']))
                                           </select>
                                       </div>
                                     </div>
+
+                                    <label for="txtDui" class="col-sm-1 control-label">Dui</label>
+                                    <div class="col-sm-2">
+                                      <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-credit-card"></i></div>
+                                        <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDui" id="txtDui"  >
+                                      </div>
+                                    </div>
+
+
+
                                   </div>
+
+
                                   
                                   <div class="form-group">
+
+                                    <label for="txtIdPais" class="col-sm-1 control-label">Pais</label>
+                                    <div class="col-sm-2">
+                                      <div class="input-group">
+                                        <div class="input-group-addon"><i class="fa fa-flag"></i></div>
+                                        <select class="form-control select2" style="width: 100%;" id="txtIdPais" name="txtIdPais" required="">
+                                          <option value=""></option>
+                                          <?php
+                                            while ($row = $resultPais->fetch_assoc()) {
+                                              $idPais = ($row['IdPais'] == 54)? 'selected':'';
+                                              echo "<option $idPais value = '".$row['IdPais']."'>".$row['NombrePais']."</option>";
+                                            }
+                                          ?>
+                                        </select>
+                                      </div>
+                                    </div>
+
 
                                     <label for="txtDepartamento" class="col-sm-1 control-label">Departamento</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-flag"></i></div>
-                                        <select class="form-control select2" style="width: 100%;" id="txtDepartamento" name="txtDepartamento" >
+                                        <select class="form-control select2" style="width: 100%;" id="txtDepartamento" name="txtDepartamento" required="" >
                                           <option value=""></option>
                                           <?php
                                             while ($row = $resultadodepartamentos->fetch_assoc()) {
@@ -161,6 +188,7 @@ if (!empty($_SESSION['user']))
                                         </select>
                                       </div>
                                     </div>
+
 
 
                                     <label for="txtMunicipio" class="col-sm-1 control-label">Municipio</label>
@@ -348,14 +376,14 @@ if (!empty($_SESSION['user']))
                                         <div class="pull-right">
                                           <label for="txtCategoria" class="col-sm-6 control-label">Categoría:</label>
                                           <div class="col-sm-6">
-                                          <select class="form-control" id="txtCategoria" name="txtCategoria" required="">
-                                            <option>Seleccione..</option>
-                                            <option>A</option>
-                                            <option>B</option>
-                                            <option>C</option>
-                                            <option>D</option>
-                                          </select>
-                                            </div>
+                                            <select class="form-control" id="txtCategoria" name="txtCategoria" required="">
+                                              <option value=""></option>
+                                              <option value="A">A</option>
+                                              <option value="B">B</option>
+                                              <option value="C">C</option>
+                                              <option value="D">D</option>
+                                            </select>
+                                          </div>
                                       </div>
 
 
@@ -364,8 +392,6 @@ if (!empty($_SESSION['user']))
                                         <div class="col-sm-10 col-sm-offset-1">
                                         <?php //include 'test.php' ?>
                                         <div id="test"></div>
-<<<<<<< HEAD
-=======
                                         </div>
                                     </div>
                                   </div>
@@ -382,9 +408,7 @@ if (!empty($_SESSION['user']))
                                     </div>
                                     <div class="box-body">
                                         <div class="col-sm-10 col-sm-offset-1">
-                                        <?php //include 'test.php' ?>
                                         <div id="historialclinico"></div>
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
                                         </div>
                                     </div>
                                   </div>
@@ -438,29 +462,21 @@ if (!empty($_SESSION['user']))
 
     
     
-<<<<<<< HEAD
-    $.post( "test.php", { IdFactor: 2})
-      .done(function( data ) {
-        $("#test").html(data);        
-        $(".select3").select2();
-    });
-
-
-
-=======
     $.post( "test.php", { IdFactor: 1})
       .done(function( data ) {
         $("#test").html(data);
         
     });
+    
+      
 
+    
       $.post( "test.php", { IdFactor: 2})
       .done(function( data ) {
         $("#historialclinico").html(data);
         $(".select3").select2();
         $(".select2-container").css("width","100%");
       });
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 
 
 
@@ -526,6 +542,8 @@ if (!empty($_SESSION['user']))
         });
 
       });
+
+      $("#txtMunicipio").select2();
   });
 
 

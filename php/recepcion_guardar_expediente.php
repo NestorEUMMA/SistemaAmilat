@@ -42,6 +42,7 @@ session_start();
     $ApellidosResponsable = $_POST['txtApellidosResponsable'];
     $DuiResponsable = $_POST['txtDuiResponsable'];
     $Parentesco = $_POST['txtParentesco'];
+    $IdPais = $_POST['txtIdPais'];
 
 
     $insertexpediente = "INSERT INTO persona 
@@ -51,7 +52,7 @@ session_start();
                             ,IdParentesco,Telefono,Celular,Alergias
                             ,Medicamentos,Enfermedad,Dui,TelefonoResponsable
                             ,IdEstado,Categoria,NombresResponsable
-                            ,ApellidosResponsable,Parentesco,DuiResponsable
+                            ,ApellidosResponsable,Parentesco,DuiResponsable,IdPais
                         )
                         VALUES 
                         (
@@ -60,7 +61,7 @@ session_start();
                             ,$IdParentesco,'$Telefono','$Celular','$Alergias'
                             ,'$Medicamentos','$Enfermedad','$Dui','$TelefonoResponsable'
                             ,'$IdEstado','$Categoria','$NombresResponsable'
-                            ,'$ApellidosResponsable','$Parentesco','$DuiResponsable'
+                            ,'$ApellidosResponsable','$Parentesco','$DuiResponsable',$IdPais
                         )";
 
 
@@ -78,6 +79,7 @@ session_start();
 
     $IdPersona = $arr[0]["IdPersona"];
 
+    echo "<h1>$IdPersona</h1>";
 
     //Insertando el registro para el test de la persona
     $strTest = "insert into test 
@@ -87,6 +89,7 @@ session_start();
                 ";
     $resultTest = $mysqli->query($strTest);
 
+    echo "<h2>$strTest</h2>";
 
     //Determinando el IdTest
     $query = "select IdTest from test order by 1 desc limit 1";
@@ -105,8 +108,9 @@ session_start();
     //echo "<h1>$IdTest</h1>";
 
 
-    //Barriendo las preguntas 
-    $query = "select IdPregunta,Nombre from pregunta where IdFactor = 1;";
+
+    //Barriendo las preguntas del socioeconómico
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 1;";
     $tblPreguntas = $mysqli->query($query);
     $arrPreguntas = array();
 
@@ -122,6 +126,70 @@ session_start();
                             ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta)
                         ";
         $resultInsResp = $mysqli->query($queryInsResp);
+    }
+
+
+
+    $query = "select IdPregunta,Nombre,Ponderacion from pregunta where IdFactor = 2;";
+    $tblPregHC = $mysqli->query($query);
+    $arrPregHC = array();
+
+    while ($f = $tblPregHC->fetch_assoc())
+    {
+        $IdPregunta = $f["IdPregunta"];
+        $Ponderacion = $f["Ponderacion"];
+        
+        $IdFactor = 2;
+        $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
+
+        switch ($Ponderacion) {
+            case "0":
+            {
+                //Insertar una respuesta por pregunta
+                $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,IdRespuesta)
+                        values 
+                            ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
+                        ";
+                $resultInsResp = $mysqli->query($queryInsResp);
+                //echo "<h3>$queryInsResp</h3>";
+                break;
+            }
+            case "1":
+            {
+                //Insertar la respuesta abierta
+                $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,Detalle)
+                        values 
+                            ($IdTest,$IdFactor,$IdPregunta,'$IdRespuesta');
+                        ";
+                $resultInsResp = $mysqli->query($queryInsResp);
+                //echo "<h3>$queryInsResp</h3>";
+                break;
+            }
+            case "2":
+            {
+                //Insertar múltiples respuestas
+                echo "<h1>$IdRespuesta</h1>";
+                for ($i=0;$i<count($IdRespuesta);$i++)    
+                {     
+                    $idResp = $IdRespuesta[$i];
+                    $queryInsResp = "insert into testdetalle
+                            (IdTest,IdFactor,IdPregunta,IdRespuesta)
+                        values 
+                            ($IdTest,$IdFactor,$IdPregunta,$idResp);
+                        ";
+                    $resultInsResp = $mysqli->query($queryInsResp);
+                    //echo "<h3>$queryInsResp</h3>";    
+                } 
+                
+                break;
+            }
+            default:
+                
+                break;
+        }
+        
     }
 
 
