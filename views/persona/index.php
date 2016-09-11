@@ -16,7 +16,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="box-header">
         <h1 class="box-title"><?= Html::encode($this->title) ?></h1>
         <div class="pull-right box-tools">
-           <a href="../php/recepcion_nuevo_expediente.php" class="btn btn-success btn-sm btn-tool " role="button">Ingresar nuevo Paciente</a>
+            <!-- <?= Html::a('Ingresar Persona', ['create'], ['class' => 'btn btn-success btn-sm btn-tool']) ?> -->
+             <a href="../php/recepcion_nuevo_expediente.php" class="btn btn-success btn-sm btn-tool " role="button">Ingresar nuevo Paciente</a>
         </div>
     </div>
 
@@ -38,27 +39,32 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'IdPersona',
+           // 'IdPersona',
             'Nombres',
             'Apellidos',
             'FechaNacimiento',
-            //'Direccion',
+            'Direccion',
             // 'Correo',
             // 'IdGeografia',
              'Genero',
             // 'IdEstadoCivil',
-            // 'IdResponsable',
             // 'IdParentesco',
-             'Telefono',
+            // 'Telefono',
             // 'Celular',
             // 'Alergias',
             // 'Medicamentos',
             // 'Enfermedad',
-             'Dui',
+            // 'Dui',
             // 'TelefonoResponsable',
             // 'IdEstado',
+            // 'Categoria',
+            // 'NombresResponsable',
+            // 'ApellidosResponsable',
+            // 'Parentesco',
+            // 'DuiResponsable',
+            // 'IdPais',
 
-            ['class' => 'yii\grid\ActionColumn', 'template' => '{view}{update}'],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
                 </table>
@@ -66,4 +72,5 @@ $this->params['breadcrumbs'][] = $this->title;
          </div>
      </div>
     </section>
+
 </div>

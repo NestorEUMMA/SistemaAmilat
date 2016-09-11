@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model app\Models\Unidadmedida */
+/* @var $model app\models\Unidadmedida */
 
-$this->title = $model->NombreUnidadMedida;
-$this->params['breadcrumbs'][] = ['label' => 'Unidad Medida', 'url' => ['index']];
+$this->title = $model->IdUnidadMedida;
+$this->params['breadcrumbs'][] = ['label' => 'Unidadmedidas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="unidadmedida-view box box-solid">
@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'model' => $model,
                 'attributes' => [
 
-                        'IdUnidadMedida',
+                        //'IdUnidadMedida',
             'NombreUnidadMedida',
                     ],
                 ]) ?>

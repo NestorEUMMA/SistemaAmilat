@@ -18,8 +18,8 @@ class PersonaSearch extends Persona
     public function rules()
     {
         return [
-            [['IdPersona', 'IdEstadoCivil', 'IdEstado'], 'integer'],
-            [['Nombres', 'Apellidos', 'FechaNacimiento', 'Direccion', 'Correo', 'IdGeografia', 'Genero', 'IdParentesco', 'Telefono', 'Celular', 'Alergias', 'Medicamentos', 'Enfermedad', 'Dui', 'TelefonoResponsable'], 'safe'],
+            [['IdPersona', 'IdEstadoCivil', 'IdEstado', 'IdPais'], 'integer'],
+            [['Nombres', 'Apellidos', 'FechaNacimiento', 'Direccion', 'Correo', 'IdGeografia', 'Genero', 'IdParentesco', 'Telefono', 'Celular', 'Alergias', 'Medicamentos', 'Enfermedad', 'Dui', 'TelefonoResponsable', 'Categoria', 'NombresResponsable', 'ApellidosResponsable', 'Parentesco', 'DuiResponsable'], 'safe'],
         ];
     }
 
@@ -60,6 +60,7 @@ class PersonaSearch extends Persona
             'FechaNacimiento' => $this->FechaNacimiento,
             'IdEstadoCivil' => $this->IdEstadoCivil,
             'IdEstado' => $this->IdEstado,
+            'IdPais' => $this->IdPais,
         ]);
 
         $query->andFilterWhere(['like', 'Nombres', $this->Nombres])
@@ -68,7 +69,6 @@ class PersonaSearch extends Persona
             ->andFilterWhere(['like', 'Correo', $this->Correo])
             ->andFilterWhere(['like', 'IdGeografia', $this->IdGeografia])
             ->andFilterWhere(['like', 'Genero', $this->Genero])
-           // ->andFilterWhere(['like', 'IdResponsable', $this->IdResponsable])
             ->andFilterWhere(['like', 'IdParentesco', $this->IdParentesco])
             ->andFilterWhere(['like', 'Telefono', $this->Telefono])
             ->andFilterWhere(['like', 'Celular', $this->Celular])
@@ -76,7 +76,12 @@ class PersonaSearch extends Persona
             ->andFilterWhere(['like', 'Medicamentos', $this->Medicamentos])
             ->andFilterWhere(['like', 'Enfermedad', $this->Enfermedad])
             ->andFilterWhere(['like', 'Dui', $this->Dui])
-            ->andFilterWhere(['like', 'TelefonoResponsable', $this->TelefonoResponsable]);
+            ->andFilterWhere(['like', 'TelefonoResponsable', $this->TelefonoResponsable])
+            ->andFilterWhere(['like', 'Categoria', $this->Categoria])
+            ->andFilterWhere(['like', 'NombresResponsable', $this->NombresResponsable])
+            ->andFilterWhere(['like', 'ApellidosResponsable', $this->ApellidosResponsable])
+            ->andFilterWhere(['like', 'Parentesco', $this->Parentesco])
+            ->andFilterWhere(['like', 'DuiResponsable', $this->DuiResponsable]);
 
         return $dataProvider;
     }

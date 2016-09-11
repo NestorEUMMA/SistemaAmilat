@@ -6,17 +6,17 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel app\Models\UnidadmedidaSearch */
+/* @var $searchModel app\models\UnidadmedidaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Unidad Medida';
+$this->title = 'Unidadmedidas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="unidadmedida-index box box-solidd">
     <div class="box-header">
         <h1 class="box-title"><?= Html::encode($this->title) ?></h1>
         <div class="pull-right box-tools">
-            <?= Html::a('Ingresar Unidad Medida', ['create'], ['class' => 'btn btn-success btn-sm btn-tool']) ?>
+            <?= Html::a('Ingresar Unidadmedida', ['create'], ['class' => 'btn btn-success btn-sm btn-tool']) ?>
         </div>
     </div>
 
@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-
+        
     </p>
 
     <?= GridView::widget([

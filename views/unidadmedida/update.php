@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model app\Models\Unidadmedida */
+/* @var $model app\models\Unidadmedida */
 
-$this->title = 'Actualizar Unidad Medida: ' . ' ' . $model->Nombre;
-$this->params['breadcrumbs'][] = ['label' => 'Unidad Medida', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->Nombre, 'url' => ['view', 'id' => $model->IdUnidadMedida]];
+$this->title = 'Actualizar Unidadmedida: ' . ' ' . $model->IdUnidadMedida;
+$this->params['breadcrumbs'][] = ['label' => 'Unidadmedidas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->IdUnidadMedida, 'url' => ['view', 'id' => $model->IdUnidadMedida]];
 $this->params['breadcrumbs'][] = 'Actualizar';
 ?>
 <div class="unidadmedida-update box  box-solidd">

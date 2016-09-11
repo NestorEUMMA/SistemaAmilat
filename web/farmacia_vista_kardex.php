@@ -5,10 +5,6 @@ session_start();
 
 if (!empty($_SESSION['user']))
   {
-<<<<<<< HEAD
-  $querykardex = "
-    SELECT a.IdTransaccion as ID, a.FechaTransaccion as FECHA, concat(b.Nombres, ' ', b.Apellidos) as USUARIO, concat(c.NombreMedicamento, ' - ', e.NombrePresentacion) as MEDICAMENTO, d.NombreMovimiento as MOVIMIENTO, a.CodigoLote as LOTE, a.Cantidad as CANTIDAD, a.Costo as COSTO, a.Venta as VENTA
-=======
 
     if (isset($_POST['fecha_desde']) and isset($_POST['fecha_hasta']))
     {
@@ -30,25 +26,15 @@ if (!empty($_SESSION['user']))
     {
         $querykardex = "
     SELECT a.IdTransaccion as ID,  DATE_FORMAT(a.FechaTransaccion,'%d-%m-%Y') as FECHA, concat(b.Nombres, ' ', b.Apellidos) as USUARIO, concat(c.NombreMedicamento, ' - ', e.NombrePresentacion) as MEDICAMENTO, d.NombreMovimiento as MOVIMIENTO, a.CodigoLote as LOTE, a.Cantidad as CANTIDAD, a.Existencia as EXISTENCIA, a.Costo as COSTO, a.Venta as VENTA
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
     FROM transaccion as a
     LEFT JOIN usuario as b on b.IdUsuario = a.IdUsuario
     LEFT JOIN medicamentos as c on c.IdMedicamento = a.IdMedicamento
     LEFT JOIN movimientos as d on d.IdMovimiento = a.IdMovimiento
     LEFT JOIN presentacion as e on e.IdPresentacion  = c.IdPresentacion
-<<<<<<< HEAD
-<<<<<<< HEAD
-              ";
-    $resultadokardex = $mysqli->query($querykardex);
-=======
-    ORDER BY a.FechaTransaccion ASC
-=======
     ORDER BY a.FechaTransaccion DESC
->>>>>>> de9703f7289601a8d76e06411276d29d5f968e1b
               ";
     $resultadokardex = $mysqli->query($querykardex);
     }
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 
 ?>
 <!DOCTYPE html>
@@ -61,11 +47,7 @@ if (!empty($_SESSION['user']))
    <body class="hold-transition skin-blue sidebar-mini">
 
     <div class="wrapper">
-<<<<<<< HEAD
-	<?php include '../include/header.php'; ?>
-=======
 	  <?php include '../include/header.php'; ?>
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
     <?php include '../include/aside.php'; ?>
 
     <div class="content-wrapper">
@@ -84,15 +66,6 @@ if (!empty($_SESSION['user']))
     </div>
 	<!-- /.box-header -->
     <div class="box-body">
-<<<<<<< HEAD
-	 <table id="example2" class="table table-bordered table-hover">
-    <?php
-      echo "
-      <thead>
-      <tr>
-      <th>ID</th><th>FECHA</th><th>USUARIO</th><th>MEDICAMENTO</th><th>MOVIMIENTO</th><th>LOTE</th><th>CANTIDAD</th>
-      <th>COSTO</th><th>VENTA</th>
-=======
     <form action = "#" method = "POST">
       <table id="example2" class="table table-bordered table-hover table-striped">
           <tr>
@@ -121,7 +94,6 @@ if (!empty($_SESSION['user']))
       <tr class = 'info'>
       <th>ID</th><th>FECHA</th><th>USUARIO</th><th>MEDICAMENTO</th><th>MOVIMIENTO</th><th>LOTE</th><th>CANTIDAD</th>
       <th>EXISTENCIA</th><th>COSTO</th><th>VENTA</th>
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
       </tr>
       </thead>
       <tbody>
@@ -137,10 +109,7 @@ if (!empty($_SESSION['user']))
           <td>".$row['MOVIMIENTO']."</td>
           <td>".$row['LOTE']."</td>
           <td>".$row['CANTIDAD']."</td>
-<<<<<<< HEAD
-=======
           <td>".$row['EXISTENCIA']."</td>
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
           <td>".$row['COSTO']."</td>
           <td>".$row['VENTA']."</td>
           </tr>

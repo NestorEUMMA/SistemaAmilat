@@ -154,6 +154,7 @@ if (!empty($_SESSION['user'])) {
                                           INNER JOIN laboratorio l on m.IdLaboratorio = l.IdLaboratorio
                                           INNER JOIN categoria c on m.IdCategoria = c.IdCategoria
                                           INNER JOIN unidadmedida u on m.IdUnidadMedida = u.IdUnidadMedida
+                                          WHERE m.Existencia > 0
                                           ORDER BY Medicamento ASC";
     $resultadotablamedicamentos = $mysqli->query($querytablamedicamentos);
 
@@ -872,8 +873,6 @@ if (!empty($_SESSION['user'])) {
                            <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
                               <li><a href="#tabs_1" data-toggle="tab"><i class="fa fa-user"></i> Datos generales</a></li>
-                              <li><a href="#tabs_2" data-toggle="tab"><i class="fa fa-heartbeat"></i> Historial Clinico</a></li>
-                              <li><a href="#tabs_3" data-toggle="tab"><i class="fa fa-eyedropper"></i> Esquema de vacunación</a></li>
 
                             </ul>
                             <div class="tab-content">
@@ -1189,7 +1188,7 @@ if (!empty($_SESSION['user'])) {
 
 
 
-                              <div class="tab-pane " id="tab_6">
+                              <div class="tab-pane " id="tabs_6">
 
 
                                 <div class="box box-info box-solid">                              
@@ -2954,6 +2953,8 @@ if (!empty($_SESSION['user'])) {
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+
             $(".btn-mdls").click(function () {
                 var id = $(this).attr("id").replace("btn", "");
                 var myData = {"id": id};

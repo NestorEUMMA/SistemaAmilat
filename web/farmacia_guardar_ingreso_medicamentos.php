@@ -3,11 +3,6 @@ session_start();
 include '../include/dbconnect.php';
 include '../include/asset.php';
 
-<<<<<<< HEAD
-$nombre = $_POST['nombre'];
-$nombrecomercial = $_POST['nombrecomercial'];
-$existencia = $_POST['existencia'];
-=======
 $idusuario = $_SESSION['IdUsuario'];
 $idmovimiento = 1;
 
@@ -15,33 +10,11 @@ $nombre = $_POST['nombre'];
 $nombrecomercial = $_POST['nombrecomercial'];
 $codigo = $_POST['codigo'];
 $lote = $_POST['lote'];
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 $idpresentacion = $_POST['ID_PRESENTACION'];
 $idlaboratorio = $_POST['ID_LABORATORIO'];
 $idcategoria = $_POST['ID_CATEGORIA'];
 $concentracion = $_POST['concentracion'];
 $idunidadmedida = $_POST['ID_UNIDAD_MEDIDA'];
-<<<<<<< HEAD
-$precio = $_POST['precio'];
-$precioa = $precio * 1;
-$preciob = $precio * 0.7;
-$precioc = $precio * 0.5;
-$preciod = 0;
-
-
-$insermedicamentos = "
-INSERT INTO medicamentos
-(NombreMedicamento, NombreComercial, Existencia, IdPresentacion, IdLaboratorio, IdCategoria, Concentracion, IdUnidadMedida, PrecioLab, PrecioVentaA, PrecioVentaB, 
-PrecioVentaC, PrecioVentaD, Activo)
-VALUES
-('$nombre', '$nombrecomercial', $existencia, $idpresentacion, $idlaboratorio, $idcategoria, $concentracion, $idunidadmedida, 
-	$precio, $precioa, $preciob, $precioc, $preciod, 1)
-			";
-$resultadoinsermedicamentos = $mysqli->query($insermedicamentos);
-
-
-if (!$resultadoinsermedicamentos){
-=======
 $preciounitario = $_POST['precio'];
 $existencia = $_POST['existencia'];
 $preciolote = $preciounitario * $existencia;
@@ -106,7 +79,6 @@ echo $inserttransaccion;
 
 
 if (!$resultadoinsertmedicamentos and !$resultadoinsertentradas and !$resultadoinserttransaccion){
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 					echo "
 						<script>
 							alert('Medicamento no Guardado');

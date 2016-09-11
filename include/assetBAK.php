@@ -1,5 +1,6 @@
 <?php
-  $ruta = 'http://localhost:8080/SistemaAmilat/';
+  //$ruta = 'http://localhost:8080/SistemaAmilat/';
+  $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
 ?>
   <head>
 

@@ -52,15 +52,9 @@ $resultadoupdatereceta = $mysqli->query($updatereceta);
 for ($l = 1; $l <= $cuenta; $l ++){
 $inserttransaccion = "
 	INSERT INTO transaccion
-<<<<<<< HEAD
-	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Costo, Venta)
-	VALUES
-	(now(), $idusuario, $idmedicamento[$l], $idmovimiento, '', $total[$l], '0', $precio[$l])
-=======
 	(FechaTransaccion, IdUsuario, IdMedicamento, IdMovimiento, CodigoLote, Cantidad, Existencia, Costo, Venta)
 	VALUES
 	(now(), $idusuario, $idmedicamento[$l], $idmovimiento, '', $total[$l], $existencia[$l], '0', $precio[$l])
->>>>>>> 8183526251e38fb23b35d74e5226aedd161417a1
 			";
 $resultadoinserttransaccion = $mysqli->query($inserttransaccion);
 									}

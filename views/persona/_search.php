@@ -33,8 +33,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'IdEstadoCivil') ?>
 
-    <?php // echo $form->field($model, 'IdResponsable') ?>
-
     <?php // echo $form->field($model, 'IdParentesco') ?>
 
     <?php // echo $form->field($model, 'Telefono') ?>
@@ -52,6 +50,18 @@ use yii\widgets\ActiveForm;
     <?php // echo $form->field($model, 'TelefonoResponsable') ?>
 
     <?php // echo $form->field($model, 'IdEstado') ?>
+
+    <?php // echo $form->field($model, 'Categoria') ?>
+
+    <?php // echo $form->field($model, 'NombresResponsable') ?>
+
+    <?php // echo $form->field($model, 'ApellidosResponsable') ?>
+
+    <?php // echo $form->field($model, 'Parentesco') ?>
+
+    <?php // echo $form->field($model, 'DuiResponsable') ?>
+
+    <?php // echo $form->field($model, 'IdPais') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

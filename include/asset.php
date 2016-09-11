@@ -1,9 +1,9 @@
 <?php
-  //$ruta = 'http://localhost:8080/SistemaAmilat/';
- // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   $ruta = 'http://localhost:8080/SistemaAmilat/';
+ // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
+  //$ruta = 'http://localhost:8080/SistemaAmilat/';
   
-// $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
+//$ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   //$ruta = 'http://localhost:8080/SistemaAmilat/';
  // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   //$ruta = 'http://localhost/SistemaAmilat/';

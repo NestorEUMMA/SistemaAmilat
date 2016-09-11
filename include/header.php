@@ -19,9 +19,9 @@
         <!-- Logo -->
         <a href="../php/app.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>S</b>TPV</span>
+          <span class="logo-mini"><b>S</b>A</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Sistema</b>PiedrasVivas</span>
+          <span class="logo-lg"><b>Sistema</b>Amilat</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">

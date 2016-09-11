@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 
 /**
- * This is the model class for table "{{%persona}}".
+ * This is the model class for table "persona".
  *
  * @property integer $IdPersona
  * @property string $Nombres
@@ -16,7 +16,6 @@ use Yii;
  * @property string $IdGeografia
  * @property string $Genero
  * @property integer $IdEstadoCivil
- * @property string $IdResponsable
  * @property string $IdParentesco
  * @property string $Telefono
  * @property string $Celular
@@ -26,14 +25,23 @@ use Yii;
  * @property string $Dui
  * @property string $TelefonoResponsable
  * @property integer $IdEstado
+ * @property string $Categoria
+ * @property string $NombresResponsable
+ * @property string $ApellidosResponsable
+ * @property string $Parentesco
+ * @property string $DuiResponsable
+ * @property integer $IdPais
  *
  * @property Consulta[] $consultas
+ * @property Enfermeriaprocedimiento[] $enfermeriaprocedimientos
  * @property Examenesvarios[] $examenesvarios
  * @property Examenheces[] $examenheces
  * @property Examenhemograma[] $examenhemogramas
  * @property Examenorina[] $examenorinas
  * @property Examenquimica[] $examenquimicas
+ * @property Listaexamen[] $listaexamens
  * @property Logexamenes[] $logexamenes
+ * @property Estado $idEstado
  * @property Estadocivil $idEstadoCivil
  * @property Geografia $idGeografia
  * @property Receta[] $recetas
@@ -46,7 +54,7 @@ class Persona extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%persona}}';
+        return 'persona';
     }
 
     /**
@@ -57,13 +65,14 @@ class Persona extends \yii\db\ActiveRecord
         return [
             [['Nombres', 'Apellidos', 'IdEstado'], 'required'],
             [['FechaNacimiento'], 'safe'],
-            [['IdEstadoCivil', 'IdEstado'], 'integer'],
-            [['Nombres', 'Apellidos', 'Correo', 'IdResponsable', 'IdParentesco'], 'string', 'max' => 100],
+            [['IdEstadoCivil', 'IdEstado', 'IdPais'], 'integer'],
+            [['Nombres', 'Apellidos', 'Correo', 'IdParentesco', 'NombresResponsable', 'ApellidosResponsable'], 'string', 'max' => 100],
             [['Direccion'], 'string', 'max' => 500],
             [['IdGeografia'], 'string', 'max' => 20],
             [['Genero'], 'string', 'max' => 9],
             [['Telefono', 'Celular', 'Dui', 'TelefonoResponsable'], 'string', 'max' => 15],
-            [['Alergias', 'Medicamentos', 'Enfermedad'], 'string', 'max' => 800]
+            [['Alergias', 'Medicamentos', 'Enfermedad'], 'string', 'max' => 800],
+            [['Categoria', 'Parentesco', 'DuiResponsable'], 'string', 'max' => 45]
         ];
     }
 
@@ -82,7 +91,6 @@ class Persona extends \yii\db\ActiveRecord
             'IdGeografia' => 'Id Geografia',
             'Genero' => 'Genero',
             'IdEstadoCivil' => 'Id Estado Civil',
-            'IdResponsable' => 'Id Responsable',
             'IdParentesco' => 'Id Parentesco',
             'Telefono' => 'Telefono',
             'Celular' => 'Celular',
@@ -92,6 +100,12 @@ class Persona extends \yii\db\ActiveRecord
             'Dui' => 'Dui',
             'TelefonoResponsable' => 'Telefono Responsable',
             'IdEstado' => 'Id Estado',
+            'Categoria' => 'Categoria',
+            'NombresResponsable' => 'Nombres Responsable',
+            'ApellidosResponsable' => 'Apellidos Responsable',
+            'Parentesco' => 'Parentesco',
+            'DuiResponsable' => 'Dui Responsable',
+            'IdPais' => 'Id Pais',
         ];
     }
 
@@ -101,6 +115,14 @@ class Persona extends \yii\db\ActiveRecord
     public function getConsultas()
     {
         return $this->hasMany(Consulta::className(), ['IdPersona' => 'IdPersona']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getEnfermeriaprocedimientos()
+    {
+        return $this->hasMany(Enfermeriaprocedimiento::className(), ['IdPersona' => 'IdPersona']);
     }
 
     /**
@@ -146,9 +168,25 @@ class Persona extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getListaexamens()
+    {
+        return $this->hasMany(Listaexamen::className(), ['IdPersona' => 'IdPersona']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getLogexamenes()
     {
         return $this->hasMany(Logexamenes::className(), ['IdPersona' => 'IdPersona']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getIdEstado()
+    {
+        return $this->hasOne(Estado::className(), ['IdEstado' => 'IdEstado']);
     }
 
     /**
@@ -172,7 +210,7 @@ class Persona extends \yii\db\ActiveRecord
      */
     public function getRecetas()
     {
-        return $this->hasMany(Receta::className(), ['idPersona' => 'IdPersona']);
+        return $this->hasMany(Receta::className(), ['IdPersona' => 'IdPersona']);
     }
 
     /**

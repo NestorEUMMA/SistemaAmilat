@@ -4,10 +4,10 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\Models\Unidadmedida */
+/* @var $model app\models\Unidadmedida */
 
 $this->title = 'Ingresar Unidadmedida';
-$this->params['breadcrumbs'][] = ['label' => 'Unidad Medida', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Unidadmedidas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="unidadmedida-create box  box-solidd">
