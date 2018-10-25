@@ -6,7 +6,7 @@ session_start();
 
     //Guardar la geografia correcta
     $geografia = "";
-    
+
     if(isset($_POST['txtDepartamento']))
         $geografia = $_POST['txtDepartamento'];
 
@@ -26,7 +26,7 @@ session_start();
     $IdGeografia = $geografia;
     $Genero = $_POST['txtGenero'];
     $IdEstadoCivil = $_POST['txtIdEstadoCivil'];
-    $IdParentesco = 1; //$_POST['txt'];
+    //$IdParentesco = 1; //$_POST['txt'];
     $Telefono = $_POST['txtTelefono'];
     $Celular = $_POST['txtCelular'];
     $Alergias = $_POST['txtAlergias'];
@@ -45,20 +45,20 @@ session_start();
     $IdPais = $_POST['txtIdPais'];
 
 
-    $insertexpediente = "INSERT INTO persona 
+    $insertexpediente = "INSERT INTO persona
                         (
                              Nombres,Apellidos,FechaNacimiento,Direccion
                             ,Correo,IdGeografia,Genero,IdEstadoCivil
-                            ,IdParentesco,Telefono,Celular,Alergias
+                            ,Telefono,Celular,Alergias
                             ,Medicamentos,Enfermedad,Dui,TelefonoResponsable
                             ,IdEstado,Categoria,NombresResponsable
                             ,ApellidosResponsable,Parentesco,DuiResponsable,IdPais
                         )
-                        VALUES 
+                        VALUES
                         (
                              '$Nombres','$Apellidos','$FechaNacimiento','$Direccion'
-                            ,'$Correo','$IdGeografia','$Genero',$IdEstadoCivil
-                            ,$IdParentesco,'$Telefono','$Celular','$Alergias'
+                            ,'$Correo','$IdGeografia','$Genero','$IdEstadoCivil'
+                            ,'$Telefono','$Celular','$Alergias'
                             ,'$Medicamentos','$Enfermedad','$Dui','$TelefonoResponsable'
                             ,'$IdEstado','$Categoria','$NombresResponsable'
                             ,'$ApellidosResponsable','$Parentesco','$DuiResponsable',$IdPais
@@ -82,7 +82,7 @@ session_start();
     echo "<h1>$IdPersona</h1>";
 
     //Insertando el registro para el test de la persona
-    $strTest = "insert into test 
+    $strTest = "insert into test
                     (IdPersona,IdClase,Fecha,Hora)
                 VALUES
                     ($IdPersona,1,NOW(),NOW())
@@ -122,7 +122,7 @@ session_start();
 
         $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,IdRespuesta)
-                        values 
+                        values
                             ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta)
                         ";
         $resultInsResp = $mysqli->query($queryInsResp);
@@ -138,7 +138,7 @@ session_start();
     {
         $IdPregunta = $f["IdPregunta"];
         $Ponderacion = $f["Ponderacion"];
-        
+
         $IdFactor = 2;
         $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
 
@@ -148,7 +148,7 @@ session_start();
                 //Insertar una respuesta por pregunta
                 $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,IdRespuesta)
-                        values 
+                        values
                             ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
                         ";
                 $resultInsResp = $mysqli->query($queryInsResp);
@@ -160,7 +160,7 @@ session_start();
                 //Insertar la respuesta abierta
                 $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,Detalle)
-                        values 
+                        values
                             ($IdTest,$IdFactor,$IdPregunta,'$IdRespuesta');
                         ";
                 $resultInsResp = $mysqli->query($queryInsResp);
@@ -171,25 +171,25 @@ session_start();
             {
                 //Insertar múltiples respuestas
                 echo "<h1>$IdRespuesta</h1>";
-                for ($i=0;$i<count($IdRespuesta);$i++)    
-                {     
+                for ($i=0;$i<count($IdRespuesta);$i++)
+                {
                     $idResp = $IdRespuesta[$i];
                     $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,IdRespuesta)
-                        values 
+                        values
                             ($IdTest,$IdFactor,$IdPregunta,$idResp);
                         ";
                     $resultInsResp = $mysqli->query($queryInsResp);
-                    //echo "<h3>$queryInsResp</h3>";    
-                } 
-                
+                    //echo "<h3>$queryInsResp</h3>";
+                }
+
                 break;
             }
             default:
-                
+
                 break;
         }
-        
+
     }
 
 
@@ -203,7 +203,7 @@ session_start();
     {
         $IdPregunta = $f["IdPregunta"];
         $Ponderacion = $f["Ponderacion"];
-        
+
         $IdFactor = 3;
         $IdRespuesta = $_POST["selPregunta". $f["IdPregunta"]];
 
@@ -213,7 +213,7 @@ session_start();
                 //Insertar una respuesta por pregunta
                 $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,IdRespuesta)
-                        values 
+                        values
                             ($IdTest,$IdFactor,$IdPregunta,$IdRespuesta);
                         ";
                 $resultInsResp = $mysqli->query($queryInsResp);
@@ -225,7 +225,7 @@ session_start();
                 //Insertar la respuesta abierta
                 $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,Detalle)
-                        values 
+                        values
                             ($IdTest,$IdFactor,$IdPregunta,'$IdRespuesta');
                         ";
                 $resultInsResp = $mysqli->query($queryInsResp);
@@ -236,29 +236,29 @@ session_start();
             {
                 //Insertar múltiples respuestas
                 echo "<h1>$IdRespuesta</h1>";
-                for ($i=0;$i<count($IdRespuesta);$i++)    
-                {     
+                for ($i=0;$i<count($IdRespuesta);$i++)
+                {
                     $idResp = $IdRespuesta[$i];
                     $queryInsResp = "insert into testdetalle
                             (IdTest,IdFactor,IdPregunta,IdRespuesta)
-                        values 
+                        values
                             ($IdTest,$IdFactor,$IdPregunta,$idResp);
                         ";
                     $resultInsResp = $mysqli->query($queryInsResp);
-                    //echo "<h3>$queryInsResp</h3>";    
-                } 
-                
+                    //echo "<h3>$queryInsResp</h3>";
+                }
+
                 break;
             }
             default:
-                
+
                 break;
         }
-        
+
     }
 
 
-    
+
 
 
 

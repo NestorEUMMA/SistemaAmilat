@@ -8,7 +8,7 @@ include '../include/dbconnect.php';
           $queryconsultas = " SELECT CONCAT(A.Nombres, ' ',A.Apellidos) as 'NOMBRE', A.Genero as 'GENERO', A.FechaNacimiento as 'FECHA_NACIMIENTO', 
           G.Nombre as 'GEOGRAFIA' ,A.Dui as 'DUI', A.Direccion as 'DIRECCION', A.Correo as 'CORREO', B.Nombre as 'ESTADO_CIVIL', A.Telefono as 'TELEFONO', 
           A.Celular as 'CELULAR', A.Medicamentos as 'MEDICAMENTO', A.Alergias as 'ALERGIAS', A.Enfermedad as 'ENFERMEDAD', 
-          A.IdResponsable as 'RESPONSABLE', A.IdParentesco as 'PARENTESCO', A.TelefonoResponsable as 'TELEFONO_RESPONSABLE'
+          CONCAT(A.NombresResponsable,' ',A.ApellidosResponsable) as 'RESPONSABLE', A.Parentesco as 'PARENTESCO', A.TelefonoResponsable as 'TELEFONO_RESPONSABLE'
           FROM persona as A
           INNER JOIN geografia as G on G.IdGeografia = A.IdGeografia
           LEFT JOIN estadocivil as B on  B.IdEstadoCivil = A.IdEstadoCivil
@@ -40,7 +40,7 @@ include '../include/dbconnect.php';
 <!DOCTYPE html>
 <html>
  <?php  include '../include/asset.php'; ?>
-<body onload="window.print();">
+<body ">
 <div class="wrapper">
   <!-- Main content -->
    <section class="invoice">
@@ -58,12 +58,8 @@ include '../include/dbconnect.php';
         </div>
         <!-- /.col -->
       </div>
-      </br>
 
-      <STRONG>FICHA DE PACIENTE</STRONG>
-      </br>
-      </br>
-
+      <!-- info row -->
       <div class="row invoice-info">
         <div class="col-sm-4 invoice-col">
          <strong> DATOS PERSONALES </strong>
@@ -99,26 +95,80 @@ include '../include/dbconnect.php';
         </div>
         <!-- /.col -->
       </div>
-      <!-- /.row -->
 
-      <!-- Table row -->
       <div class="row">
-        <div class="col-xs-12 table-responsive">
-          
-
-
+        <div class="col-xs-12 ">
+        <h2 class="page-header">
+            <i class="fa fa-credit-card"></i> Socioeconomico
+          </h2>
+          <div id="test"></div>
         </div>
+        <!-- /.col -->
+      </div>
+       </br>
+       </br> 
+      <div class="row">
+        <div class="col-xs-12 ">
+        <h2 class="page-header">
+            <i class="fa fa-heartbeat"></i> Historial clinico
+          </h2>
+          <div id="historialclinico"></div>
+        </div>
+        <!-- /.col -->
+      </div>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+       </br>
+        </br>
+      <div class="row">
+        <div class="col-xs-12 ">
+        <h2 class="page-header">
+            <i class="fa fa-eyedropper"></i> Esquena de vacunación
+          </h2>
+          <div id="vacunacion"></div>
+        </div>
+        <!-- /.col -->
       </div>
     
       <div class="row no-print">
-      <div class="col-xs-11">
+      <div class="col-xs-9">
       </div>
+        <div class="col-xs-2">
+        <input value = 'Imprimir' onclick="window.print();" class = 'btn btn-warning btn btn-tool'>
+        </div>
         <div class="col-xs-1">
-        <a href="reporte_pacientes.php" class="btn btn-success btn-sm btn-tool " role="button">Regresar</a>
+        <a href="reporte_pacientes.php" class="btn btn-success btn btn-tool " role="button">Regresar</a>
         </div>
       </div>
     </section>
 </div>
 </body>
 </html>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+          $.post( "historico.php", { IdFactor: "1", IdPersona: "<?php echo $idpersona; ?>" })
+              .done(function( data ) {
+                $("#test").html(data);
+                
+            });
+
+            $.post( "historico.php", { IdFactor: "2", IdPersona: "<?php echo $idpersona; ?>" })
+              .done(function( data ) {
+                $("#historialclinico").html(data);
+                
+            });
+            $.post( "historico.php", { IdFactor: "3", IdPersona: "<?php echo $idpersona; ?>" })
+              .done(function( data ) {
+                $("#vacunacion").html(data);
+                
+            });
+
+        });
+    </script>
 

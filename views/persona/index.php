@@ -1,5 +1,4 @@
 
-
 <?php
 
 use yii\helpers\Html;
@@ -12,12 +11,12 @@ use yii\grid\GridView;
 $this->title = 'Personas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="persona-index box box-solidd">
+<div class="persona-index box box-solid">
     <div class="box-header">
         <h1 class="box-title"><?= Html::encode($this->title) ?></h1>
         <div class="pull-right box-tools">
             <!-- <?= Html::a('Ingresar Persona', ['create'], ['class' => 'btn btn-success btn-sm btn-tool']) ?> -->
-             <a href="../php/recepcion_nuevo_expediente.php" class="btn btn-success btn-sm btn-tool " role="button">Ingresar nuevo Paciente</a>
+             <a href="../php/recepcion_nuevo_expediente.php" class="btn btn-success  btn-tool " role="button">Ingresar nuevo Paciente</a>
         </div>
     </div>
 
@@ -27,46 +26,42 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-xs-12">
              <div class="box-body">
                 <table  class="table table-bordered table-hover">
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+                        <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        
-    </p>
+                        <?= GridView::widget([
+                            'dataProvider' => $dataProvider,
+                            'filterModel' => $searchModel,
+                            'columns' => [
+                                ['class' => 'yii\grid\SerialColumn'],
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+                               // 'IdPersona',
+                                'Nombres',
+                                'Apellidos',
+                                'FechaNacimiento',
+                                'Direccion',
+                                // 'Correo',
+                                // 'IdGeografia',
+                                 'Genero',
+                                // 'IdEstadoCivil',
+                                // 'IdParentesco',
+                                // 'Telefono',
+                                // 'Celular',
+                                // 'Alergias',
+                                // 'Medicamentos',
+                                // 'Enfermedad',
+                                // 'Dui',
+                                // 'TelefonoResponsable',
+                                // 'IdEstado',
+                                // 'Categoria',
+                                // 'NombresResponsable',
+                                // 'ApellidosResponsable',
+                                // 'Parentesco',
+                                // 'DuiResponsable',
+                                // 'IdPais',
 
-           // 'IdPersona',
-            'Nombres',
-            'Apellidos',
-            'FechaNacimiento',
-            'Direccion',
-            // 'Correo',
-            // 'IdGeografia',
-             'Genero',
-            // 'IdEstadoCivil',
-            // 'IdParentesco',
-            // 'Telefono',
-            // 'Celular',
-            // 'Alergias',
-            // 'Medicamentos',
-            // 'Enfermedad',
-            // 'Dui',
-            // 'TelefonoResponsable',
-            // 'IdEstado',
-            // 'Categoria',
-            // 'NombresResponsable',
-            // 'ApellidosResponsable',
-            // 'Parentesco',
-            // 'DuiResponsable',
-            // 'IdPais',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+                                ['class' => 'yii\grid\ActionColumn'],
+                            ],
+                        ]); ?>
                 </table>
             </div>
          </div>

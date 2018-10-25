@@ -973,12 +973,7 @@ if (!empty($_SESSION['user']))
                       </div>
                       </div>
                   </div>
-
-
-
                 </div>
-              <div class="col-xs-0">
-              </div>
               </div>
         </section>
 

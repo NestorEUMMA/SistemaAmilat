@@ -31,7 +31,9 @@
       $insertexpediente = "UPDATE consulta SET Diagnostico='$diagnostico',IdEnfermedad='$enfermedad',Comentarios='$comentarios',Otros='$otros',Activo=1,
                           EstadoNutricional='$estadonutricional',CirugiasPrevias='$cirugiasprevias',MedicamentosActuales='$medicamentosactuales',ExamenFisica='$examenfisica',
                           PlanTratamiento='$plantratamiento',FechaProxVisita='$fechaproxvisita',Alergias='$alergias'  WHERE IdConsulta='$id'";
-      $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
+        $resultadoinsertmovimiento = $mysqli->query($insertexpediente);
+
+			// ECHO $insertexpediente;
 
 ?>
 

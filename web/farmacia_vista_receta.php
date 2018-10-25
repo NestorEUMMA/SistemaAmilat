@@ -9,7 +9,7 @@ $idreceta = $_POST['idreceta'];
 
 
 $queryreceta = "
-SELECT concat(b.NombreMedicamento, ' - ', e.NombrePresentacion) as NOMBRE, truncate(a.cantidad, 0) as CANTIDAD, a.horas as HORAS, a.dias as DIAS, a.total as TOTAL, 
+SELECT concat(b.NombreMedicamento, ' - ', e.NombrePresentacion) as NOMBRE, truncate(a.cantidad, 0) as CANTIDAD, a.horas as HORAS, a.dias as DIAS, a.total as TOTAL, a.Indicacion as INDICACION,
 a.IdMedicamento as idmedicamento,
 CASE 
 WHEN d.Categoria = 'A' THEN (b.PrecioUnitario * a.total) * 1
@@ -73,7 +73,7 @@ while ($row2 = $resultadocuentamedicamentos->fetch_assoc()) {
   <form action = "farmacia_guardar_despacho.php" method = "POST">
   <table id="example2" class="table table-bordered table-hover table-striped table-responsive">
   <tr class = "info">
-  <th>NOMBRE</th><th>CANTIDAD</th><th>HORAS</th><th>DIAS</th><th>TOTAL</th><th>PRECIO</th>
+  <th>NOMBRE</th><th>CANTIDAD</th><th>HORAS</th><th>DIAS</th><th>TOTAL</th><th>INDICACION</th><th>PRECIO</th>
   </tr>
   <?php
   $i = 1;
@@ -81,7 +81,7 @@ while ($row2 = $resultadocuentamedicamentos->fetch_assoc()) {
   while ($row = $resultadoreceta->fetch_assoc()) {
   echo "
   <tr>
-  <td>".$row['NOMBRE']."</td><td class = 'text-center'>".$row['CANTIDAD']."</td><td class = 'text-center'>".$row['HORAS']."</td><td class = 'text-center'>".$row['DIAS']."</td><td class = 'text-center'>".$row['TOTAL']."</td><td class = 'text-right'>".$row['PRECIO']."</td>
+  <td>".$row['NOMBRE']."</td><td class = 'text-center'>".$row['CANTIDAD']."</td><td class = 'text-center'>".$row['HORAS']."</td><td class = 'text-center'>".$row['DIAS']."</td><td class = 'text-center'>".$row['TOTAL']."</td><td class = 'text-center'>".$row['INDICACION']."</td><td class = 'text-right'>".$row['PRECIO']."</td>
   <input type='hidden' name = 'idmedicamento".$i."' value='".$row['idmedicamento']."'>
   <input type='hidden' name = 'total".$i."' value='".$row['TOTAL']."'>
   <input type='hidden' name = 'precio".$i."' value='".$row['PRECIO']."'>
@@ -95,7 +95,7 @@ while ($row2 = $resultadocuentamedicamentos->fetch_assoc()) {
                                             }
   echo "
   <tr class = 'success'>
-    <th class = 'text-right' colspan = '5'>TOTAL</th>
+    <th class = 'text-right' colspan = '6'>TOTAL</th>
     <th class = 'text-right'>".$t."</th>
   </tr>  
   ";

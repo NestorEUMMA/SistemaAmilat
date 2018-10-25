@@ -13,7 +13,7 @@ $resultadoencabezado = $mysqli->query($queryencabezado);
 
  $querydetalle = "
 SELECT concat(b.NombreMedicamento, ' - ', e.NombrePresentacion) as MEDICAMENTO, truncate(a.cantidad, 0) as CANTIDAD, 
-a.horas as HORAS, a.dias as DIAS, a.total as TOTAL,
+a.horas as HORAS, a.dias as DIAS, a.total as TOTAL, a.Indicacion as INDICACION,
 CASE 
 WHEN d.Categoria = 'A' THEN (b.PrecioUnitario * a.total) * 1
 WHEN d.Categoria = 'B' THEN (b.PrecioUnitario * a.total) * 0.7
@@ -71,20 +71,20 @@ echo "
 echo "</table>";
 
 echo "<table class='table table-bordered table-hover' >";
-echo "<th>NOMBRE</th><th>CANTIDAD</th><th>HORAS</th><th>DIAS</th><th>TOTAL</th><th>PRECIO</th>";
+echo "<th>NOMBRE</th><th>CANTIDAD</th><th>HORAS</th><th>DIAS</th><th>TOTAL</th><th>INDICACION</th><th>PRECIO</th>";
 
 $t = 0;
 while ($row2 = $resultadodetalle->fetch_assoc()){
  echo " 
   <tr>
-  <td>".$row2['MEDICAMENTO']."</td><td class = 'text-center'>".$row2['CANTIDAD']."</td><td class = 'text-center'>".$row2['HORAS']."</td><td class = 'text-center'>".$row2['DIAS']."</td><td class = 'text-center'>".$row2['TOTAL']."</td><td class = 'text-right'>".$row2['PRECIO']."</td>
+  <td>".$row2['MEDICAMENTO']."</td><td class = 'text-center'>".$row2['CANTIDAD']."</td><td class = 'text-center'>".$row2['HORAS']."</td><td class = 'text-center'>".$row2['DIAS']."</td><td class = 'text-center'>".$row2['TOTAL']."</td><td class = 'text-center'>".$row2['INDICACION']."</td><td class = 'text-right'>".$row2['PRECIO']."</td>
   </tr>
 ";
 $t += $row2['PRECIO'];
 }
   echo "
   <tr>
-    <th class = 'text-right' colspan = '5'>TOTAL</th>
+    <th class = 'text-right' colspan = '6'>TOTAL</th>
     <th class = 'text-right'>".$t."</th>
   </tr>  
   ";

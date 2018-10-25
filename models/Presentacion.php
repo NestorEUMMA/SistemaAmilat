@@ -8,9 +8,7 @@ use Yii;
  * This is the model class for table "presentacion".
  *
  * @property integer $IdPresentacion
- * @property string $Nombre
- *
- * @property Medicamentos[] $medicamentos
+ * @property string $NombrePresentacion
  */
 class Presentacion extends \yii\db\ActiveRecord
 {
@@ -28,8 +26,8 @@ class Presentacion extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['Nombre'], 'required'],
-            [['Nombre'], 'string', 'max' => 100]
+            [['NombrePresentacion'], 'required'],
+            [['NombrePresentacion'], 'string', 'max' => 100]
         ];
     }
 
@@ -40,15 +38,7 @@ class Presentacion extends \yii\db\ActiveRecord
     {
         return [
             'IdPresentacion' => 'Id Presentacion',
-            'Nombre' => 'Nombre',
+            'NombrePresentacion' => 'Nombre Presentacion',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getMedicamentos()
-    {
-        return $this->hasMany(Medicamentos::className(), ['IdPresentacion' => 'IdPresentacion']);
     }
 }

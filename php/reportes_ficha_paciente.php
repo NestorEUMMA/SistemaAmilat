@@ -11,7 +11,7 @@ if (!empty($_SESSION['user']))
           $queryconsultas = " SELECT CONCAT(A.Nombres, ' ',A.Apellidos) as 'NOMBRE', A.Genero as 'GENERO', A.FechaNacimiento as 'FECHA_NACIMIENTO', 
           G.Nombre as 'GEOGRAFIA' ,A.Dui as 'DUI', A.Direccion as 'DIRECCION', A.Correo as 'CORREO', B.Nombre as 'ESTADO_CIVIL', A.Telefono as 'TELEFONO', 
           A.Celular as 'CELULAR', A.Medicamentos as 'MEDICAMENTO', A.Alergias as 'ALERGIAS', A.Enfermedad as 'ENFERMEDAD', 
-          A.IdResponsable as 'RESPONSABLE', A.IdParentesco as 'PARENTESCO', A.TelefonoResponsable as 'TELEFONO_RESPONSABLE'
+          CONCAT(A.NombresResponsable,' ',A.ApellidosResponsable) as 'RESPONSABLE', A.Parentesco as 'PARENTESCO', A.TelefonoResponsable as 'TELEFONO_RESPONSABLE'
           FROM persona as A
           INNER JOIN geografia as G on G.IdGeografia = A.IdGeografia
           LEFT JOIN estadocivil as B on  B.IdEstadoCivil = A.IdEstadoCivil
@@ -32,8 +32,8 @@ if (!empty($_SESSION['user']))
             $medicamento = $test['MEDICAMENTO'];
             $alergias = $test['ALERGIAS'];
             $enfermedad = $test['ENFERMEDAD'];
-            $responsable = $test['RESPONSABLE'];
             $parentesco = $test['PARENTESCO'];
+            $responsable = $test['RESPONSABLE'];
             $telefono_responsable = $test['TELEFONO_RESPONSABLE'];
             $date = date("Y-m-d ");
             $dates = date("Y");
@@ -85,7 +85,8 @@ if (!empty($_SESSION['user']))
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-globe"></i> Centro Medico Asistencial Shalom
+            <i class="fa fa-globe"></i> Centro Medico Asistencial Shalom</br></br>
+            <i class="fa fa-user"></i> Datos Personales
             <small class="pull-right">Fecha <?php echo $date; ?> </small>
           </h2>
         </div>
@@ -131,10 +132,29 @@ if (!empty($_SESSION['user']))
 
       <!-- Table row -->
       <div class="row">
-        <div class="col-xs-12 table-responsive">
-          
-
-
+        <div class="col-xs-12 ">
+        <h2 class="page-header">
+            <i class="fa fa-credit-card"></i> Socioeconomico
+          </h2>
+          <div id="test"></div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <div class="row">
+        <div class="col-xs-12 ">
+        <h2 class="page-header">
+            <i class="fa fa-heartbeat"></i> Historial clinico
+          </h2>
+          <div id="historialclinico"></div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <div class="row">
+        <div class="col-xs-12 ">
+        <h2 class="page-header">
+            <i class="fa fa-eyedropper"></i> Esquena de vacunación
+          </h2>
+          <div id="vacunacion"></div>
         </div>
         <!-- /.col -->
       </div>
@@ -145,7 +165,7 @@ if (!empty($_SESSION['user']))
         <div class="col-xs-1">
         <form action = 'reportes_ficha_paciente_pdf.php' method = 'POST'>
           <input type = 'hidden' name = 'idpersona' value = <?php echo $idpersona; ?> >
-          <input type = 'submit' value = 'Imprimir' class = 'btn btn-warning'>
+          <input type = 'submit' value = 'Vista previa' class = 'btn btn-warning'>
           </form>
         </div>
         <div class="col-xs-1">
@@ -168,6 +188,29 @@ if (!empty($_SESSION['user']))
 
   </body>
 </html>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+          $.post( "historico.php", { IdFactor: "1", IdPersona: "<?php echo $idpersona; ?>" })
+              .done(function( data ) {
+                $("#test").html(data);
+                
+            });
+
+            $.post( "historico.php", { IdFactor: "2", IdPersona: "<?php echo $idpersona; ?>" })
+              .done(function( data ) {
+                $("#historialclinico").html(data);
+                
+            });
+            $.post( "historico.php", { IdFactor: "3", IdPersona: "<?php echo $idpersona; ?>" })
+              .done(function( data ) {
+                $("#vacunacion").html(data);
+                
+            });
+
+        });
+    </script>
 
 <?php
 }

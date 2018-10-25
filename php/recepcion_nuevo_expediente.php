@@ -5,7 +5,6 @@ session_start();
 
 if (!empty($_SESSION['user']))
 {
-
   $querydepartamentos = "SELECT IdGeografia,Nombre from geografia where Nivel='1' order by Nombre";
   $resultadodepartamentos = $mysqli->query($querydepartamentos);
 
@@ -14,21 +13,20 @@ if (!empty($_SESSION['user']))
 
   $queryPais = "SELECT IdPais,NombrePais FROM pais";
   $resultPais = $mysqli->query($queryPais);
-
 ?>
+
 
 <!DOCTYPE html>
 <html>
-
    <?php  include '../include/asset.php'; ?>
-    <link rel="stylesheet" href="../web/dist/parsley.css">
+   <link rel="stylesheet" href="../web/dist/parsley.css">
    <script src="../web/dist/parsley.min.js"></script>
    <script src="../web/dist/i18n/es.js"></script>
 
    <style type="text/css">
     .box-solid .box-body{ min-height: 300px;}
     li.active a{ background-color: red; }
-   
+
    </style>
 
    <body class="hold-transition skin-blue sidebar-mini sidebar-collapse">
@@ -50,9 +48,9 @@ if (!empty($_SESSION['user']))
         </section>
 
          <section class="content">
-            <div class="row">            
+            <div class="row">
               <div class="col-xs-12">
-                
+
                 <div class="box">
                     <div class="box-header with-border">
                       <h3 class="box-title"><i class="fa fa-user"></i> Expedientes</h3>
@@ -77,14 +75,13 @@ if (!empty($_SESSION['user']))
                             </ul>
                             <div class="tab-content">
                               <div class="tab-pane active" id="tab_1">
-                                
-                                <div class="box box-success box-solid">                              
+
+                                <div class="box box-success box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-user"></i> Datos Generales:</h3>
                                     </div>
                                     <div class="box-body">
                                   <div class="form-group">
-                                    
                                     <label for="txtNombres" class="col-sm-1 control-label">Nombres</label>
                                     <div class="col-sm-5">
                                       <div class="input-group">
@@ -101,11 +98,8 @@ if (!empty($_SESSION['user']))
                                       </div>
                                     </div>
                                   </div>
-                                  
-                                  <div class="form-group">
 
-                                    
-                                    
+                                  <div class="form-group">
                                     <label for="txtFechaNacimiento" class="col-sm-1 control-label">Nacimiento</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -113,8 +107,6 @@ if (!empty($_SESSION['user']))
                                         <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFechaNacimiento" id="txtFechaNacimiento" required="">
                                       </div>
                                     </div>
-
-                                                                        
                                     <label for="txtGenero" class="col-sm-1 control-label">Genero</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -126,7 +118,6 @@ if (!empty($_SESSION['user']))
                                         </select>
                                       </div>
                                     </div>
-
                                     <label for="txtIdEstadoCivil" class="col-sm-1 control-label">Estado Civil</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -149,15 +140,8 @@ if (!empty($_SESSION['user']))
                                         <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDui" id="txtDui"  >
                                       </div>
                                     </div>
-
-
-
                                   </div>
-
-
-                                  
                                   <div class="form-group">
-
                                     <label for="txtIdPais" class="col-sm-1 control-label">Pais</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -173,8 +157,6 @@ if (!empty($_SESSION['user']))
                                         </select>
                                       </div>
                                     </div>
-
-
                                     <label for="txtDepartamento" class="col-sm-1 control-label">Departamento</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -189,9 +171,6 @@ if (!empty($_SESSION['user']))
                                         </select>
                                       </div>
                                     </div>
-
-
-
                                     <label for="txtMunicipio" class="col-sm-1 control-label">Municipio</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -207,10 +186,9 @@ if (!empty($_SESSION['user']))
                                         <select class="form-control select2" style="width: 100%;" name="txtCanton" id="txtCanton"></select>
                                       </div>
                                     </div>
-                                  </div> 
+                                  </div>
 
                                   <div class="form-group">
-                                    
                                     <label for="txtDireccion" class="col-sm-1 control-label">Dirección</label>
                                     <div class="col-sm-11">
                                       <div class="input-group">
@@ -221,7 +199,6 @@ if (!empty($_SESSION['user']))
                                   </div>
 
                                   <div class="form-group">
-                                    
                                     <label for="txtTelefono" class="col-sm-1 control-label">Teléfono</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -237,8 +214,6 @@ if (!empty($_SESSION['user']))
                                         <input type="text" class="form-control" data-inputmask='"mask": "9999-9999"' data-mask id="txtCelular" name="txtCelular" />
                                       </div>
                                     </div>
-
-
                                     <label for="txtCorreo" class="col-sm-1 control-label">Correo</label>
                                     <div class="col-sm-5">
                                       <div class="input-group">
@@ -246,13 +221,13 @@ if (!empty($_SESSION['user']))
                                         <input type="text" class="form-control" id="txtCorreo" name="txtCorreo"  data-parsley-trigger="change">
                                       </div>
                                     </div>
-                                  </div>    
+                                  </div>
                                   </div>
                                 </div>
                               </div>
                               <div class="tab-pane" id="tab_2">
-                                
-                                <div class="box box-warning box-solid">                              
+
+                                <div class="box box-warning box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-users"></i> Responsable:</h3>
                                     </div>
@@ -260,7 +235,6 @@ if (!empty($_SESSION['user']))
 
 
                                 <div class="form-group">
-                                  
                                   <label for="txtNombresResponsable" class="col-sm-1 control-label">Nombres</label>
                                   <div class="col-sm-5">
                                     <div class="input-group">
@@ -285,6 +259,8 @@ if (!empty($_SESSION['user']))
                                         <div class="input-group-addon"><i class="fa fa-users"></i></div>
                                         <select class="form-control" id="txtParentesco" name="txtParentesco">
                                             <option value=""></option>
+                                            <option value="ESPOSO">ESPOSO</option>
+                                            <option value="ESPOSA">ESPOSA</option>
                                             <option value="MADRE">MADRE</option>
                                             <option value="PADRE">PADRE</option>
                                             <option value="ABUELO">ABUELO</option>
@@ -299,9 +275,6 @@ if (!empty($_SESSION['user']))
                                         </select>
                                       </div>
                                     </div>
-                                
-
-                                  
                                     <label for="txtDuiResponsable" class="col-sm-1 control-label">Dui Responsable</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -309,8 +282,6 @@ if (!empty($_SESSION['user']))
                                         <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDuiResponsable" id="txtDuiResponsable" >
                                       </div>
                                     </div>
-
-
                                     <label for="txtTelefonoResponsable" class="col-sm-1 control-label">Telefono</label>
                                     <div class="col-sm-2">
                                       <div class="input-group">
@@ -318,14 +289,14 @@ if (!empty($_SESSION['user']))
                                         <input type="text" class="form-control"  data-inputmask='"mask": "9999-9999"' data-mask id="txtTelefonoResponsable" name="txtTelefonoResponsable" />
                                       </div>
                                     </div>
-
                                 </div>
+
                               </div>
 
                               </div>
                             </div>
                               <div class="tab-pane" id="tab_3">
-                                <div class="box box-danger box-solid">                              
+                                <div class="box box-danger box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-heartbeat"></i> Datos médicos:</h3>
                                     </div>
@@ -341,7 +312,7 @@ if (!empty($_SESSION['user']))
                                             </div>
                                           </div>
                                       </div>
-                                      
+
                                       <div class="form-group">
                                           <label for="txtAlergias" class="col-sm-1 control-label">Alergias:</label>
                                           <div class="col-sm-10">
@@ -351,7 +322,7 @@ if (!empty($_SESSION['user']))
                                             </div>
                                           </div>
                                       </div>
-                                      
+
                                       <div class="form-group">
                                           <label for="txtMedicamentos" class="col-sm-1 control-label">Medicamentos:</label>
                                           <div class="col-sm-10">
@@ -363,14 +334,11 @@ if (!empty($_SESSION['user']))
                                       </div>
 
 
-                                    </div> 
+                                    </div>
                                 </div>
                               </div>
-
                               <div class="tab-pane " id="tab_4">
-
-
-                                <div class="box box-warning box-solid">                              
+                                <div class="box box-warning box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-credit-card"></i> Socioeconómico:</h3>
 
@@ -396,16 +364,12 @@ if (!empty($_SESSION['user']))
                                         </div>
                                     </div>
                                   </div>
-                              </div> 
+                              </div>
+
                               <div class="tab-pane " id="tab_5">
-
-
-                                <div class="box box-warning box-solid">                              
+                                <div class="box box-warning box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-credit-card"></i> Historial Clínico:</h3>
-
-
-
                                     </div>
                                     <div class="box-body">
                                         <div class="col-sm-10 col-sm-offset-1">
@@ -413,19 +377,12 @@ if (!empty($_SESSION['user']))
                                         </div>
                                     </div>
                                   </div>
-                              </div> 
-
-
+                              </div>
 
                               <div class="tab-pane " id="tab_6">
-
-
-                                <div class="box box-info box-solid">                              
+                                <div class="box box-info box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-eyedropper"></i> Esquema de vacunación:</h3>
-
-
-
                                     </div>
                                     <div class="box-body">
                                         <div class="col-sm-10 col-sm-offset-1">
@@ -433,8 +390,9 @@ if (!empty($_SESSION['user']))
                                         </div>
                                     </div>
                                   </div>
-                              </div>                         
-                            </div>            
+                              </div>
+
+                            </div>
                           </div>
                         </div>
 
@@ -443,10 +401,10 @@ if (!empty($_SESSION['user']))
                   </div>
               </div>
 
-                                    
 
-              
-            </div>        
+
+
+            </div>
          </section>
 
       </div>
@@ -475,23 +433,23 @@ if (!empty($_SESSION['user']))
 
   function outFocus(e)
   {
-    $(e).closest("tr").css("backgroundColor","#FFFFFF"); 
+    $(e).closest("tr").css("backgroundColor","#FFFFFF");
   }
 
 
   $(document).ready(function(){
 
-    
-    
+
+
     $.post( "test.php", { IdFactor: 1})
       .done(function( data ) {
         $("#test").html(data);
-        
-    });
-    
-      
 
-    
+    });
+
+
+
+
       $.post( "test.php", { IdFactor: 2})
       .done(function( data ) {
         $("#historialclinico").html(data);
@@ -523,18 +481,18 @@ if (!empty($_SESSION['user']))
           data: { 'IdGeografia': id },
           beforeSend: function() { },
           success: function(data) {
-              
+
               $("#txtMunicipio").empty();
-              
-              var opcs = "<option value=''></option>";              
+
+              var opcs = "<option value=''></option>";
               $.each(data, function(i,v){
                   opcs += "<option value='" + v.IdGeografia + "'>" + v.Nombre + "</option>";
-              });             
+              });
               $("#txtMunicipio").html(opcs).select2().val(null);
 
           },
           error: function(xhr, textStatus, errorThrown) {
-            
+
           }
         });
 
@@ -554,18 +512,18 @@ if (!empty($_SESSION['user']))
           data: { 'IdGeografia': id },
           beforeSend: function() { },
           success: function(data) {
-              
+
               $("#txtCanton").empty();
               $("#txtCanton span.select2-selection__rendered").html("");
-              var opcs = "";              
+              var opcs = "";
               $.each(data, function(i,v){
                   opcs += "<option value='" + v.IdGeografia + "'>" + v.Nombre + "</option>";
-              });             
+              });
               $("#txtCanton").html(opcs);
 
           },
           error: function(xhr, textStatus, errorThrown) {
-            
+
           }
         });
 

@@ -6,9 +6,9 @@
       if (!empty($_SESSION['user']))
         {
 
-                $queryfichaconsulta = "SELECT  count(c.FechaConsulta) as 'Listado', (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'MASCULINO' and c.FechaConsulta = curdate()) as 'Hombre', 
-                  (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'FEMENINO' and c.FechaConsulta = curdate() ) as 'Mujer'  
-                  FROM 
+                $queryfichaconsulta = "SELECT  count(c.FechaConsulta) as 'Listado', (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'MASCULINO' and c.FechaConsulta = curdate()) as 'Hombre',
+                  (SELECT count(p.Genero) FROM persona p INNER JOIN consulta c on c.IdPersona = p.IdPersona WHERE p.Genero = 'FEMENINO' and c.FechaConsulta = curdate() ) as 'Mujer'
+                  FROM
                   consulta c
                   INNER JOIN persona p on c.IdPersona = p.IdPersona
                   WHERE c.FechaConsulta = CURDATE() ";
@@ -23,29 +23,29 @@
 
                   $Hresultado = $hombres * 100;
 
-                  $hombresPor = 0; 
+                  $hombresPor = 0;
 
                   if($listado != 0)
                     $hombresPor = $Hresultado / $listado;
 
-                  
+
                   $Mresultado = 0;
                   $Mresultado = $mujeres * 100;
-                  
+
                   $mujeresPor = 0;
                   if($listado != 0)
                     $mujeresPor = $Mresultado / $listado;
-                 
+
 
                   // QUERY PARA CALCULAR EDAD
                  $queryfichaconsulta2 = "SELECT
-                        count(CASE 
+                        count(CASE
                           WHEN TIMESTAMPDIFF(YEAR,p.FechaNacimiento,CURDATE()) = 0 THEN 'nino'
                           WHEN TIMESTAMPDIFF(YEAR,p.FechaNacimiento,CURDATE()) <= 18 THEN 'nino'
                         END) As 'Nino',
-                        count(CASE 
+                        count(CASE
                           WHEN TIMESTAMPDIFF(YEAR,p.FechaNacimiento,CURDATE()) > 18 THEN 'adulto'
-                        END) As 'Adulto' 
+                        END) As 'Adulto'
                       FROM consulta c
                       INNER JOIN persona p on c.IdPersona = p.IdPersona
                       WHERE c.FechaConsulta = CURDATE()";
@@ -60,7 +60,7 @@
 
 
                  $queryfichaconsulta3 = "SELECT count(c.Activo) as Activo
-                    FROM 
+                    FROM
                     consulta c
                     WHERE c.FechaConsulta = CURDATE() and Activo = 1";
 
@@ -91,8 +91,8 @@
 
                 <section class="content-header">
                   <h1>
-                    SistemaAmilat | Centro Medico Familiar Shalom
-                    <small>Adminstración de Inventarios y Farmacia</small>
+                    Centro Medico Familiar Shalom |
+                    <small>Adminstración de Pacientes y Laboratorio</small>
                   </h1>
                   <ol class="breadcrumb">
                   </ol>
@@ -228,7 +228,7 @@
                   </div>
 
 
-            
+
 
 
                 </section>
@@ -239,7 +239,7 @@
 
         </body>
       </html>
-      
+
       // <script>
 
       // // request permission on page load
@@ -325,7 +325,7 @@ $(document).ready(function () {
 
         });
       },
-      error: function(xhr, type, exception) { 
+      error: function(xhr, type, exception) {
         // if ajax fails display error alert
         alert("ajax error response type "+type);
       }
@@ -333,4 +333,3 @@ $(document).ready(function () {
 
 });
 </script>
-

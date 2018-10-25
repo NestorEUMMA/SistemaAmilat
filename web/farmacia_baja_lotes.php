@@ -55,7 +55,7 @@ ORDER BY A.FechaVencimiento DESC
     </div>
   <!-- /.box-header -->
     <div class="box-body">
-    <table id="example2" class="table table-bordered table-hover table-striped table-responsive">
+    <table id="example1" class="table table-bordered table-hover table-striped table-responsive">
     <tr class = "info">
       <th>MEDICAMENTO</th><th>CODIGO</th><th>LOTE</th><th>F.EXPEDICION</th>
       <th>F.VENCIMIENTO</th><th>CANTIDAD</th><th>MOTIVO</th><th>ACCION</th>
@@ -80,6 +80,7 @@ ORDER BY A.FechaVencimiento DESC
               <option value = '3'>Baja por Vencimiento</option>
               <option value = '4'>Baja por Deterioro</option>
               <option value = '5'>Baja por Donacion</option>
+              <option value = '6'>Salida por Despacho</option>
             </select>
           </td>
           <td>

@@ -25,12 +25,12 @@ while ($f = $tblPreguntas->fetch_assoc())
 $query = "select
 				 b.IdPregunta
 				,b.Nombre as Pregunta
-				,a.IdRespuesta 
+				,a.IdRespuesta
 			    ,a.Nombre as Respuesta
-			from 
+			from
 				respuesta a
 			left join pregunta b on a.IdPregunta = b.IdPregunta
-			where 
+			where
 				b.idFactor = $id";
 
 $tblRespuestas = $mysqli->query($query);
@@ -54,15 +54,15 @@ foreach ($arrPreguntas as $iP => $vP) {
 			switch ($vP["Ponderacion"]) {
 				case "0":
 				{
-					echo "<select id='selPregunta". $vP["IdPregunta"] . "' name='selPregunta".$vP["IdPregunta"] . "' class='form-control select2' required  onfocus='inFocus(this)' onfocusout='outFocus(this)' >";
+					echo "<select id='selPregunta". $vP["IdPregunta"] . "' name='selPregunta".$vP["IdPregunta"] . "' class='form-control select2'  onfocus='inFocus(this)' onfocusout='outFocus(this)' >";
 					echo "<option value=''></option>";
-						
+
 					foreach ($arrRespuestas as $iR => $vR) {
 						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
 							echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
 						}
 					}
-			
+
 					echo "</select>";
 					break;
 				}
@@ -70,29 +70,29 @@ foreach ($arrPreguntas as $iP => $vP) {
 				{
 					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
 					//echo "<input id='$IdPregunta' name='$IdPregunta' type='text' />";
-					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='2' required > </textarea>";
+					echo "<textarea id='$IdPregunta' name='$IdPregunta' class='form-control' row='2'  > 	</textarea>";
 					break;
 				}
 				case "2":
 				{
 					$IdPregunta = 'selPregunta'.$vP["IdPregunta"];
-					echo "<select id='$IdPregunta' name='$IdPregunta". "[]" ."' class='form-control select3' multiple='multiple' required >";
+					echo "<select id='$IdPregunta' name='$IdPregunta". "[]" ."' class='form-control select3' multiple='multiple'  >";
 					echo "<option value=''></option>";
-						
+
 					foreach ($arrRespuestas as $iR => $vR) {
 						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
 							echo "<option value='". $vR["IdRespuesta"] ."'>". $vR["Respuesta"]."</option>";
 						}
 					}
-			
+
 					echo "</select>";
 					break;
 				}
 				default:
-					
+
 					break;
 			}
-			
+
 		echo "</td>";
 	echo "<tr>";
 }

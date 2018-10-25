@@ -87,7 +87,7 @@ foreach ($arrPreguntas as $iP => $vP) {
 						if(	$vR["IdPregunta"] == $vP["IdPregunta"] ){
 							$r = $vR["Respuesta"];
 							//echo "<span class='bagde bagde-info'>$r</span>";
-							echo "<small class='label bg-yellow'>$r</small>&nbsp;";
+							echo "<button class='btn-sm btn-primary'>$r</button>&nbsp;";
 						}
 					}
 					break;

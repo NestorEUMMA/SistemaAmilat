@@ -1,7 +1,7 @@
 <?php
-  
+
         $queryexpedientesu = "SELECT a.IdUsuario, a.InicioSesion, b.IdPuesto, b.Descripcion as NombrePuesto, concat(a.Nombres, ' ', a.Apellidos) as NombreCompleto, a.FechaIngreso as Fecha
-          FROM usuario as a 
+          FROM usuario as a
           inner join puesto as b on b.IdPuesto = a.IdPuesto
           WHERE InicioSesion =  '" . $_SESSION['user'] . "'";
        $resultadoexpedientesu = $mysqli->query($queryexpedientesu);
@@ -10,7 +10,7 @@
                       $puesto = $test['NombrePuesto'];
                       $nombreusuario = $test['NombreCompleto'];
                       $fecha = $test['Fecha'];
-  
+
                   }
 
  ?>
@@ -19,9 +19,9 @@
         <!-- Logo -->
         <a href="../php/app.php" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>S</b>A</span>
+          <span class="logo-mini"><b>S</b>TPV</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>Sistema</b>Amilat</span>
+          <span class="logo-lg"><b>Sistema</b>TPV</span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
@@ -32,13 +32,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </a>
-         
+
           <div class="navbar-custom-menu">
 
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <span class="hidden-xs"> BIENVENIDO: <?php echo $_SESSION['user'] ?> </span>
+                  <span class="hidden-xs"><strong> BIENVENIDO: </strong><?php echo strtoupper($nombreusuario); ?> </span>
                 </a>
                 <ul class="dropdown-menu">
                  <li class="user-header">
@@ -63,7 +63,7 @@
                 </div>
                 <!-- /.row -->
               </li>
-        
+
 
                   <!-- Menu Footer-->
                   <li class="user-footer">
@@ -82,4 +82,3 @@
           </div>
         </nav>
       </header>
-  

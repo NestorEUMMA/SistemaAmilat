@@ -157,7 +157,8 @@ if (!empty($_SESSION['user']))
     }
     ?>
     <h3 class="box-title">EXISTENCIA DE MEDICAMENTOS</h3>
-	 <table id="example2" class="table table-bordered table-hover table-striped table-responsive">
+      <a href="../php/reportes/farmacia_imprimir_inventario.php"><span class = "btn btn-warning" >Imprimir</span></a>
+	 <table id="example1" class="table table-bordered table-hover table-striped table-responsive">
     <?php
       echo "
       <thead>
@@ -191,9 +192,7 @@ if (!empty($_SESSION['user']))
         echo "</tbody>";
         echo "</table>";
       echo"
-      <form action = '../php/reportes/reporte_farmacia_medicamentos_pdf.php' method = 'POST'>
-        <input type = 'submit' value = 'Imprimir' class = 'btn btn-warning'>
-      </form>
+
          ";
     ?>
     </div>

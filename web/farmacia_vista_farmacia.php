@@ -64,8 +64,11 @@ while ($row2 = $resultadocuentarecetas->fetch_assoc()) {
       </script>
     ";
   }else{
+    ?>
+    <table id="example1" class="table table-bordered table-hover table-striped table-responsive">
+    <?php
   echo "
-  <table id='example2' class='table table-bordered table-hover table-striped table-responsive'>
+
   <tr class = 'info'>
   <th>PACIENTE</th><th>MEDICO</th><th>FECHA</th><th style='text-align: center;' colspan = 2>ACCION</th>
   </tr>

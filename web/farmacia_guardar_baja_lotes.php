@@ -11,12 +11,17 @@ $idmedicamento = $_POST['idmedicamento'];
 $existencia = $_POST['existencia'];
 $nuevaexistencia = $existencia - $cantidad;
 
+if($cantidad > $existencia)
+{
+	$nuevaexistencia = 0;
+}
+
 
 $insertbaja = "
 INSERT INTO bajalotes
 (CodigoLote, Fecha, IdUsuario, Cantidad)
 VALUES
-('$codigo', now(), $idusuario, $cantidad)
+('$codigo', now(), $idusuario, $nuevaexistencia)
 			";
 $resultadoinsertbaja = $mysqli->query($insertbaja);
 

@@ -19,7 +19,7 @@ class PresentacionSearch extends Presentacion
     {
         return [
             [['IdPresentacion'], 'integer'],
-            [['Nombre'], 'safe'],
+            [['NombrePresentacion'], 'safe'],
         ];
     }
 
@@ -59,7 +59,7 @@ class PresentacionSearch extends Presentacion
             'IdPresentacion' => $this->IdPresentacion,
         ]);
 
-        $query->andFilterWhere(['like', 'Nombre', $this->Nombre]);
+        $query->andFilterWhere(['like', 'NombrePresentacion', $this->NombrePresentacion]);
 
         return $dataProvider;
     }

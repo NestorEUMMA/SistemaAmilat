@@ -188,7 +188,7 @@ if (!empty($_SESSION['user'])) {
                       WHERE r.IdConsulta =$id";
     $resultadotablarecetamedicamentos = $mysqli->query($querytablarecetamedicamentos);
 
-    $queryhistoricomedicamentos = "SELECT c.IdConsulta As 'ID', r.IdReceta As 'IDReceta', r.Fecha As 'Fecha', CONCAT(p.Nombres,' ',p.Apellidos) As 'Nombre Completo', CONCAT(u.Nombres,' ',u.Apellidos) As 'Medico', CONCAT(m.NombreComercial,' ',m.NombreMedicamento,' ',um.NombreUnidadMedida) As 'Medicamento',  
+    $queryhistoricomedicamentos = "SELECT c.IdConsulta As 'ID', r.IdReceta As 'IDReceta', r.Fecha As 'Fecha', CONCAT(p.Nombres,' ',p.Apellidos) As 'Nombre Completo', CONCAT(u.Nombres,' ',u.Apellidos) As 'Medico', CONCAT(m.NombreComercial,' ',m.NombreMedicamento,' ',um.NombreUnidadMedida) As 'Medicamento',
                           rm.Cantidad As 'Cantidad', rm.Dias As 'Dias', rm.Horas As 'Horas', rm.Total As 'Total'
                       FROM receta r
                       INNER JOIN  usuario u on u.IdUsuario = r.IdUsuario
@@ -202,8 +202,8 @@ if (!empty($_SESSION['user'])) {
     $resultadotablahistoricomedicamentos = $mysqli->query($queryhistoricomedicamentos);
 
     $querytablaprocedimientos = "SELECT ep.IdEnfermeriaProcedimiento As 'ID', CONCAT(p.Nombres,' ',p.Apellidos) As 'Paciente',
-                    CONCAT(u.Nombres,' ',u.Apellidos) As 'Medico', m.NombreModulo As 'Modulo', ep.FechaProcedimiento As 'Fecha', 
-                      mp.Nombre As 'Motivo', ep.Observaciones As 'Observaciones', ep.Estado As 'Estado'   
+                    CONCAT(u.Nombres,' ',u.Apellidos) As 'Medico', m.NombreModulo As 'Modulo', ep.FechaProcedimiento As 'Fecha',
+                      mp.Nombre As 'Motivo', ep.Observaciones As 'Observaciones', ep.Estado As 'Estado'
                       FROM enfermeriaprocedimiento ep
                       INNER JOIN persona p ON p.IdPersona = ep.IdPersona
                       INNER JOIN usuario u ON u.IdUsuario = ep.IdUsuario
@@ -280,7 +280,7 @@ if (!empty($_SESSION['user'])) {
                                                    </ul>
                                                    <div class="tab-content">
                                                        <div class="tab-pane active" id="tab_12">
-                                                         
+
                                                          <!-- FICHA CONSULTA -->
                                                          <div class="box box-info">
                                                              <div class="box-header with-border">
@@ -351,7 +351,7 @@ if (!empty($_SESSION['user'])) {
                                                                                  if ($row['Activo'] == 1) {
                                                                                      $disabled = 'disabled="disabled"';
                                                                                  } else {
-                                                                                     
+
                                                                                  }
                                                                              }
                                                                              ?>
@@ -372,7 +372,7 @@ if (!empty($_SESSION['user'])) {
                                                        </div>
                                                        <!-- PANEL DE LABORATORIO -->
                                                        <div class="tab-pane" id="tab_13">
-                                                        
+
                                                             <div class="col-md-12">
                                                                 <!-- FICHA SIGNOS VITALES -->
                                                                 <div class="box box-info">
@@ -868,16 +868,18 @@ if (!empty($_SESSION['user'])) {
                              </div>
 
                              <!-- PANEL GENERAL DE EXPEDIENTE GENERAL DE PACIENTE -->
-                             <div class="tab-pane" id="tab_2">
+                        <div class="tab-pane" id="tab_2">
 
                            <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                              <li><a href="#tabs_1" data-toggle="tab"><i class="fa fa-user"></i> Datos generales</a></li>
+                              <li><a href="#tabs_11" data-toggle="tab"><i class="fa fa-user"></i> Datos generales</a></li>
 
+                              <li><a href="#tabs_13" data-toggle="tab"><i class="fa fa-user"></i> Historial clinico</a></li>
+                              <li><a href="#tabs_14" data-toggle="tab"><i class="fa fa-user"></i> Esquena de vacunación</a></li>
                             </ul>
                             <div class="tab-content">
-                              <div class="tab-pane active" id="tabs_1">
-                                                                 <!-- PANEL DE EXPEDIENTE DE PACIENTE -->
+                           <div class="tab-pane active" id="tabs_11">
+                             <!-- PANEL DE EXPEDIENTE DE PACIENTE -->
                                    <div class="row">
                                        <div class="col-xs-12">
                                            <div class="box">
@@ -886,277 +888,347 @@ if (!empty($_SESSION['user'])) {
                                                </div><!-- /.box-header -->
                                                <div class="box-body">
                                                    <!--    FORMULARIO    -->
-                                                   <form  method="post" id="demo-form" >
+                                                <form  method="post" id="demo-form" >
 
-                                                       <div class="row">
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Nombre
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <input type="text" class="form-control" name="txtNombres" disabled="disabled" value="<?php echo $nombres ?>">
-                                                                       </div>
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Apellido
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <input type="text" class="form-control" name="txtApellidos" disabled="disabled" value="<?php echo $apellidos ?>">
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="col-md-1">
-                                                               </div>
-                                                               <div class="form-group">
-                                                                   <label for="inputEmail3" class="col-sm-1 control-label">
-                                                                       Dui
-                                                                   </label>
-                                                                   <div class="col-sm-4">
-                                                                       <input type="text" class="form-control" disabled="disabled" data-inputmask='"mask": "99999999-9"' data-mask name="txtDui" value="<?php echo $dui ?>" >
-                                                                   </div>
-                                                                   <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                       Fecha de Nacimiento
-                                                                   </label>
-                                                                   <div class="input-group col-sm-4">
-                                                                       <div class="input-group-addon">
-                                                                           <i class="fa fa-calendar" disabled="disabled" ></i>
-                                                                       </div>
-                                                                       <input type="text" class="form-control" disabled="disabled" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFNacimiento" value="<?php echo $fnacimiento ?>">
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                       </div>
-                                                       <div class="row">
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Departamento
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <select class="form-control select2" style="width: 100%;" disabled="disabled" name="cboGeografia">
-                                                                               <?php
-                                                                               while ($row = $resultadodepartamentos->fetch_assoc()) {
-                                                                                   echo "<option value = '" . $row['IdGeografia'] . "'>" . $row['Nombre'] . "</option>";
-                                                                               }
-                                                                               ?>
-                                                                           </select>
-                                                                       </div>
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Municipio
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <input type="text" class="form-control"  name="municipio" id="municipio" disabled="disabled">
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Direccion
-                                                                       </label>
-                                                                       <div class="col-sm-10">
-                                                                           <input type="text" class="form-control" disabled="disabled" name="txtDireccion" required="" value="<?php echo $direccion ?>" >
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                       </div>
-                                                       <div class="row">
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Genero
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <select class="form-control select2" style="width: 100%;" disabled="disabled" name="cboGenero" required="">
-                                                                               <option> <?php echo $genero ?> </option>
-                                                                           </select>
-                                                                       </div>
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Estado Civil
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <select class="form-control select2" style="width: 100%;" disabled="disabled" name="cboEstadoCivil" required="">
-                                                                               <?php
-                                                                               while ($row = $resultadoestadocivil->fetch_assoc()) {
-                                                                                   echo "<option value = '" . $row['IdEstadoCivil'] . "'>" . $row['Nombre'] . "</option>";
-                                                                               }
-                                                                               ?>
-                                                                           </select>
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Correo
-                                                                       </label>
-                                                                       <div class="input-group col-sm-9">
-                                                                           <div class="input-group-addon">
-                                                                               <i class="fa fa-envelope"></i>
-                                                                           </div>
-                                                                           <input type="email" class="form-control" disabled="disabled"  name="txtCorreo" required="" data-parsley-trigger="change" value="<?php echo $correo ?>" >
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                       </div>
-                                                       <div class="row">
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Telefono
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <input type="text" class="form-control" disabled="disabled"  data-inputmask='"mask": "9999-9999"' data-mask name="txtTelefono" value="<?php echo $telefono ?>" />
-                                                                       </div>
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Celular
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <input type="text" class="form-control" disabled="disabled" data-inputmask='"mask": "9999-9999"' data-mask name="txtCelular" value="<?php echo $celular ?>" />
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Enfermedad
-                                                                       </label>
-                                                                       <div class="col-sm-10">
-                                                                           <textarea type="text" rows="1" class="form-control" disabled="disabled"  name="txtEnfermedad" data-parsley-maxlength="100"> <?php echo $enfermedad ?> </textarea>
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                       </div>
-                                                       <div class="row">
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Alergias
-                                                                       </label>
-                                                                       <div class="col-sm-10">
-                                                                           <textarea type="text" rows="2" class="form-control" disabled="disabled"  name="txtAlergias" data-parsley-maxlength="100"> <?php echo $alergias ?> </textarea>
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Medicamentos
-                                                                       </label>
-                                                                       <div class="col-sm-10">
-                                                                           <textarea type="text" rows="2" class="form-control" disabled="disabled"  name="txtMedicamentos" data-parsley-maxlength="100"> <?php echo $medicinas ?> </textarea>
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
+                                                <div class="row">
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        Nombre
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-user"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control" name="txtNombres" disabled="disabled" required="" value="<?php echo $nombres ?>">
+                                                          </div>
+                                                        </div>
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        Apellido
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-user"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control" name="txtApellidos" disabled="disabled" required="" value="<?php echo $apellidos ?>">
+                                                          </div>
+                                                        </div>
+                                                      </div>
 
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                       </div>
-                                                       <div class="row">
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Responsable
-                                                                       </label>
-                                                                       <div class="col-sm-5">
-                                                                           <input type="text" class="form-control" disabled="disabled"  name="txtResponsable" value="<?php echo $nombreResponsable. " " .$apellidoResponsable ?>"/>
-                                                                       </div>
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Parentesco
-                                                                       </label>
-                                                                       <div class="col-sm-3">
-                                                                           <input type="text" class="form-control" disabled="disabled" name="txtParentesco" value="<?php echo $parentesco ?>" />
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                           <div class="col-md-0">
-                                                           </div>
-                                                           <div class="col-md-6">
-                                                               <div class="form-horizontal" role="form">
-                                                                   <div class="form-group">
-                                                                       <label for="inputEmail3" class="col-sm-2 control-label">
-                                                                           Telefono
-                                                                       </label>
-                                                                       <div class="col-sm-4">
-                                                                           <input type="text" class="form-control" disabled="disabled"  data-inputmask='"mask": "9999-9999"' data-mask name="txtTelefonoContacto" value="<?php echo $telefonoresponsable ?>" />
-                                                                       </div>
-                                                                       <div class="col-sm-4">
-                                                                       </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        Dui
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-credit-card"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control" data-inputmask='"mask": "99999999-9"' data-mask name="txtDui" disabled="disabled" value="<?php echo $dui ?>" >
+                                                        </div>
+                                                        </div>
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        F. Nacimiento
+                                                        </label>
+                                                         <div class="col-sm-4">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-calendar"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask name="txtFNacimiento" required="" disabled="disabled" value="<?php echo $fnacimiento ?>">
+                                                        </div>
+                                                      </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
 
-                                                           <div class="col-md-0">
+                                                <div class="row">
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Departamento
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-flag"></i>
+                                                            </div>
+                                                           <select class="form-control select2" style="width: 100%;" disabled="disabled" name="cboGeografia">
+                                                            <?php
+                                                              while ($row = $resultadodepartamentos->fetch_assoc()) {
+                                                                echo "<option value = '".$row['IdGeografia']."'>".$row['Nombre']."</option>";
+                                                              }
+                                                            ?>
+                                                          </select>
+                                                          </div>
+                                                        </div>
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Municipio
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-flag-o"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control"  name="municipio" id="municipio" disabled="disabled">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        Direccion
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-arrows"></i>
+                                                            </div>
+                                                        <input type="text" class="form-control" name="txtDireccion" required="" disabled="disabled" value="<?php echo $direccion ?>">
+                                                        </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div class="row">
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Genero
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-genderless"></i>
+                                                            </div>
+                                                          <select class="form-control select2" style="width: 100%;" disabled="disabled" name="cboGenero" required="">
+                                                            <option> <?php echo $genero ?> </option>
+                                                          </select>
+                                                          </div>
+                                                        </div>
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Estado Civil
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                           <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-circle-o"></i>
+                                                            </div>
+                                                          <select class="form-control select2" style="width: 100%;" disabled="disabled" name="cboEstadoCivil" required="">
+                                                           <?php
+                                                              while ($row = $resultadoestadocivil->fetch_assoc()) {
+                                                                echo "<option value = '".$row['IdEstadoCivil']."'>".$row['Nombre']."</option>";
+                                                              }
+                                                            ?>
+                                                          </select>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        Correo
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-envelope"></i>
+                                                            </div>
+                                                          <input type="email" class="form-control" disabled="disabled" name="txtCorreo"  data-parsley-trigger="change" value="<?php echo $correo ?>">
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                </div>
+
+                                                <div class="row">
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Telefono
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-phone-square"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control"  data-inputmask='"mask": "9999-9999"' data-mask name="txtTelefono" disabled="disabled" value="<?php echo $telefono ?>" />
+                                                          </div>
+                                                        </div>
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Celular
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                          <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-mobile"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control" data-inputmask='"mask": "9999-9999"' data-mask name="txtCelular" disabled="disabled" value="<?php echo $celular ?>" />
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Enfermedad
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-check"></i>
+                                                            </div>
+                                                          <textarea type="text" rows="1" class="form-control" disabled="disabled"  name="txtEnfermedad" data-parsley-maxlength="100"><?php echo $enfermedad ?></textarea>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                </div>
+
+                                                <div class="row">
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Alergias
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-check"></i>
+                                                            </div>
+                                                          <textarea type="text" rows="2" class="form-control" disabled="disabled"  name="txtAlergias" data-parsley-maxlength="100"> <?php echo $alergias ?> </textarea>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Medicamentos
+                                                        </label>
+                                                        <div class="col-sm-10">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-check"></i>
+                                                            </div>
+                                                          <textarea type="text" rows="2" class="form-control" disabled="disabled" name="txtMedicamentos" data-parsley-maxlength="100"><?php echo $medicinas ?></textarea>
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                </div>
+
+                                                <div class="row">
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                  <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        Responsable
+                                                        </label>
+                                                        <div class="col-sm-5">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-user"></i>
+                                                            </div>
+                                                         <input type="text" class="form-control" disabled="disabled" name="txtResponsable" required="" value="<?php echo $nombreResponsable. " " .$apellidoResponsable ?>" />
+                                                         </div>
+                                                        </div>
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                        Parentesco
+                                                        </label>
+                                                           <div class="col-sm-3">
+                                                           <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-users"></i>
+                                                            </div>
+                                                           <input type="text" class="form-control" name="txtParentesco" required="" disabled="disabled" value="<?php echo $parentesco ?>" />
                                                            </div>
-                                                       </div>
-                                                   </form>
-                                               </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                  <div class="col-md-0">
+                                                  </div>
+
+                                                    <div class="col-md-6">
+                                                    <div class="form-horizontal" role="form">
+                                                      <div class="form-group">
+                                                        <label for="inputEmail3" class="col-sm-2 control-label">
+                                                          Telefono
+                                                        </label>
+                                                        <div class="col-sm-4">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">
+                                                            <i class="fa fa-phone-square"></i>
+                                                            </div>
+                                                          <input type="text" class="form-control" disabled="disabled"  data-inputmask='"mask": "9999-9999"' data-mask name="txtTelefonoContacto" value="<?php echo $telefonoresponsable ?>"  />
+                                                          </div>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+
+                                                  <div class="col-md-0">
+                                                  </div>
+                                                </div>
+
+
+                                            </form>
+
+                                            </div>
                                            </div>
                                        </div>
                                    </div>
-
                               </div>
 
-                              <div class="tab-pane " id="tabs_2">
+                              <div class="tab-pane " id="tabs_12">
 
-
-                                <div class="box box-warning box-solid">                              
+                                <div class="box box-warning box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-credit-card"></i> Socioeconómico:</h3>
 
-                                        <div class="pull-right">
-                                          <label for="txtCategoria" class="col-sm-6 control-label">Categoría:</label>
-                                          <div class="col-sm-6">
-                                            <select class="form-control" id="txtCategoria" name="txtCategoria" required="">
-                                              <option value=""></option>
-                                              <option value="A">A</option>
-                                              <option value="B">B</option>
-                                              <option value="C">C</option>
-                                              <option value="D">D</option>
-                                            </select>
-                                          </div>
-                                      </div>
 
 
                                     </div>
@@ -1167,11 +1239,11 @@ if (!empty($_SESSION['user'])) {
                                         </div>
                                     </div>
                                   </div>
-                              </div> 
-                              <div class="tab-pane " id="tabs_3">
+                              </div>
+                              <div class="tab-pane " id="tabs_13">
 
 
-                                <div class="box box-warning box-solid">                              
+                                <div class="box box-warning box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-credit-card"></i> Historial Clínico:</h3>
 
@@ -1184,14 +1256,14 @@ if (!empty($_SESSION['user'])) {
                                         </div>
                                     </div>
                                   </div>
-                              </div> 
+                              </div>
 
 
 
-                              <div class="tab-pane " id="tabs_6">
+                              <div class="tab-pane " id="tabs_14">
 
 
-                                <div class="box box-info box-solid">                              
+                                <div class="box box-info box-solid">
                                     <div class="box-header">
                                         <h3 class="box-title"><i class="fa fa-eyedropper"></i> Esquema de vacunación:</h3>
 
@@ -1204,8 +1276,8 @@ if (!empty($_SESSION['user'])) {
                                         </div>
                                     </div>
                                   </div>
-                              </div>                         
-                            </div>            
+                              </div>
+                            </div>
                           </div>
                                  <!-- TABLA HISTORIAL DE CONSULTAS EN EXPEDIENTE -->
                                  <div class="row">
@@ -1393,19 +1465,18 @@ if (!empty($_SESSION['user'])) {
                                                  <div class="modal-body ">
 
                                                      <div class="form-group">
-                                                         <label for="inputEmail3" class="col-sm-2 control-label" >Enfermedad </label>
-                                                         <div class="col-sm-9">
-                                                             <div class="input-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Enfermedad</label>
+                                                         <div class="col-sm-9"><div class="input-group">
                                                                  <div class="input-group-addon">
                                                                      <i class="fa fa-user"></i>
                                                                  </div>
-                                                                 <select class="form-control select2" style="width: 100%;"  name="cboEnfermedad">
-                                                                     <?php
-                                                                     while ($row = $resultadotablaenfermedad->fetch_assoc()) {
-                                                                         echo "<option value = '" . $row['IdEnfermedad'] . "'>" . $row['Nombre'] . "</option>";
-                                                                     }
-                                                                     ?>
-                                                                 </select>
+                                                                 <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtDiagnostico" required=""> </textarea>
+                                                             </div>
+                                                             <div class="hidden">
+                                                                 <textarea  type="text" rows="4" class="form-control"   name="txtconsultaID"> <?php echo $idconsulta ?> </textarea>
+                                                             </div>
+                                                             <div class="hidden">
+                                                                 <textarea  type="text" rows="4" class="form-control"   name="txtpersonaID"> <?php echo $idpersonaid ?> </textarea>
                                                              </div>
                                                          </div>
                                                      </div>
@@ -1470,18 +1541,19 @@ if (!empty($_SESSION['user'])) {
                                                      </div>
 
                                                      <div class="form-group">
-                                                         <label for="inputEmail3" class="col-sm-2 control-label">Diagnostico</label>
-                                                         <div class="col-sm-9"><div class="input-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label" >Diagnostico </label>
+                                                         <div class="col-sm-9">
+                                                             <div class="input-group">
                                                                  <div class="input-group-addon">
                                                                      <i class="fa fa-user"></i>
                                                                  </div>
-                                                                 <textarea type="text" rows="3" class="form-control" id="diagnostico" name="txtDiagnostico" required=""> </textarea>
-                                                             </div>
-                                                             <div class="hidden">
-                                                                 <textarea  type="text" rows="4" class="form-control"   name="txtconsultaID"> <?php echo $idconsulta ?> </textarea>
-                                                             </div>
-                                                             <div class="hidden">
-                                                                 <textarea  type="text" rows="4" class="form-control"   name="txtpersonaID"> <?php echo $idpersonaid ?> </textarea>
+                                                                 <select class="form-control select2" style="width: 100%;"  name="cboEnfermedad">
+                                                                     <?php
+                                                                     while ($row = $resultadotablaenfermedad->fetch_assoc()) {
+                                                                         echo "<option value = '" . $row['IdEnfermedad'] . "'>" . $row['Nombre'] . "</option>";
+                                                                     }
+                                                                     ?>
+                                                                 </select>
                                                              </div>
                                                          </div>
                                                      </div>
@@ -1729,19 +1801,45 @@ if (!empty($_SESSION['user'])) {
                                                              <input type="text" class="form-control" id="laboratorios" disabled="disabled" name="txtLaboratorios">
                                                          </div>
                                                      </div>
+                                                     <div class="box box-info">
+                                                     <div class="box-header with-border">
+                                                         <center><h3 class="box-title">Si son medicamentos con MG, llenar unicamente los Campos</h3></center>
+                                                     </div><!-- /.box-header -->
+                                                     <div class="box-body">
                                                      <div class="form-group">
                                                          <label for="inputEmail3" class="col-sm-2 control-label">Cantidad</label>
                                                          <div class="col-sm-2">
-                                                             <input type="text" class="form-control"  name="txtCantidad" required="">
+                                                             <input type="text" class="form-control"  name="txtCantidad" >
                                                          </div>
                                                          <label for="inputEmail3" class="col-sm-1 control-label">Horas</label>
                                                          <div class="col-sm-2">
-                                                             <input type="text" class="form-control"  name="txtHoras" required="">
+                                                             <input type="text" class="form-control"  name="txtHoras" >
                                                          </div>
                                                          <label for="inputEmail3" class="col-sm-2 control-label">Dias</label>
                                                          <div class="col-sm-2">
-                                                             <input type="text" class="form-control" name="txtDias" required="">
+                                                             <input type="text" class="form-control" name="txtDias" >
                                                          </div>
+                                                     </div>
+                                                     </div>
+                                                     </div>
+                                                  <div class="box box-info">
+                                                     <div class="box-header with-border">
+                                                         <center><h3 class="box-title">Si son medicamentos con ML, llenar unicamente el Total</h3></center>
+                                                     </div><!-- /.box-header -->
+                                                     <div class="box-body">
+                                                      <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Total</label>
+                                                         <div class="col-sm-2">
+                                                             <input type="text" class="form-control"  name="txtTotal" >
+                                                         </div>
+                                                     </div>
+                                                     <div class="form-group">
+                                                         <label for="inputEmail3" class="col-sm-2 control-label">Indicacion</label>
+                                                         <div class="col-sm-9">
+                                                             <input type="text" class="form-control"  name="txtIndicacion" >
+                                                         </div>
+                                                     </div>
+                                                     </div>
                                                      </div>
                                                  </div>
                                                  <div class="modal-footer">
@@ -2154,7 +2252,7 @@ if (!empty($_SESSION['user'])) {
                                                                  </form>
                                                              </div>
                                                          </div>
-                                                     </div>   
+                                                     </div>
                                                      <div class="col-md-12">
                                                          <div class="box box-info">
                                                              <div class="box-header with-border">
@@ -2442,7 +2540,7 @@ if (!empty($_SESSION['user'])) {
                                                          <div class="col-sm-3">
                                                              <input type="text" class="form-control" id="ExamenHemogramaOtros" disabled="disabled">
                                                          </div>
-                                                        
+
                                                          <label for="inputEmail3" class="col-sm-2 control-label">Neutrofilos Segmentados</label>
                                                          <div class="col-sm-2">
                                                              <input type="text" class="form-control" id="ExamenHemogramaNeutrofilosSegmentados" disabled="disabled">
@@ -2909,7 +3007,7 @@ if (!empty($_SESSION['user'])) {
                                                                  </div>
                                                              </div>
                                                          </div>
-                                                     </div>      
+                                                     </div>
 
 
                                                  </div>
@@ -2953,6 +3051,17 @@ if (!empty($_SESSION['user'])) {
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $.post( "historico.php", { IdFactor: "2", IdPersona: "<?php echo $idpersonaid; ?>" })
+              .done(function( data ) {
+                $("#historialclinico").html(data);
+
+            });
+            $.post( "historico.php", { IdFactor: "3", IdPersona: "<?php echo $idpersonaid; ?>" })
+              .done(function( data ) {
+                $("#vacunacion").html(data);
+
+            });
 
 
             $(".btn-mdls").click(function () {

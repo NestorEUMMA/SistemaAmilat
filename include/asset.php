@@ -1,28 +1,29 @@
 <?php
-  $ruta = 'http://localhost:8080/SistemaAmilat/';
- // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
-  //$ruta = 'http://localhost:8080/SistemaAmilat/';
-  
+ // $ruta = 'http://localhost:8080/SistemaAmilat/';
+  //$ruta = 'http://sistema.shalom.org/SistemaAmilat/';
+  $ruta = 'http://localhost:80/SistemaAmilat/';
+
 //$ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   //$ruta = 'http://localhost:8080/SistemaAmilat/';
  // $ruta = 'http://sistema.shalom.org/SistemaAmilat/';
   //$ruta = 'http://localhost/SistemaAmilat/';
-  
+
 ?>
   <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SistemaAmilat | Centro Medico Familiar Shalom</title>
+    <title>Sistema TPV | Centro Medico Familiar Shalom </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/bootstrap/css/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="<?php echo $ruta; ?>web/img/tpv.png" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>lib\Font-Awesome-master\css\font-awesome.min.css">
 
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.min.css">
-    <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.print.css" media="print"> 
+    <link rel="stylesheet" href="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.print.css" media="print">
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>lib\ionicons-master\css\ionicons.min.css">
@@ -50,7 +51,7 @@
   <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/css/skins/_all-skins.min.css">
-<!-- 
+<!--
     <link rel="stylesheet" href="<?php echo $ruta; ?>web/dist/parsley.css"> -->
 
   <style>
@@ -110,7 +111,7 @@
     <script src="<?php echo $ruta; ?>web/plugins/fullcalendar/fullcalendar.min.js"></script>
 
    <!--  <script src="<?php echo $ruta; ?>web/dist/parsley.min.js"></script>
-    
+
     <script src="<?php echo $ruta; ?>web/dist/i18n/es.js"></script>
  -->
 </head>
